@@ -7,7 +7,9 @@ var width = dim * xTiles * .5;
 var k = height / width;
 var link_length = 12;
 
-const svg = d3.select("#view_box");
+var fit = (window.innerHeight > window.innerWidth) ? "height" : "width";
+
+const svg = d3.select("#view_box").attr(fit, "100%");
 const road = svg.select("#to_mordor");
 
 // DATA - TILES
@@ -118,8 +120,6 @@ var points = [
     {id: "rivendell, day28", mi: 478, fill: "black"}
 ]
 
-
-
 function getPathPoint(mi) {
     
     var adj = [
@@ -135,7 +135,7 @@ function getPathPoint(mi) {
         [450, 450],
         [478, 466],
         [1778, 1778]
-    ]
+    ];
 
     var scale; 
     for (i = 0; i < adj.length; i++) {
@@ -265,8 +265,7 @@ const label = svg.selectAll(".gNode")
     .attr("stroke", "white")
     .attr("fill", d => "white")
     // .attr("text-anchor", "middle")
-    .text(d => (d.collide && d.color != "black") ? d.id[0] : "")
-
+    .text(d => (d.collide && d.color != "black") ? d.id[0] : "");
 
 markers.append("title")
     .text(d => d.id);
@@ -323,11 +322,19 @@ function dragended(event) {
 const zoom = d3.zoom()
     .scaleExtent([.75, 8])
     //.translateExtent([[0, 0], [2560, 2560]])
-    .filter((e) => e.button === 0 || e.button === 1)
+    // .filter((e) => {
+    //     console.log(e);
+    //     return e.button === 0 || e.button === 1;
+    // })
     .on("zoom", zoomed);
 
 function zoomed({ transform }) {
     console.log(transform);
+
+    //transform = transform.scale(1.5);
+    //transform = transform.translate(transform.x * 1.5, transform.y * 1.5)
+    console.log("scaled", transform);
+
     // move tiles
     gMap.call(map, transform);
 
@@ -339,7 +346,8 @@ function zoomed({ transform }) {
     markers.attr("transform", transform);
 }
 
-
+var div = d3.selectAll("#view_box_div");
 
 // add zoom to svg, and go to default
-svg.call(zoom).call(zoom.transform, d3.zoomIdentity.translate(-4200, -2900).scale(5.6));
+div.call(zoom).call(zoom.transform, 
+    d3.zoomIdentity.translate(-300, -100).scale(1));
