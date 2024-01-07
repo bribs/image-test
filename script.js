@@ -336,8 +336,6 @@ const zoom = d3.zoom()
     // })
     .on("zoom", zoomed);
 
-gMap.call(zoom.transform, d3.zoomIdentity);
-
 function zoomed({ transform }) {
     console.log(transform);
 
@@ -358,5 +356,9 @@ function zoomed({ transform }) {
 
 var div = d3.selectAll("#view_box_div");
 
+
+var zX = (iH > iW) ? -750 : -750;
+var zY = (iH > iW) ? -275 : -400;
+var zZ = (iH > iW) ? 3.5 : 3;
 // add zoom to svg, and go to default
-svg.call(zoom).call(zoom.transform, d3.zoomIdentity);
+svg.call(zoom).call(zoom.transform, d3.zoomIdentity.scale(3).translate(zX, zY));
