@@ -326,9 +326,8 @@ const zoom = d3.zoom()
     .filter((e) => e.button === 0 || e.button === 1)
     .on("zoom", zoomed);
 
-gMap.call(map, d3.zoomIdentity);
-
 function zoomed({ transform }) {
+    console.log(transform);
     // move tiles
     gMap.call(map, transform);
 
@@ -343,4 +342,4 @@ function zoomed({ transform }) {
 
 
 // add zoom to svg, and go to default
-svg.call(zoom).call(zoom.transform, d3.zoomIdentity);
+svg.call(zoom).call(zoom.transform, d3.zoomIdentity.translate(-4200, -2900).scale(5.6));
