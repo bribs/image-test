@@ -43,7 +43,7 @@ var icons = raw.map((i) => {
         id: i.id,
         p: getPathPoint(i.mi),
         patternId: i.icon + i.id,
-        img: "../images/icons/" + i.icon + "_icon.jpg",
+        img: "https://cdn.jsdelivr.net/gh/bribs/image-test/images/icons/" + i.icon + "_icon.jpg",
         radius: 12,
         fill: "url(#" + i.icon + i.id + ")",
         link_length: -1 * link_length,
@@ -189,7 +189,7 @@ var map = (g, t, x, y) => g
     .join(
         enter => {
             return enter.append("image")
-                .attr("xlink:href", (d) => "../images/4/" + d[0] + "/" + (yTiles - 1 - d[1]) + ".jpg")
+                .attr("xlink:href", (d) => "https://cdn.jsdelivr.net/gh/bribs/image-test/images/4/" + d[0] + "/" + (yTiles - 1 - d[1]) + ".jpg")
                 .attr("height", "256")
                 .attr("width", "256")
                 .attr("x", (d) => (d[0] * dim))
