@@ -318,15 +318,25 @@ function dragended(event) {
     event.subject.fy = null;
 }
 
+var iH = window.innerHeight;
+var iW = window.innerWidth;
+
+var zW = (iW > iH) ? 2560 : 2560*(2-iW/iH);
+var zH = (iW > iH) ? 2560*(2-iH/iW) : 2560;
+console.log(iW, iH, zW, zH);
+
+
 // ZOOM TODO set Zoom Limits
 const zoom = d3.zoom()
-    .scaleExtent([.75, 8])
-    //.translateExtent([[0, 0], [2560, 2560]])
+    .scaleExtent([1, 8])
+    .translateExtent([[0, 0], [zW, zH]])
     // .filter((e) => {
     //     console.log(e);
     //     return e.button === 0 || e.button === 1;
     // })
     .on("zoom", zoomed);
+
+gMap.call(zoom.transform, d3.zoomIdentity);
 
 function zoomed({ transform }) {
     console.log(transform);
@@ -349,5 +359,4 @@ function zoomed({ transform }) {
 var div = d3.selectAll("#view_box_div");
 
 // add zoom to svg, and go to default
-div.call(zoom).call(zoom.transform, 
-    d3.zoomIdentity.translate(-300, -100).scale(1));
+svg.call(zoom).call(zoom.transform, d3.zoomIdentity);
