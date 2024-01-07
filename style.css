@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    /* overflow:hidden; */
+}
+
+.tile { 
+    min-width: 256;
+    max-width: 256;
+    height: auto;
+}
+
+svg { 
+    position:fixed;
+    top:0;
+    left:0;    
+}
+
+
+.label {
+    font: bold 12px sans-serif;
+}
