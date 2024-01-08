@@ -136,7 +136,7 @@ function addRacers(data) {
             mi: i.mi,
             p: p,
             patternId: i.icon + i.id,
-            img: "https://cdn.jsdelivr.net/gh/bribs/image-test/images/icons/" + i.icon + "_icon.jpg",
+            img: "./images/icons/" + i.icon,
             radius: 12,
             fill: "url(#" + i.icon + i.id + ")",
             link_length: -1 * link_length,
@@ -213,19 +213,19 @@ function addRacers(data) {
     node.append("title")
         .text(d => d.id + " - " + d.mi + "mi");
 
-    const label = svg.selectAll(".gNode")
-        .selectAll("text")
-        .data(nodes)
-        .join("text")
-        .attr("class", "label unselectable")
-        .attr("stroke-width", .25)
-        .attr("stroke", "white")
-        .attr("fill", d => "white")
-        // .attr("text-anchor", "middle")
-        .text(d => (d.collide && d.color != "black") ? d.id[0] : "");
+    // const label = svg.selectAll(".gNode")
+    //     .selectAll("text")
+    //     .data(nodes)
+    //     .join("text")
+    //     .attr("class", "label unselectable")
+    //     .attr("stroke-width", .25)
+    //     .attr("stroke", "white")
+    //     .attr("fill", d => "white")
+    //     // .attr("text-anchor", "middle")
+    //     .text(d => (d.collide && d.color != "black") ? d.id[0] : "");
 
-    label.append("title")
-        .text(d => d.id + " - " + d.mi + "mi");
+    // label.append("title")
+    //     .text(d => d.id + " - " + d.mi + "mi");
 
     const simulation = d3.forceSimulation(nodes)
         .force("link", d3.forceLink(links).id(d => d.id).strength(1))
@@ -246,9 +246,9 @@ function addRacers(data) {
             .attr("cx", d => (d.collide) ? d.x : d.p.x)
             .attr("cy", d => (d.collide) ? d.y : d.p.y);
 
-        label
-            .attr("x", d => d.x - 4)
-            .attr("y", d => d.y + 4);
+        // label
+        //     .attr("x", d => d.x - 4)
+        //     .attr("y", d => d.y + 4);
     });
 
     // Reheat the simulation when drag starts, and fix the subject position.
@@ -278,7 +278,8 @@ function addRacers(data) {
         .on("drag", dragged)
         .on("end", dragended));
 
-    transformElements.push(node, link, label);
+    transformElements.push(node, link);
+    // transformElements.push(label);
 
     refresh();
 }
