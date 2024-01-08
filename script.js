@@ -1,6 +1,7 @@
 var xTiles = 10;
 var yTiles = 10;
 var dim = 256;
+var zoom;
 
 var height = dim * yTiles * .5;
 var width = dim * xTiles * .5;
@@ -11,114 +12,304 @@ var fit = (window.innerHeight > window.innerWidth) ? "height" : "width";
 
 const svg = d3.select("#view_box").attr(fit, "100%");
 const road = svg.select("#to_mordor");
-
-// DATA - TILES
-var tiles = [];
-for (i = 0; i < xTiles; i++) {
-    for (j = 0; j < yTiles; j++) {
-        tiles.push([i, j]);
-    }
-}
-
-// DATA - RACERS
+var transformElements = [road];
 
 var path = d3.select("#to_mordor");
 var pathTotal = path.node().getTotalLength();
 
-var z = d3.scaleOrdinal()
-    .domain([0, 10])
-    .range(d3.schemeCategory10);
+function drawMapFn() {
 
-var raw = [
-    { id: "Nazgul", icon: "nazgul", color: "black", mi: 0 },
-    { id: "Tyler", icon: "biker", color: "brown", mi: 3.8 },
-    { id: "Conor", icon: "biker", color: "red", mi: 7.8 },
-    { id: "Jurb", icon: "biker", color: "blue", mi: 49 },
-    { id: "Travis", icon: "biker", color: "orange", mi: 104.2 },
-    { id: "Bribs", icon: "biker", color: "green", mi: 116.1 },
-    { id: "Justin", icon: "biker", color: "yellow", mi: 126.7 },
-    { id: "Frodo", icon: "frodo", color: "black", mi: 147 }
-]
-
-var icons = raw.map((i) => {
-    return {
-        id: i.id,
-        p: getPathPoint(i.mi),
-        patternId: i.icon + i.id,
-        img: "https://cdn.jsdelivr.net/gh/bribs/image-test/images/icons/" + i.icon + "_icon.jpg",
-        radius: 12,
-        fill: "url(#" + i.icon + i.id + ")",
-        link_length: -1 * link_length,
-        collide: 1,
-        color: Number.isInteger(i.color) ? z(i.color) : i.color
+    var tiles = [];
+    for (i = 0; i < xTiles; i++) {
+        for (j = 0; j < yTiles; j++) {
+            tiles.push([i, j]);
+        }
     }
-});
 
-var anchors = raw.map((i) => {
-    return {
-        id: i.id + "_",
-        p: getPathPoint(i.mi),
-        radius: 1,
-        fill: Number.isInteger(i.color) ? z(i.color) : i.color,
-        link_length: 0,
-        collide: 0,
-        color: Number.isInteger(i.color) ? z(i.color) : i.color
+    var map = (g, t, x, y) => g
+        .selectAll("image")
+        .data(tiles)
+        .join(
+            enter => {
+                return enter.append("image")
+                    .attr("xlink:href", (d) => "https://cdn.jsdelivr.net/gh/bribs/image-test/images/4/" + d[0] + "/" + (yTiles - 1 - d[1]) + ".jpg")
+                    .attr("height", "256")
+                    .attr("width", "256")
+                    .attr("x", (d) => (d[0] * dim))
+                    .attr("y", (d) => (d[1] * dim))
+            },
+            update => update,
+            exit => exit.remove()
+        )
+        .attr("transform", t);
+
+    const gMap = svg.append("g").attr("id", "map");
+    gMap.lower();
+
+    return (transform) => gMap.call(map, transform);
+}
+
+function setupZoom() {
+
+    var drawMap = drawMapFn();
+
+    function zoomed({ transform }) {
+        console.log(transform);
+    
+        // move tiles
+        drawMap(transform);
+    
+        for (elem of transformElements) {
+            elem.attr("transform", transform);
+        }
     }
-});
 
-var links = icons.map((i) => {
-    return {
-        source: i.id,
-        target: i.id + "_",
-        value: 4,
-        color: Number.isInteger(i.color) ? z(i.color) : i.color
+    var iH = window.innerHeight;
+    var iW = window.innerWidth;
+
+    var zW = (iW > iH) ? 2560 : 2560*(2-iW/iH);
+    var zH = (iW > iH) ? 2560*(2-iH/iW) : 2560;
+    console.log(iW, iH, zW, zH);
+
+    var zoom = d3.zoom()
+        .scaleExtent([1, 8])
+        .translateExtent([[0, 0], [zW, zH]])
+        .on("zoom", zoomed);
+
+    // add zoom to svg
+    svg.call(zoom)
+        
+    return zoom;
+}
+
+function refresh() {
+    var iH = window.innerHeight;
+    var iW = window.innerWidth;
+
+    var zX = (iH > iW) ? -750 : -750;
+    var zY = (iH > iW) ? -275 : -400;
+    var zZ = (iH > iW) ? 3.5 : 3;
+
+    if (typeof zoom !== 'undefined') {
+        svg.call(zoom.transform, d3.zoomIdentity.scale(3).translate(zX, zY));
     }
-});
+}
 
-var points = [
-    {id: "hobbiton", mi: 0, fill: "white"},
-    {id: "river cross", mi: 3, fill: "white"},
-    {id: "stock road", mi: 14.5, fill: "white"},
-    {id: "day1", mi: 18},
-    {id: "black rider", mi: 32, fill: "red"},
-    {id: "day2", mi: 46},
-    {id: "farmer maggot", mi: 63, fill: "white"},
-    {id: "river cross", mi: 70, fill: "white"},
-    {id: "crickhollow, day3", mi: 73},
-    {id: "tom bombadil, day4", mi: 98},
-    {id: "day6", mi: 115},
-    {id: "old Cardolan boundary", mi: 123, fill: "white"},
-    {id: "great east road", mi: 131, fill: "white"},
-    {id: "bree, day7", mi: 135},
-    {id: "west chetwood, day8", mi: 147},
-    {id: "east chetwood, day9", mi: 163},
-    {id: "west midgewater marshes", mi: 173, fill: "white"},
-    {id: "day10", mi: 179},
-    {id: "east midgewater marshes, day11", mi: 194},
-    {id: "day12", mi: 211},
-    {id: "weather hills, day13", mi: 229},
-    {id: "weathertop", mi: 240, fill: "white"},
-    {id: "nazgul, day14", mi: 241, fill: "red"},
-    {id: "day15", mi: 260},
-    {id: "day16", mi: 279},
-    {id: "day17", mi: 298},
-    {id: "day18", mi: 317},
-    {id: "day19", mi: 336},
-    {id: "day20", mi: 355},
-    {id: "great east road", mi: 356, fill: "white"},
-    {id: "the last bridge", mi: 358, fill: "white"},
-    {id: "trollshaws", mi: 359, fill: "white"},
-    {id: "day21", mi: 362},
-    {id: "day22", mi: 368},
-    {id: "day23", mi: 374},
-    {id: "day24", mi: 380},
-    {id: "day25", mi: 386},
-    {id: "stone trolls", mi: 393, fill: "red"},
-    {id: "day26", mi: 420},
-    {id: "day27", mi: 440},
-    {id: "attack at the ford", mi: 450, fill: "red"},
-    {id: "rivendell, day28", mi: 478, fill: "black"}
-]
+function addPoints(data) {
+    var points = data.map((i) => { 
+        var adj = (typeof i.adj === 'undefined') ? 0 : i.adj;
+        return {
+            id: i.id, 
+            r: 1,
+            p: getPathPoint(i.mi + adj), 
+            fill: (typeof i.fill === 'undefined') ? "black" : i.fill,
+            link_length: 0
+        };});
+    
+    const markers = svg.append("g")
+        .selectAll("circle")
+        .data(points)
+        .join("circle")
+        .attr("r", (d) => d.r)
+        .attr("fill", (d) => (typeof d.fill === 'undefined') ? "white" : d.fill)
+        .attr("stroke", "white")
+        .attr("cx", (d) => d.p.x)
+        .attr("cy", (d) => d.p.y);
+
+        markers.append("title")
+        .text(d => d.id);    
+
+    transformElements.push(markers);
+
+    refresh();
+}
+
+function addRacers(data) {
+    var n = 0;
+
+    var icons = data.map((i) => {
+        n = n + 1;
+
+        var p = getForceP(i.mi, n-1);
+        return {
+            id: i.id,
+            p: p,
+            patternId: i.icon + i.id,
+            img: "https://cdn.jsdelivr.net/gh/bribs/image-test/images/icons/" + i.icon + "_icon.jpg",
+            radius: 12,
+            fill: "url(#" + i.icon + i.id + ")",
+            link_length: -1 * link_length,
+            collide: 1,
+            color: Number.isInteger(i.color) ? z(i.color) : i.color
+        }
+    });
+    
+    var anchors = data.map((i) => {
+        var p = getPathPoint(i.mi);
+
+        return {
+            id: i.id + "_",
+            p: p,
+            radius: 1,
+            fill: Number.isInteger(i.color) ? z(i.color) : i.color,
+            link_length: 0,
+            collide: 0,
+            color: Number.isInteger(i.color) ? z(i.color) : i.color
+        }
+    });
+    
+    var links = data.map((i) => {
+        return {
+            source: i.id,
+            target: i.id + "_",
+            value: 4,
+            color: Number.isInteger(i.color) ? z(i.color) : i.color
+        }
+    });
+    var nodes = [...icons, ...anchors]
+
+    // IMAGES
+    var defs = svg.append("defs").attr("id", "imgdefs");
+    var iconPatterns = defs.selectAll("iconPatterns")
+        .data(icons)
+        .enter()
+        .append("pattern")
+        .attr("id", (d) => d.patternId)
+        .attr("height", "100%")
+        .attr("width", "100%")
+        .attr("patternContentUnits", "objectBoundingBox")
+        .attr("x", "0")
+        .attr("y", "0");
+
+    var iconImages = iconPatterns
+        .append("image")
+        .attr("class", "iconImage")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("height", 1)
+        .attr("width", 1)
+        .attr("perserveAspectRatio", "xMidYMid slice")
+        .attr("xlink:href", (d) => d.img);
+
+    const link = svg.append("g")
+        .selectAll("line")
+        .data(links)
+        .join("line")
+        .attr("stroke", d => d.color)
+        .attr("stroke-width",  2)
+
+    const node = svg.append("g")
+        .attr("class", "gNode")
+        .attr("stroke-width", 1.5)
+        .selectAll("circle")
+        .data(nodes)
+        .join("circle")
+        .attr("r", d => d.radius)
+        .attr("stroke", d => d.color)
+        .attr("fill", d => d.fill);
+
+    const label = svg.selectAll(".gNode")
+        .selectAll("text")
+        .data(nodes)
+        .join("text")
+        .attr("class", "label")
+        .attr("stroke-width", .25)
+        .attr("stroke", "white")
+        .attr("fill", d => "white")
+        // .attr("text-anchor", "middle")
+        .text(d => (d.collide && d.color != "black") ? d.id[0] : "");
+
+    node.append("title")
+        .text(d => d.id);
+
+    const simulation = d3.forceSimulation(nodes)
+        .force("link", d3.forceLink(links).id(d => d.id).strength(1))
+        .force("collide", d3.forceCollide((d) => (d.radius + link_length + d.link_length) * 1.5))
+        //.force("charge", d3.forceManyBody());
+        .force("x", d3.forceX().x((d) => d.p.x).strength(1))
+        .force("y", d3.forceY().y((d) => d.p.y).strength(1));
+
+    // Set the position attributes of links and nodes each time the simulation ticks.
+    simulation.on("tick", () => {
+        link
+            .attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.p.x)
+            .attr("y2", d => d.target.p.y);
+
+        node
+            .attr("cx", d => (d.collide) ? d.x : d.p.x)
+            .attr("cy", d => (d.collide) ? d.y : d.p.y);
+
+        label
+            .attr("x", d => d.x - 4)
+            .attr("y", d => d.y + 4);
+    });
+
+    // Reheat the simulation when drag starts, and fix the subject position.
+    function dragstarted(event) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        event.subject.fx = event.subject.x;
+        event.subject.fy = event.subject.y;
+    }
+
+    // Update the subject (dragged node) position during drag.
+    function dragged(event) {
+        event.subject.fx = event.x;
+        event.subject.fy = event.y;
+    }
+
+    // Restore the target alpha so the simulation cools after dragging ends.
+    // Unfix the subject position now that it’s no longer being dragged.
+    function dragended(event) {
+        if (!event.active) simulation.alphaTarget(0);
+        event.subject.fx = null;
+        event.subject.fy = null;
+    }
+
+    // Add a drag behavior.
+    node.call(d3.drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended));
+
+    transformElements.push(node, link, label);
+
+    refresh();
+}
+
+function getForceP(mi,n) {
+    var dir = (n % 2) ? 1 : -1;
+    var miDelta = 1;
+
+    var miMinus = Math.max(mi - miDelta, 0);
+    var miPlus = Math.min(mi + miDelta, 1778);
+    var pMinus = getPathPoint(miMinus);
+    var p = getPathPoint(mi);
+    var pPlus = getPathPoint(miPlus);
+
+    var m = -1 / ((pPlus.y - pMinus.y) / (pPlus.x - pMinus.x));
+    dir = (m > 0) ? dir * -1 : dir;
+    var m2 = m*m;
+    var b2 = p.x*p.x;
+    var l2 = link_length*link_length;
+
+    var a = 1 + m2;
+    var b = -2 * p.x - 2 * m2 * p.x;
+    var c = b2 + m2 * b2 - l2;
+
+    var bb4ac = b*b - 4*a*c;
+
+    var x = (-b + dir * Math.sqrt(bb4ac)) / (2 * a);
+    var y = m * (x - p.x) + p.y;
+
+    console.log(p, m, a, b, c, x, y);
+
+    return {
+        x: x,
+        y: y
+    }
+}
 
 function getPathPoint(mi) {
     
@@ -148,217 +339,32 @@ function getPathPoint(mi) {
     }
 
     var adj_mi = scale(mi);
-    console.log('res', mi, adj_mi)
+    // console.log('res', mi, adj_mi)
 
     return path.node().getPointAtLength(1.0 * adj_mi * pathTotal / 1778);
 }
 
-points = points.map((i) => { 
-    var adj = (typeof i.adj === 'undefined') ? 0 : i.adj;
-    return {
-        id: i.id, 
-        r: 1,
-        p: getPathPoint(i.mi + adj), 
-        fill: (typeof i.fill === 'undefined') ? "black" : i.fill,
-        link_length: 0
-    };});
-
-const markers = svg.append("g")
-    .selectAll("circle")
-    .data(points)
-    .join("circle")
-    .attr("r", (d) => d.r)
-    .attr("fill", (d) => (typeof d.fill === 'undefined') ? "white" : d.fill)
-    .attr("stroke", "white")
-    .attr("cx", (d) => d.p.x)
-    .attr("cy", (d) => d.p.y);
-
-// SCALES
-var x = d3.scaleLinear()
-    .domain([-4.5, 4.5])
-    .range([0, width]);
-
-var y = d3.scaleLinear()
-    .domain([-4.5 * k, 4.5 * k])
-    .range([height, 0]);
-
-// Map
-var map = (g, t, x, y) => g
-    .selectAll("image")
-    .data(tiles)
-    .join(
-        enter => {
-            return enter.append("image")
-                .attr("xlink:href", (d) => "https://cdn.jsdelivr.net/gh/bribs/image-test/images/4/" + d[0] + "/" + (yTiles - 1 - d[1]) + ".jpg")
-                .attr("height", "256")
-                .attr("width", "256")
-                .attr("x", (d) => (d[0] * dim))
-                .attr("y", (d) => (d[1] * dim))
-        },
-        update => update,
-        exit => exit.remove()
-    )
-    .attr("transform", t);
-
-// ELEMENTS 
-
-// IMAGES
-var defs = svg.append("defs").attr("id", "imgdefs");
-var iconPatterns = defs.selectAll("iconPatterns")
-    .data(icons)
-    .enter()
-    .append("pattern")
-    .attr("id", (d) => d.patternId)
-    .attr("height", "100%")
-    .attr("width", "100%")
-    .attr("patternContentUnits", "objectBoundingBox")
-    .attr("x", "0")
-    .attr("y", "0");
-
-var iconImages = iconPatterns
-    .append("image")
-    .attr("class", "iconImage")
-    .attr("x", 0)
-    .attr("y", 0)
-    .attr("height", 1)
-    .attr("width", 1)
-    .attr("perserveAspectRatio", "xMidYMid slice")
-    .attr("xlink:href", (d) => d.img);
-
-// OTHER ELEMENTS 
-const gMap = svg.append("g").attr("id", "map");
-gMap.lower()
-
-var nodes = [...icons, ...anchors, ...points]
-
-// FORCES 
-const simulation = d3.forceSimulation(nodes)
-    .force("link", d3.forceLink(links).id(d => d.id).strength(1))
-    .force("collide", d3.forceCollide((d) => (d.radius + link_length + d.link_length) * 1.5))
-    //.force("charge", d3.forceManyBody());
-    .force("x", d3.forceX().x((d) => d.p.x).strength(1))
-    .force("y", d3.forceY().y((d) => d.p.y + d.link_length).strength(1))
-
-const link = svg.append("g")
-    .selectAll("line")
-    .data(links)
-    .join("line")
-    .attr("stroke", d => d.color)
-    .attr("stroke-width",  2)
-
-const node = svg.append("g")
-    .attr("class", "gNode")
-    .attr("stroke-width", 1.5)
-    .selectAll("circle")
-    .data(nodes)
-    .join("circle")
-    .attr("r", d => d.radius)
-    .attr("stroke", d => d.color)
-    .attr("fill", d => d.fill);
-
-const label = svg.selectAll(".gNode")
-    .selectAll("text")
-    .data(nodes)
-    .join("text")
-    .attr("class", "label")
-    .attr("stroke-width", .25)
-    .attr("stroke", "white")
-    .attr("fill", d => "white")
-    // .attr("text-anchor", "middle")
-    .text(d => (d.collide && d.color != "black") ? d.id[0] : "");
-
-markers.append("title")
-    .text(d => d.id);
-
-node.append("title")
-    .text(d => d.id);
-
-
-// Add a drag behavior.
-node.call(d3.drag()
-    .on("start", dragstarted)
-    .on("drag", dragged)
-    .on("end", dragended));
-
-// Set the position attributes of links and nodes each time the simulation ticks.
-simulation.on("tick", () => {
-    link
-        .attr("x1", d => d.source.x)
-        .attr("y1", d => d.source.y)
-        .attr("x2", d => d.target.p.x)
-        .attr("y2", d => d.target.p.y);
-
-    node
-        .attr("cx", d => (d.collide) ? d.x : d.p.x)
-        .attr("cy", d => (d.collide) ? d.y : d.p.y);
-
-    label
-        .attr("x", d => d.x - 4)
-        .attr("y", d => d.y + 4);
-});
-
-// Reheat the simulation when drag starts, and fix the subject position.
-function dragstarted(event) {
-    if (!event.active) simulation.alphaTarget(0.3).restart();
-    event.subject.fx = event.subject.x;
-    event.subject.fy = event.subject.y;
+function getJSON(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+      var status = xhr.status;
+      if (status === 200) {
+        callback(null, xhr.response);
+      } else {
+        callback(status, xhr.response);
+      }
+    };
+    xhr.send();
 }
 
-// Update the subject (dragged node) position during drag.
-function dragged(event) {
-    event.subject.fx = event.x;
-    event.subject.fy = event.y;
-}
+getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/frodo.json',
+    (err, data) => (err !== null) ? alert('frodo req failed') : addPoints(data));
+getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/locations.json',
+    (err, data) => (err !== null) ? alert('locations req failed') : addPoints(data));
+getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/miles.json',
+    (err, data) => (err !== null) ? alert('racers req failed') : addRacers(data));
 
-// Restore the target alpha so the simulation cools after dragging ends.
-// Unfix the subject position now that it’s no longer being dragged.
-function dragended(event) {
-    if (!event.active) simulation.alphaTarget(0);
-    event.subject.fx = null;
-    event.subject.fy = null;
-}
-
-var iH = window.innerHeight;
-var iW = window.innerWidth;
-
-var zW = (iW > iH) ? 2560 : 2560*(2-iW/iH);
-var zH = (iW > iH) ? 2560*(2-iH/iW) : 2560;
-console.log(iW, iH, zW, zH);
-
-
-// ZOOM TODO set Zoom Limits
-const zoom = d3.zoom()
-    .scaleExtent([1, 8])
-    .translateExtent([[0, 0], [zW, zH]])
-    // .filter((e) => {
-    //     console.log(e);
-    //     return e.button === 0 || e.button === 1;
-    // })
-    .on("zoom", zoomed);
-
-function zoomed({ transform }) {
-    console.log(transform);
-
-    //transform = transform.scale(1.5);
-    //transform = transform.translate(transform.x * 1.5, transform.y * 1.5)
-    console.log("scaled", transform);
-
-    // move tiles
-    gMap.call(map, transform);
-
-    road.attr("transform", transform);
-
-    node.attr("transform", transform);
-    link.attr("transform", transform);
-    label.attr("transform", transform);
-    markers.attr("transform", transform);
-}
-
-var div = d3.selectAll("#view_box_div");
-
-
-var zX = (iH > iW) ? -750 : -750;
-var zY = (iH > iW) ? -275 : -400;
-var zZ = (iH > iW) ? 3.5 : 3;
-// add zoom to svg, and go to default
-svg.call(zoom).call(zoom.transform, d3.zoomIdentity.scale(3).translate(zX, zY));
+zoom = setupZoom();
+refresh();
