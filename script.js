@@ -35,9 +35,9 @@ var raw = [
     { id: "Conor", icon: "biker", color: "red", mi: 7.8 },
     { id: "Jurb", icon: "biker", color: "blue", mi: 49 },
     { id: "Travis", icon: "biker", color: "orange", mi: 104.2 },
-    { id: "Justin", icon: "biker", color: "yellow", mi: 115.6 },
     { id: "Bribs", icon: "biker", color: "green", mi: 116.1 },
-    { id: "Frodo", icon: "frodo", color: "black", mi: 135 }
+    { id: "Justin", icon: "biker", color: "yellow", mi: 126.7 },
+    { id: "Frodo", icon: "frodo", color: "black", mi: 147 }
 ]
 
 var icons = raw.map((i) => {
