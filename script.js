@@ -210,18 +210,21 @@ function addRacers(data) {
         .attr("stroke", d => d.color)
         .attr("fill", d => d.fill);
 
+    node.append("title")
+        .text(d => d.id + " - " + d.mi + "mi");
+
     const label = svg.selectAll(".gNode")
         .selectAll("text")
         .data(nodes)
         .join("text")
-        .attr("class", "label")
+        .attr("class", "label unselectable")
         .attr("stroke-width", .25)
         .attr("stroke", "white")
         .attr("fill", d => "white")
         // .attr("text-anchor", "middle")
         .text(d => (d.collide && d.color != "black") ? d.id[0] : "");
 
-    node.append("title")
+    label.append("title")
         .text(d => d.id + " - " + d.mi + "mi");
 
     const simulation = d3.forceSimulation(nodes)
