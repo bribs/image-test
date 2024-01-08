@@ -133,6 +133,7 @@ function addRacers(data) {
         var p = getForceP(i.mi, n-1);
         return {
             id: i.id,
+            mi: i.mi,
             p: p,
             patternId: i.icon + i.id,
             img: "https://cdn.jsdelivr.net/gh/bribs/image-test/images/icons/" + i.icon + "_icon.jpg",
@@ -149,6 +150,7 @@ function addRacers(data) {
 
         return {
             id: i.id + "_",
+            mi: i.mi,
             p: p,
             radius: 1,
             fill: Number.isInteger(i.color) ? z(i.color) : i.color,
@@ -220,7 +222,7 @@ function addRacers(data) {
         .text(d => (d.collide && d.color != "black") ? d.id[0] : "");
 
     node.append("title")
-        .text(d => d.id);
+        .text(d => d.id + " - " + d.mi + "mi");
 
     const simulation = d3.forceSimulation(nodes)
         .force("link", d3.forceLink(links).id(d => d.id).strength(1))
