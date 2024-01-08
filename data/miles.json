@@ -4,7 +4,7 @@
     { "id": "Conor", "icon": "biker", "color": "red", "mi": 7.8 },
     { "id": "Jurb", "icon": "biker", "color": "blue", "mi": 49 },
     { "id": "Travis", "icon": "biker", "color": "orange", "mi": 104.2 },
-    { "id": "Bribs", "icon": "biker", "color": "green", "mi": 126.6 },
-    { "id": "Justin", "icon": "biker", "color": "yellow", "mi":136.0 },
+    { "id": "Justin", "icon": "biker", "color": "yellow", "mi":136 },
+    { "id": "Bribs", "icon": "biker", "color": "green", "mi": 136.68 },
     { "id": "Frodo", "icon": "frodo", "color": "black", "mi": 147 }
 ]
