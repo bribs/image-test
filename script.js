@@ -54,7 +54,7 @@ function setupZoom() {
     var drawMap = drawMapFn();
 
     function zoomed({ transform }) {
-        console.log(transform);
+        //console.log(transform);
     
         // move tiles
         drawMap(transform);
@@ -69,7 +69,7 @@ function setupZoom() {
 
     var zW = (iW > iH) ? 2560 : 2560*(2-iW/iH);
     var zH = (iW > iH) ? 2560*(2-iH/iW) : 2560;
-    console.log(iW, iH, zW, zH);
+    //console.log(iW, iH, zW, zH);
 
     var zoom = d3.zoom()
         .scaleExtent([1, 8])
@@ -305,7 +305,7 @@ function getForceP(mi,n) {
     var x = (-b + dir * Math.sqrt(bb4ac)) / (2 * a);
     var y = m * (x - p.x) + p.y;
 
-    console.log(p, m, a, b, c, x, y);
+    //console.log(p, m, a, b, c, x, y);
 
     return {
         x: x,
@@ -361,12 +361,27 @@ function getJSON(url, callback) {
     xhr.send();
 }
 
-getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/frodo.json',
-    (err, data) => (err !== null) ? alert('frodo req failed') : addPoints(data));
-getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/locations.json',
-    (err, data) => (err !== null) ? alert('locations req failed') : addPoints(data));
-getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/miles.json',
-    (err, data) => (err !== null) ? alert('racers req failed') : addRacers(data));
+function fetchJson(url, action) { 
+    fetch(url).then((response) => {
+        if (! response.ok) {
+            throw new Error("failed to fetch " + url);
+        }
+        return response.json()
+    }).then(json => action(json));
+}
+
+fetchJson('./data/miles.json', addRacers);
+fetchJson('./data/frodo.json', addPoints);
+fetchJson('./data/locations.json', addPoints);
+
+// getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/frodo.json',
+//     (err, data) => (err !== null) ? alert('frodo req failed') : addPoints(data));
+// getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/locations.json',
+//     (err, data) => (err !== null) ? alert('locations req failed') : addPoints(data));
+// getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/miles.json',
+//     (err, data) => (err !== null) ? alert('racers req failed') : addRacers(data));
+
+
 
 zoom = setupZoom();
 refresh();
