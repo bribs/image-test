@@ -127,6 +127,14 @@ function addPoints(data) {
 function addRacers(data) {
     var n = 0;
 
+    data.push(getGollumMi());
+    data.push(getNazgulMi());
+    // data.add(getFrodoMi());
+
+    var data = data.sort((a, b) => (a.mi - b.mi));
+
+    console.log(data);
+
     var icons = data.map((i) => {
         n = n + 1;
 
@@ -334,12 +342,13 @@ function getPathPoint(mi) {
         [1778, 1778]
     ];
 
+    //console.log(mi);
     var scale; 
     for (i = 0; i < adj.length; i++) {
         if (mi < adj[i][0]) {
             scale = d3.scaleLinear()
                 .domain([adj[i-1][0],adj[i][0]])
-                .range([adj[i-1][1],adj[i][1]])
+                .range([adj[i-1][1],adj[i][1]]);
             break;
         }
     }
@@ -372,6 +381,81 @@ function fetchJson(url, action) {
         }
         return response.json()
     }).then(json => action(json));
+}
+
+function getDayNum() {
+    var now = new Date();
+    var start = new Date(now.getFullYear(), 0, 0);
+    return Math.floor((now - start) / (1000 * 60 * 60 * 24));
+}
+
+function getMinNum() {
+    var now = new Date();
+    return now.getHours() * 60 + now.getMinutes();
+
+}
+
+// function getFrodoMi() {
+//     fetchJson('./data/frodo.json', (data) => {
+//         var day = getDayNum();
+//         var prev = (day <= 1) ? 0 : data[day - 2];
+//         var td = (day == 0) ? 0 : data[day - 1]; 
+    
+//         var min = getMinNum();
+    
+//         var scale = d3.scaleLinear()
+//             .domain([0,1439])
+//             .range([prev, td]);
+    
+//         console.log(round(scale(min)));
+//     });
+
+// }
+
+function round(num) {
+    return Math.round(num * 100) / 100;
+}
+
+function getGollumMi() {
+    var grace = 7;
+    var day = getDayNum();
+    var min = getMinNum();
+
+    var day_adj = day - grace;
+    if (day_adj < 0) return 0;
+
+    var scale = d3.scalePow()
+        .domain([0, (365-grace) * 1440 + 1439])
+        .range([0, 1778])
+        .exponent(2);
+
+    return {
+        id: "Gollum",
+        icon: "gollum_icon.png",
+        color: "black",
+        mi: round(scale((day - grace - 1) * 1440 + getMinNum()))
+    };
+}
+
+function getNazgulMi() {
+    var day = getDayNum();
+
+    var scale = d3.scaleLinear()
+        .domain([0, 183 * 1440 + 1439])
+        .range([0, 1778]);
+
+    var min_adj = (day - 1) * 1440 + getMinNum();
+    var mi = scale(min_adj);
+    var mi_rounded = round(mi);
+
+    console.log(day, min_adj, mi, mi_rounded);
+
+    return {
+        id: "Nazgul",
+        icon: "nazgul_icon.jpg",
+        color: "black",
+        mi: mi_rounded
+    };
 }
 
 fetchJson('./data/miles.json', addRacers);
