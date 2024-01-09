@@ -291,7 +291,7 @@ function addRacers(data) {
 }
 
 function getForceP(mi,n) {
-    var dir = (n % 2) ? 1 : -1;
+    var dir = (n % 2) ? -1 : 1;
     var miDelta = 1;
 
     var miMinus = Math.max(mi - miDelta, 0);
@@ -314,6 +314,8 @@ function getForceP(mi,n) {
 
     var x = (-b + dir * Math.sqrt(bb4ac)) / (2 * a);
     var y = m * (x - p.x) + p.y;
+
+    if (miMinus == 0) y = y - 5;
 
     //console.log(p, m, a, b, c, x, y);
 
