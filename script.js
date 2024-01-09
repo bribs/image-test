@@ -124,16 +124,28 @@ function addPoints(data, defaultFill) {
     refresh();
 }
 
-function addRacers(data, frodo) {
+function addRacers(racerData, totalsData, frodo) {
     var n = 0;
 
-    data.push(frodo);
-    data.push(getGollum());
-    data.push(getGandalf());
+    racerData.forEach(racer => {
+        if (typeof racer.mi === 'undefined' && typeof racer.name !== 'undefined') {
+            racer.mi = 0;
+            for (total of totalsData) {
+                if (total.name.toLowerCase() == racer.name.toLowerCase()) {
+                    racer.mi = round(total.mi);
+                    break;
+                }
+            }
+        }
+    })
 
-    var data = data.sort((a, b) => (a.mi - b.mi));
+    racerData.push(frodo);
+    racerData.push(getGollum());
+    racerData.push(getGandalf());
 
-    var icons = data.map((i) => {
+    var racerData = racerData.sort((a, b) => (a.mi - b.mi));
+
+    var icons = racerData.map((i) => {
         n = n + 1;
 
         var p = getForceP(i.mi, n-1);
@@ -151,7 +163,7 @@ function addRacers(data, frodo) {
         }
     });
     
-    var anchors = data.map((i) => {
+    var anchors = racerData.map((i) => {
         var p = getPathPoint(i.mi);
 
         return {
@@ -166,7 +178,7 @@ function addRacers(data, frodo) {
         }
     });
     
-    var links = data.map((i) => {
+    var links = racerData.map((i) => {
         return {
             source: i.id,
             target: i.id + "_",
@@ -400,6 +412,7 @@ function getFrodo(data) {
     var data = data.sort((a, b) => (a.mi - b.mi));
 
     var day = getDayNum();
+    var min = getMinNum();
 
     var mi;
     if (day <= 0) {
@@ -417,7 +430,7 @@ function getFrodo(data) {
             .domain([0,1439])
             .range([prev.mi, cur.mi]);
 
-        mi = (cur.day == day) ? round(scale(cur.mi)) : cur.mi;
+        mi = (cur.day == day) ? round(scale(min)) : cur.mi;
     }
 
     return {
@@ -476,11 +489,14 @@ function getGandalf() {
 
 fetchJson('./data/locations.json', (d) => {
     addPoints(d, "white");
-    fetchJson('./data/frodo.json', (d) => {
+    fetchJson('./data/frodo.json', (frodoData) => {
         var day = getDayNum();
-        var frodo = getFrodo(d);
+        var frodo = getFrodo(frodoData);
         addPoints(d.filter((i) => i.day < day), "black");
-        fetchJson('./data/miles.json', (d) => addRacers(d, frodo));
+
+        fetchJson('./totals.json', (totalsData) => {
+            fetchJson('./data/racers.json', (racerData) => addRacers(racerData, totalsData, frodo));
+        });
     });
 });
 
@@ -490,8 +506,6 @@ fetchJson('./data/locations.json', (d) => {
 //     (err, data) => (err !== null) ? alert('locations req failed') : addPoints(data));
 // getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/miles.json',
 //     (err, data) => (err !== null) ? alert('racers req failed') : addRacers(data));
-
-
 
 zoom = setupZoom();
 refresh();

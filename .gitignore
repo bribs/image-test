@@ -1,3 +1,10 @@
 old
 templates
 tests
+token.json
+activities.json
+.env
+venv
+.python-version
+fetch_data.py
+requirements.txt
