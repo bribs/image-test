@@ -116,7 +116,7 @@ function addPoints(data) {
         .attr("cx", (d) => d.p.x)
         .attr("cy", (d) => d.p.y);
 
-        markers.append("title")
+    markers.append("title")
         .text(d => d.id);    
 
     transformElements.push(markers);
@@ -127,13 +127,11 @@ function addPoints(data) {
 function addRacers(data) {
     var n = 0;
 
-    data.push(getGollumMi());
-    data.push(getNazgulMi());
+    data.push(getGollum());
+    data.push(getGandalf());
     // data.add(getFrodoMi());
 
     var data = data.sort((a, b) => (a.mi - b.mi));
-
-    console.log(data);
 
     var icons = data.map((i) => {
         n = n + 1;
@@ -219,7 +217,7 @@ function addRacers(data) {
         .attr("fill", d => d.fill);
 
     node.append("title")
-        .text(d => d.id + " - " + d.mi + "mi");
+        .text(d => d.id.replaceAll("-", " ").replaceAll("_", "") + " - " + d.mi + "mi");
 
     // const label = svg.selectAll(".gNode")
     //     .selectAll("text")
@@ -395,7 +393,7 @@ function getMinNum() {
 
 }
 
-// function getFrodoMi() {
+// function getFrodo() {
 //     fetchJson('./data/frodo.json', (data) => {
 //         var day = getDayNum();
 //         var prev = (day <= 1) ? 0 : data[day - 2];
@@ -416,7 +414,7 @@ function round(num) {
     return Math.round(num * 100) / 100;
 }
 
-function getGollumMi() {
+function getGollum() {
     var grace = 7;
     var day = getDayNum();
     var min = getMinNum();
@@ -437,7 +435,7 @@ function getGollumMi() {
     };
 }
 
-function getNazgulMi() {
+function getGandalf() {
     var day = getDayNum();
 
     var scale = d3.scaleLinear()
@@ -451,8 +449,8 @@ function getNazgulMi() {
     console.log(day, min_adj, mi, mi_rounded);
 
     return {
-        id: "Nazgul",
-        icon: "nazgul_icon.jpg",
+        id: "Arrives-exactly-when-he-means-to",
+        icon: "gandalf_icon.png",
         color: "black",
         mi: mi_rounded
     };
