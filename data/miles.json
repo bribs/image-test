@@ -1,5 +1,5 @@
 [
-    { "id": "Nazgul", "icon": "nazgul_icon.jpg", "color": "black", "mi": 0 },
+    { "id": "Nazgul", "icon": "nazgul_icon.jpg", "color": "black", "mi": 241 },
     { "id": "Tyler", "icon": "ty_icon.jpg", "color": "brown", "mi": 5.6 },
     { "id": "Conor", "icon": "conor_icon.jpg", "color": "orange", "mi": 7.7 },
     { "id": "Dron", "icon": "dron_icon.jpg", "color": "blue", "mi": 89.2 },

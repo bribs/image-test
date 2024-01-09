@@ -95,14 +95,14 @@ function refresh() {
     }
 }
 
-function addPoints(data) {
+function addPoints(data, defaultFill) {
     var points = data.map((i) => { 
         var adj = (typeof i.adj === 'undefined') ? 0 : i.adj;
         return {
             id: i.id, 
             r: 1,
             p: getPathPoint(i.mi + adj), 
-            fill: (typeof i.fill === 'undefined') ? "black" : i.fill,
+            fill: (typeof i.fill === 'undefined') ? defaultFill : i.fill,
             link_length: 0
         };});
     
@@ -111,7 +111,7 @@ function addPoints(data) {
         .data(points)
         .join("circle")
         .attr("r", (d) => d.r)
-        .attr("fill", (d) => (typeof d.fill === 'undefined') ? "white" : d.fill)
+        .attr("fill", (d) => d.fill)
         .attr("stroke", "white")
         .attr("cx", (d) => d.p.x)
         .attr("cy", (d) => d.p.y);
@@ -124,12 +124,12 @@ function addPoints(data) {
     refresh();
 }
 
-function addRacers(data) {
+function addRacers(data, frodo) {
     var n = 0;
 
+    data.push(frodo);
     data.push(getGollum());
     data.push(getGandalf());
-    // data.add(getFrodoMi());
 
     var data = data.sort((a, b) => (a.mi - b.mi));
 
@@ -291,7 +291,7 @@ function addRacers(data) {
 }
 
 function getForceP(mi,n) {
-    var dir = (n % 2) ? -1 : 1;
+    var dir = (n % 2) ? 1 : -1;
     var miDelta = 1;
 
     var miMinus = Math.max(mi - miDelta, 0);
@@ -395,22 +395,38 @@ function getMinNum() {
 
 }
 
-// function getFrodo() {
-//     fetchJson('./data/frodo.json', (data) => {
-//         var day = getDayNum();
-//         var prev = (day <= 1) ? 0 : data[day - 2];
-//         var td = (day == 0) ? 0 : data[day - 1]; 
-    
-//         var min = getMinNum();
-    
-//         var scale = d3.scaleLinear()
-//             .domain([0,1439])
-//             .range([prev, td]);
-    
-//         console.log(round(scale(min)));
-//     });
+function getFrodo(data) {
+    data.push({ day: 0, mi: 0});
+    var data = data.sort((a, b) => (a.mi - b.mi));
 
-// }
+    var day = getDayNum();
+
+    var mi;
+    if (day <= 0) {
+        mi = 0
+    } else {
+        var prev, cur;
+        for (i = 1; i < data.length ; i++) {
+            if (data[i].day <= day) {
+                cur = data[i];
+                prev = data[i-1];
+            } 
+        }
+
+        var scale = d3.scaleLinear()
+            .domain([0,1439])
+            .range([prev.mi, cur.mi]);
+
+        mi = (cur.day == day) ? round(scale(cur.mi)) : cur.mi;
+    }
+
+    return {
+        id: "Frodo",
+        icon: "frodo_icon2.png",
+        color: "black",
+        mi: mi
+    };
+}
 
 function round(num) {
     return Math.round(num * 100) / 100;
@@ -458,9 +474,15 @@ function getGandalf() {
     };
 }
 
-fetchJson('./data/miles.json', addRacers);
-fetchJson('./data/frodo.json', addPoints);
-fetchJson('./data/locations.json', addPoints);
+fetchJson('./data/locations.json', (d) => {
+    addPoints(d, "white");
+    fetchJson('./data/frodo.json', (d) => {
+        var day = getDayNum();
+        var frodo = getFrodo(d);
+        addPoints(d.filter((i) => i.day < day), "black");
+        fetchJson('./data/miles.json', (d) => addRacers(d, frodo));
+    });
+});
 
 // getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/frodo.json',
 //     (err, data) => (err !== null) ? alert('frodo req failed') : addPoints(data));
