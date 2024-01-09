@@ -4,6 +4,6 @@
     { "id": "Conor", "icon": "conor_icon.jpg", "color": "orange", "mi": 7.7 },
     { "id": "Dron", "icon": "dron_icon.jpg", "color": "blue", "mi": 89.2 },
     { "id": "Travis", "icon": "topp_icon.png", "color": "red", "mi": 114.6 },
-    { "id": "Bribs", "icon": "biker_icon.jpg", "color": "gold", "mi": 136.6 },
+    { "id": "Bribs", "icon": "biker_icon.jpg", "color": "gold", "mi": 147.8 },
     { "id": "Justin", "icon": "bear_icon.jpg", "color": "green", "mi":156.2 }
 ]
