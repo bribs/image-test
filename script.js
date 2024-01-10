@@ -240,10 +240,13 @@ function addRacers(racerData, totalsData, frodo) {
 
     node.append("title")
         .text(d => {
-            var text = d.id.replaceAll("-", " ").replaceAll("_", "") + " - " + d.mi + "mi";
-            if (typeof d.eta !== 'undefined') {
-                var suffix = (d.eta == 1) ? " day" : " days"
-                text = text + ", ETA: " + d.eta + suffix
+            var text = d.id.replaceAll("-", " ").replaceAll("_", "");
+            if (!d.static) {
+                text += " - " + d.mi + "mi";
+                if (typeof d.eta !== 'undefined') {
+                    var suffix = (d.eta == 1) ? " day" : " days"
+                    text += ", ETA: " + d.eta + suffix
+                }
             }
             return text;
         });
