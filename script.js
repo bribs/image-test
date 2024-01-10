@@ -2,11 +2,12 @@ var xTiles = 10;
 var yTiles = 10;
 var dim = 256;
 var zoom;
+var npc_color = "#484848";
 
 var height = dim * yTiles * .5;
 var width = dim * xTiles * .5;
 var k = height / width;
-var link_length = 12;
+var link_length = 14;
 
 var fit = (window.innerHeight > window.innerWidth) ? "height" : "width";
 
@@ -96,6 +97,8 @@ function refresh() {
 }
 
 function addPoints(data, defaultFill) {
+
+    console.log(data);
     var points = data.map((i) => { 
         var adj = (typeof i.adj === 'undefined') ? 0 : i.adj;
         return {
@@ -136,9 +139,12 @@ function addRacers(racerData, totalsData, frodo) {
                     break;
                 }
             }
+        } else {
+            racer.static = true
         }
     })
 
+    racerData.push(getFellowship(racerData));
     racerData.push(frodo);
     racerData.push(getGollum());
     racerData.push(getGandalf());
@@ -159,7 +165,9 @@ function addRacers(racerData, totalsData, frodo) {
             fill: "url(#" + i.icon + i.id + ")",
             link_length: -1 * link_length,
             collide: 1,
-            color: Number.isInteger(i.color) ? z(i.color) : i.color
+            eta: (typeof i.eta !== 'undefined') ? i.eta : (typeof i.static === 'undefined') ? getETA(i.mi) : getETA(0),
+            color: Number.isInteger(i.color) ? z(i.color) : i.color,
+            static: (typeof i.static === 'undefined') ? false : i.static
         }
     });
     
@@ -174,7 +182,9 @@ function addRacers(racerData, totalsData, frodo) {
             fill: Number.isInteger(i.color) ? z(i.color) : i.color,
             link_length: 0,
             collide: 0,
-            color: Number.isInteger(i.color) ? z(i.color) : i.color
+            color: Number.isInteger(i.color) ? z(i.color) : i.color,
+            eta: (typeof i.static === 'undefined') ? getETA(i.mi) : getETA(0),
+            static: (typeof i.static === 'undefined') ? false : i.static
         }
     });
     
@@ -229,7 +239,14 @@ function addRacers(racerData, totalsData, frodo) {
         .attr("fill", d => d.fill);
 
     node.append("title")
-        .text(d => d.id.replaceAll("-", " ").replaceAll("_", "") + " - " + d.mi + "mi");
+        .text(d => {
+            var text = d.id.replaceAll("-", " ").replaceAll("_", "") + " - " + d.mi + "mi";
+            if (typeof d.eta !== 'undefined') {
+                var suffix = (d.eta == 1) ? " day" : " days"
+                text = text + ", ETA: " + d.eta + suffix
+            }
+            return text;
+        });
 
     // const label = svg.selectAll(".gNode")
     //     .selectAll("text")
@@ -247,7 +264,7 @@ function addRacers(racerData, totalsData, frodo) {
 
     const simulation = d3.forceSimulation(nodes)
         .force("link", d3.forceLink(links).id(d => d.id).strength(1))
-        .force("collide", d3.forceCollide((d) => (d.radius + link_length + d.link_length) * 1.5))
+        .force("collide", d3.forceCollide((d) => (d.radius + link_length + d.link_length) * 1))
         //.force("charge", d3.forceManyBody());
         .force("x", d3.forceX().x((d) => d.p.x).strength(1))
         .force("y", d3.forceY().y((d) => d.p.y).strength(1));
@@ -304,7 +321,7 @@ function addRacers(racerData, totalsData, frodo) {
 
 function getForceP(mi,n) {
     var dir = (n % 2) ? 1 : -1;
-    var miDelta = 1;
+    var miDelta = 5;
 
     var miMinus = Math.max(mi - miDelta, 0);
     var miPlus = Math.min(mi + miDelta, 1778);
@@ -369,6 +386,14 @@ function getPathPoint(mi) {
     // console.log('res', mi, adj_mi)
 
     return path.node().getPointAtLength(1.0 * adj_mi * pathTotal / 1778);
+}
+
+function getETA(mi) {
+    var day = getDayNum();
+    if (mi > 0) {
+        var est = (1778 / (mi / day)) - day;
+        if (est < 366) return Math.ceil(est)
+    }
 }
 
 function getJSON(url, callback) {
@@ -436,8 +461,9 @@ function getFrodo(data) {
     return {
         id: "Frodo",
         icon: "frodo_icon2.png",
-        color: "black",
-        mi: mi
+        color: npc_color,
+        mi: mi,
+        eta: (184 - day)
     };
 }
 
@@ -461,16 +487,36 @@ function getGollum() {
     return {
         id: "Gollum",
         icon: "gollum_icon.png",
-        color: "black",
-        mi: round(scale((day - grace - 1) * 1440 + getMinNum()))
+        color: npc_color,
+        mi: round(scale((day - grace - 1) * 1440 + getMinNum())),
+        eta: 366 - day
     };
+}
+
+function getFellowship(racerData) {
+    var total = 0;
+    var num = 0;
+    for (racer of racerData) {
+        if (typeof racer.static === 'undefined') {
+            total += racer.mi;
+            num += 1;
+        }
+    }
+
+    return {
+        id: "Fellowship",
+        icon: "fellowship_icon.png",
+        color: npc_color,
+        mi: round(total / num)
+    }
+
 }
 
 function getGandalf() {
     var day = getDayNum();
 
     var scale = d3.scaleLinear()
-        .domain([0, 183 * 1440 + 1439])
+        .domain([0, 183 * 1440])
         .range([0, 1778]);
 
     var min_adj = (day - 1) * 1440 + getMinNum();
@@ -482,17 +528,19 @@ function getGandalf() {
     return {
         id: "Arrives-exactly-when-he-means-to",
         icon: "gandalf_icon.png",
-        color: "black",
-        mi: mi_rounded
+        color: npc_color,
+        mi: mi_rounded,
+        eta: getETA(scale(day * 1440))
     };
 }
 
-fetchJson('./data/locations.json', (d) => {
-    addPoints(d, "white");
+fetchJson('./data/locations.json', (locationsData) => {
+    addPoints(locationsData, "white");
+
     fetchJson('./data/frodo.json', (frodoData) => {
         var day = getDayNum();
         var frodo = getFrodo(frodoData);
-        addPoints(d.filter((i) => i.day < day), "black");
+        addPoints(frodoData.filter((i) => i.day < day), "black");
 
         fetchJson('./totals.json', (totalsData) => {
             fetchJson('./data/racers.json', (racerData) => addRacers(racerData, totalsData, frodo));
