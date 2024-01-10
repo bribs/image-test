@@ -1,7 +1,8 @@
 name: Update Totals
 
 jobs:
-  build:
+  update-totals:
+    name: Update Totals
     runs-on: ubuntu-latest
 
   steps:
