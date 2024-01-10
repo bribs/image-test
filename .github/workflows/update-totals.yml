@@ -43,5 +43,5 @@ jobs:
       - name: Push Updates
         run: |
           git config --global user.name 'Bribs'
-          git commit -am "Automated report"
-          git push
+          git commit -am "update data" || true
+          git push || true
