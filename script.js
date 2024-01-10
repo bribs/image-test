@@ -529,7 +529,7 @@ function getGandalf() {
     var day = getDayNum();
 
     var scale = d3.scaleLinear()
-        .domain([0, 183 * 1440])
+        .domain([0, 184 * 1440])
         .range([0, 1778]);
 
     var min_adj = (day - 1) * 1440 + getMinNum();
