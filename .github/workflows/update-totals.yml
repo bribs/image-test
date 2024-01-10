@@ -1,12 +1,13 @@
 name: Update Totals
 
-# */20 9-21 * * *
+# */20 14-23 * * *
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/20 9-21 * * *" # every 20m from 9am-9pm
-
+    - cron: "*/20 13-23 * * *" # every 20m 8am-7pm
+    - cron: "*/20 0-2 * * *" # every 20m 7pm-10pm
+    - cron: "0 4,8,12 * * *" # 11pm, 3am, 7am
 permissions:
   contents: write
 
