@@ -463,7 +463,7 @@ function getFrodo(data) {
 
     return {
         id: "Frodo",
-        icon: "frodo_icon2.png",
+        icon: (mi >= 241 && mi <= 478) ? "stabbed_frodo2.png" : "frodo_icon2.png",
         color: npc_color,
         mi: mi,
         eta: (184 - day)
