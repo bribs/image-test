@@ -61,7 +61,7 @@ function setupZoom(onClickFn) {
     
         // move tiles
         drawMap(transform);
-        onClickFn({});
+        //onClickFn({});
     
         for (elem of transformElements) {
             elem.attr("transform", transform);
@@ -543,26 +543,30 @@ function getGandalf() {
 function addStatsOverlay() {
     var gStats = svg.append("g")
         .attr("id", "gStats")
-        .attr("opacity", 0);
+        .attr("opacity", 100);
 
-    var icon = gStats
-        .append("rect")
-        .attr("class", "statsIcon")
-        .attr("x", 5)
-        .attr("y", 5)
-        .attr("height", height / 10)
-        .attr("width", width / 10)
-        .attr("stroke-width", "10px")
-        .attr("stroke", "black")
-        .attr("fill, black");
+
     
     gStats
         .append("rect")
         .attr("class", "statsTextBox")
-        .attr("x", width / 10 + 5)
-        .attr("y", 5)
+        .attr("x", 20)
+        .attr("y", 15)
+        .attr("rx", 15)
         .attr("height", height / 10)
-        .attr("width", width * 4 / 20)
+        .attr("width", width * 2.32 / 10)
+        .attr("stroke-width", "10px")
+        .attr("stroke", "black")
+        .attr("fill, black");
+
+    gStats
+        .append("rect")
+        .attr("class", "statsIcon")
+        .attr("x", 20)
+        .attr("y", 15)
+        .attr("rx", 15)
+        .attr("height", height / 10)
+        .attr("width", width / 10)
         .attr("stroke-width", "10px")
         .attr("stroke", "black")
         .attr("fill, black");
@@ -573,13 +577,8 @@ function addStatsOverlay() {
             .append("text")
             .attr("class", "statsText")
             .attr("id", fields[i])
-            .attr("fill", " white")
-            .attr("stroke", "white")
-            .attr("x", width / 10 + 15)
-            .attr("y", i*60 + 55)
-            // .attr("height", height / 10)
-            // .attr("width", width / 10)
-            .attr("font-size", 50)
+            .attr("x", width / 10 + 30)
+            .attr("y", i*55 + 85)
             .text(fields[i]);
     }
 
@@ -592,9 +591,9 @@ function addStatsOverlay() {
             gStats.attr("opacity", "100");
             icon.attr("fill", d.fill);
             
-            textElements[0].text(d.mi + " total mi");
-            textElements[1].text(round(d.mi / getDayNum()) + " mi/day");
-            textElements[2].text(1778 - d.mi + " mi remaining");
+            textElements[0].text(d.mi + " miles");
+            textElements[1].text(round(d.mi / getDayNum()) + " miles per day");
+            textElements[2].text(1778 - d.mi + " miles to go");
             var eta = (exists(d.eta)) ? ("ETA " + d.eta + ((d.eta == 1) ? " day" : " days")) : "";
             textElements[3].text(eta);
         } else {

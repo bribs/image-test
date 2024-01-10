@@ -19,8 +19,16 @@ svg {
     font: bold 12px sans-serif;
 }
 
+#statsMiles {
+    font-size: 60px;
+}
+
 .statsText {
-    font-family: sans-serif;
+    font-family: fantasy;
+    font-size: 40px;
+    fill: white;
+    stroke: black;
+
 }
 
 .unselectable {
