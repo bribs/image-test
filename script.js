@@ -610,9 +610,9 @@ function addStatsOverlay() {
             icon.attr("stroke", d.color);
             background.attr("stroke", d.color);
             
-            textElements[0].text(d.mi + " miles");
-            textElements[1].text(round(d.mi / getDayNum()) + " miles per day");
-            textElements[2].text(1778 - d.mi + " miles to go");
+            textElements[0].text(d.mi + " mi");
+            textElements[1].text(round(d.mi / getDayNum()) + " mi per day");
+            textElements[2].text(1778 - d.mi + " mi to go");
             var eta = (exists(d.eta)) ? ("ETA " + d.eta + ((d.eta == 1) ? " day" : " days")) : "";
             textElements[3].text(eta);
         } else {
