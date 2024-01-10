@@ -1,5 +1,8 @@
 name: Update Totals
 
+on:
+  workflow _dispatch
+
 jobs:
   update-totals:
     name: Update Totals
