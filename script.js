@@ -481,7 +481,7 @@ function getFrodo(data) {
 }
 
 function round(num) {
-    return Math.round(num * 100) / 100;
+    return Math.round(num * 10) / 10;
 }
 
 function getGollum() {
