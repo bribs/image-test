@@ -35,7 +35,7 @@ jobs:
         run: |
           touch .env
           python3 fetch_data.py
-          gh secret set -f .env
+          if [ -s .env ]; then gh secret set -f .env; fi
 
       - name: Push Updates
         run: |
