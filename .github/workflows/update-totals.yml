@@ -3,6 +3,7 @@ name: Update Totals
 # */20 9-21 * * *
 
 on:
+  workflow_run:
   schedule:
     - cron: "*/20 9-21 * * *" # every 20m from 9am-9pm
 
