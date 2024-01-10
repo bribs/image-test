@@ -1,0 +1,22 @@
+name: Update Totals
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+  steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v3.10
+      with:
+        cache: pip
+
+    - name: Install Python Dependencies
+      shell: bash
+      run: pip install -r requirements.txt
+
+    - name: Run Python Script
+      shell: bash
+      run: python3 fetch_data.py
