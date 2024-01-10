@@ -543,9 +543,7 @@ function getGandalf() {
 function addStatsOverlay() {
     var gStats = svg.append("g")
         .attr("id", "gStats")
-        .attr("opacity", 100);
-
-
+        .attr("opacity", 0);
     
     gStats
         .append("rect")
