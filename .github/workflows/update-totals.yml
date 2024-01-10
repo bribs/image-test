@@ -3,7 +3,8 @@ name: Update Totals
 # */20 9-21 * * *
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: "*/20 9-21 * * *" # every 20m from 9am-9pm
 
 permissions:
   contents: write
@@ -35,6 +36,7 @@ jobs:
         run: |
           touch .env
           python3 fetch_data.py
+          ls -al .env
           if [ -s .env ]; then gh secret set -f .env; fi
 
       - name: Push Updates
