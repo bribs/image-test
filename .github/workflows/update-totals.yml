@@ -2,6 +2,10 @@ name: Update Totals
 
 on:
   workflow _dispatch:
+    inputs:
+      some_field:
+        description: 'dummy'
+        required: false
 
 jobs:
   update-totals:
