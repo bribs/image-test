@@ -2,6 +2,7 @@
 import json
 from collections import defaultdict
 import os
+import subprocess
 import time
 
 from stravalib import Client
@@ -12,6 +13,7 @@ ACTIVITIES = "activities.json"
 TOTALS = "totals.json"
 
 def get_token():
+    #token = json.load(os.environ['TOKEN'])
     token = read_file(TOKEN)
     if time.time() > token['expires_at']:
         print("Refreshing token")
@@ -29,7 +31,6 @@ def read_file(file):
 def write_file(file,obj):
     with open(file, 'w') as f:
         f.write(json.dumps(obj, indent=4))
-        
         
 def extract_activity(a):
     return {
