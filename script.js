@@ -4,8 +4,8 @@ var dim = 256;
 var zoom;
 var npc_color = "#484848";
 
-var height = dim * yTiles * .5;
-var width = dim * xTiles * .5;
+var height = dim * yTiles;
+var width = dim * xTiles;
 var k = height / width;
 var link_length = 14;
 
@@ -37,28 +37,31 @@ function drawMapFn() {
                     .attr("height", "256")
                     .attr("width", "256")
                     .attr("x", (d) => (d[0] * dim))
-                    .attr("y", (d) => (d[1] * dim))
+                    .attr("y", (d) => (d[1] * dim));
             },
             update => update,
             exit => exit.remove()
         )
         .attr("transform", t);
 
-    const gMap = svg.append("g").attr("id", "map");
+    const gMap = svg.append("g").attr("id", "map")
     gMap.lower();
 
     return (transform) => gMap.call(map, transform);
 }
 
-function setupZoom() {
 
-    var drawMap = drawMapFn();
+
+function setupZoom(onClickFn) {
+
+    var drawMap = drawMapFn(onClickFn);
 
     function zoomed({ transform }) {
         //console.log(transform);
     
         // move tiles
         drawMap(transform);
+        onClickFn({});
     
         for (elem of transformElements) {
             elem.attr("transform", transform);
@@ -98,7 +101,6 @@ function refresh() {
 
 function addPoints(data, defaultFill) {
 
-    console.log(data);
     var points = data.map((i) => { 
         var adj = (typeof i.adj === 'undefined') ? 0 : i.adj;
         return {
@@ -127,7 +129,7 @@ function addPoints(data, defaultFill) {
     refresh();
 }
 
-function addRacers(racerData, totalsData, frodo) {
+function addRacers(racerData, totalsData, frodo, onClickFn) {
     var n = 0;
 
     racerData.forEach(racer => {
@@ -167,7 +169,8 @@ function addRacers(racerData, totalsData, frodo) {
             collide: 1,
             eta: (typeof i.eta !== 'undefined') ? i.eta : (typeof i.static === 'undefined') ? getETA(i.mi) : getETA(0),
             color: Number.isInteger(i.color) ? z(i.color) : i.color,
-            static: (typeof i.static === 'undefined') ? false : i.static
+            static: (typeof i.static === 'undefined') ? false : i.static,
+            onClickFn: onClickFn
         }
     });
     
@@ -184,7 +187,8 @@ function addRacers(racerData, totalsData, frodo) {
             collide: 0,
             color: Number.isInteger(i.color) ? z(i.color) : i.color,
             eta: (typeof i.static === 'undefined') ? getETA(i.mi) : getETA(0),
-            static: (typeof i.static === 'undefined') ? false : i.static
+            static: (typeof i.static === 'undefined') ? false : i.static,
+            onClickFn: onClickFn
         }
     });
     
@@ -290,10 +294,11 @@ function addRacers(racerData, totalsData, frodo) {
     });
 
     // Reheat the simulation when drag starts, and fix the subject position.
-    function dragstarted(event) {
+    function dragstarted(event, onClickFn) {
         if (!event.active) simulation.alphaTarget(0.3).restart();
         event.subject.fx = event.subject.x;
         event.subject.fy = event.subject.y;
+        event.subject.onClickFn(event.subject);
     }
 
     // Update the subject (dragged node) position during drag.
@@ -312,7 +317,7 @@ function addRacers(racerData, totalsData, frodo) {
 
     // Add a drag behavior.
     node.call(d3.drag()
-        .on("start", dragstarted)
+        .on("start", dragstarted, onClickFn)
         .on("drag", dragged)
         .on("end", dragended));
 
@@ -485,7 +490,7 @@ function getGollum() {
     var scale = d3.scalePow()
         .domain([0, (365-grace) * 1440 + 1439])
         .range([0, 1778])
-        .exponent(2);
+        .exponent(1.5);
 
     return {
         id: "Gollum",
@@ -526,8 +531,6 @@ function getGandalf() {
     var mi = scale(min_adj);
     var mi_rounded = round(mi);
 
-    console.log(day, min_adj, mi, mi_rounded);
-
     return {
         id: "Arrives-exactly-when-he-means-to",
         icon: "gandalf_icon.png",
@@ -536,6 +539,80 @@ function getGandalf() {
         eta: getETA(scale(day * 1440))
     };
 }
+
+function addStatsOverlay() {
+    var gStats = svg.append("g")
+        .attr("id", "gStats")
+        .attr("opacity", 0);
+
+    var icon = gStats
+        .append("rect")
+        .attr("class", "statsIcon")
+        .attr("x", 5)
+        .attr("y", 5)
+        .attr("height", height / 10)
+        .attr("width", width / 10)
+        .attr("stroke-width", "10px")
+        .attr("stroke", "black")
+        .attr("fill, black");
+    
+    gStats
+        .append("rect")
+        .attr("class", "statsTextBox")
+        .attr("x", width / 10 + 5)
+        .attr("y", 5)
+        .attr("height", height / 10)
+        .attr("width", width * 4 / 20)
+        .attr("stroke-width", "10px")
+        .attr("stroke", "black")
+        .attr("fill, black");
+
+    fields = ["statsMiles", "statsAverage", "statsRemaining", "statsETA"]
+    for (i = 0; i < fields.length; i++) {
+        gStats
+            .append("text")
+            .attr("class", "statsText")
+            .attr("id", fields[i])
+            .attr("fill", " white")
+            .attr("stroke", "white")
+            .attr("x", width / 10 + 15)
+            .attr("y", i*60 + 55)
+            // .attr("height", height / 10)
+            // .attr("width", width / 10)
+            .attr("font-size", 50)
+            .text(fields[i]);
+    }
+
+    var icon = gStats.selectAll(".statsIcon");
+    var textElements = fields.map((i) => gStats.select("#" + i));
+
+    return (d) => {
+
+        if (typeof d.img !== 'undefined' && !isStatic(d)) {
+            gStats.attr("opacity", "100");
+            icon.attr("fill", d.fill);
+            
+            textElements[0].text(d.mi + " total mi");
+            textElements[1].text(round(d.mi / getDayNum()) + " mi/day");
+            textElements[2].text(1778 - d.mi + " mi remaining");
+            var eta = (exists(d.eta)) ? ("ETA " + d.eta + ((d.eta == 1) ? " day" : " days")) : "";
+            textElements[3].text(eta);
+        } else {
+            gStats.attr("opacity", "0");
+        }
+    };
+
+}
+
+function exists(d) {
+    return typeof d !== 'undefined';
+}
+
+function isStatic(d) {
+    return typeof d.static !== 'undefined' && d.static;
+}
+
+var onClickFn = addStatsOverlay();
 
 fetchJson('./data/locations.json', (locationsData) => {
     addPoints(locationsData, "white");
@@ -546,7 +623,7 @@ fetchJson('./data/locations.json', (locationsData) => {
         addPoints(frodoData.filter((i) => i.day < day), "black");
 
         fetchJson('./totals.json', (totalsData) => {
-            fetchJson('./data/racers.json', (racerData) => addRacers(racerData, totalsData, frodo));
+            fetchJson('./data/racers.json', (racerData) => addRacers(racerData, totalsData, frodo, onClickFn));
         });
     });
 });
@@ -558,5 +635,5 @@ fetchJson('./data/locations.json', (locationsData) => {
 // getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/miles.json',
 //     (err, data) => (err !== null) ? alert('racers req failed') : addRacers(data));
 
-zoom = setupZoom();
+zoom = setupZoom(onClickFn);
 refresh();
