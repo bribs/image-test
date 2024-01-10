@@ -557,7 +557,7 @@ function addStatsOverlay() {
         .attr("y", 20)
         .attr("rx", 15)
         .attr("height", height / 10)
-        .attr("width", width * 1.2 / 10)
+        .attr("width", width * 1.1 / 10)
         .attr("stroke-width", "10px")
         .attr("stroke", "black")
         .attr("fill, black");
@@ -569,7 +569,7 @@ function addStatsOverlay() {
         .attr("y", 20)
         .attr("rx", 15)
         .attr("height", height / 10)
-        .attr("width", width * 1.2 / 10)
+        .attr("width", width * 1.1 / 10)
         .attr("stroke-width", "10px")
         .attr("stroke", "black")
         .attr("fill, black");
