@@ -490,7 +490,7 @@ function getGollum() {
     return {
         id: "Gollum",
         icon: "gollum_icon.png",
-        color: npc_color,
+        color: "black",
         mi: round(scale((day - grace - 1) * 1440 + getMinNum())),
         eta: 366 - day
     };
