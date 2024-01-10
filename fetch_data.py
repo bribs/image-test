@@ -6,23 +6,25 @@ import subprocess
 import time
 
 from stravalib import Client
-from dotenv import load_dotenv
+from dotenv import load_dotenv, set_key, find_dotenv
 
 TOKEN = "token.json"
 ACTIVITIES = "activities.json"
 TOTALS = "totals.json"
 
 def get_token():
-    #token = json.load(os.environ['TOKEN'])
-    token = read_file(TOKEN)
-    if time.time() > token['expires_at']:
+    keys = json.loads(os.environ['TOKEN'])
+    if time.time() > keys['token']['expires_at']:
         print("Refreshing token")
-        token = Client().refresh_access_token(os.environ['CLIENT_ID'], os.environ['CLIENT_SECRET'], token['refresh_token'])
-        print(token)
-        write_file(TOKEN, token)
+        keys['token'] = Client().refresh_access_token(keys['clientId'], keys['clientSecret'], keys['token']['refresh_token'])
+        set_env("TOKEN", keys)
     else:
         print("No need to refresh token.")
-    return token
+    return keys['token']
+
+def set_env(key, value):
+    os.environ[key] = json.dumps(value)
+    set_key(find_dotenv(), key, os.environ[key])
 
 def read_file(file):
     with open(file, 'r') as f:

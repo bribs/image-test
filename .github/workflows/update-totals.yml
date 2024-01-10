@@ -29,4 +29,16 @@ jobs:
 
       - name: Run Python Script
         shell: bash
-        run: python3 fetch_data.py
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          touch .env
+          python3 fetch_data.py
+          gh secret set -f .env
+
+      - name: Push Updates
+        run: |
+          git config --global user.name 'Bribs'
+          git commit -am "Automated report"
+          git push
