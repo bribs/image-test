@@ -593,7 +593,7 @@ function addStatsOverlay() {
             .attr("class", "statsText")
             .attr("id", fields[i])
             .attr("x", width / 10 + 40)
-            .attr("y", i*55 + 85)
+            .attr("y", i*55 + 91)
             .text(fields[i]);
     }
 
