@@ -552,7 +552,19 @@ function addStatsOverlay() {
         .attr("y", 15)
         .attr("rx", 15)
         .attr("height", height / 10)
-        .attr("width", width * 2.32 / 10)
+        .attr("width", width * 1.4 / 10)
+        .attr("stroke-width", "10px")
+        .attr("stroke", "black")
+        .attr("fill, black");
+
+    gStats
+        .append("rect")
+        .attr("class", "statsTextBox")
+        .attr("x", width / 10 + 20)
+        .attr("y", 15)
+        .attr("rx", 15)
+        .attr("height", height / 10)
+        .attr("width", width * 1.4 / 10)
         .attr("stroke-width", "10px")
         .attr("stroke", "black")
         .attr("fill, black");
@@ -575,12 +587,13 @@ function addStatsOverlay() {
             .append("text")
             .attr("class", "statsText")
             .attr("id", fields[i])
-            .attr("x", width / 10 + 30)
+            .attr("x", width / 10 + 40)
             .attr("y", i*55 + 85)
             .text(fields[i]);
     }
 
     var icon = gStats.selectAll(".statsIcon");
+    var background = gStats.selectAll(".statsTextBox")
     var textElements = fields.map((i) => gStats.select("#" + i));
 
     return (d) => {
@@ -588,6 +601,9 @@ function addStatsOverlay() {
         if (typeof d.img !== 'undefined' && !isStatic(d)) {
             gStats.attr("opacity", "100");
             icon.attr("fill", d.fill);
+
+            icon.attr("stroke", d.color);
+            background.attr("stroke", d.color);
             
             textElements[0].text(d.mi + " miles");
             textElements[1].text(round(d.mi / getDayNum()) + " miles per day");
