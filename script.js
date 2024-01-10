@@ -52,9 +52,9 @@ function drawMapFn() {
 
 
 
-function setupZoom(onClickFn) {
+function setupZoom() {
 
-    var drawMap = drawMapFn(onClickFn);
+    var drawMap = drawMapFn();
 
     function zoomed({ transform }) {
         //console.log(transform);
@@ -153,6 +153,9 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
 
     var racerData = racerData.sort((a, b) => (a.mi - b.mi));
 
+    var onClickFnPlaceholder = {};
+    onClickFnPlaceholder.fn = (d) => false;
+
     var icons = racerData.map((i) => {
         n = n + 1;
 
@@ -170,7 +173,7 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
             eta: (typeof i.eta !== 'undefined') ? i.eta : (typeof i.static === 'undefined') ? getETA(i.mi) : getETA(0),
             color: Number.isInteger(i.color) ? z(i.color) : i.color,
             static: (typeof i.static === 'undefined') ? false : i.static,
-            onClickFn: onClickFn
+            onClickObj: onClickFnPlaceholder
         }
     });
     
@@ -188,7 +191,7 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
             color: Number.isInteger(i.color) ? z(i.color) : i.color,
             eta: (typeof i.static === 'undefined') ? getETA(i.mi) : getETA(0),
             static: (typeof i.static === 'undefined') ? false : i.static,
-            onClickFn: onClickFn
+            onClickObj: onClickFnPlaceholder
         }
     });
     
@@ -255,6 +258,8 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
             return text;
         });
 
+        onClickFnPlaceholder.fn = addStatsOverlay();
+
     // const label = svg.selectAll(".gNode")
     //     .selectAll("text")
     //     .data(nodes)
@@ -298,7 +303,7 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
         if (!event.active) simulation.alphaTarget(0.3).restart();
         event.subject.fx = event.subject.x;
         event.subject.fy = event.subject.y;
-        event.subject.onClickFn(event.subject);
+        event.subject.onClickObj.fn(event.subject);
     }
 
     // Update the subject (dragged node) position during drag.
@@ -624,9 +629,6 @@ function exists(d) {
 function isStatic(d) {
     return typeof d.static !== 'undefined' && d.static;
 }
-
-var onClickFn = addStatsOverlay();
-
 fetchJson('./data/locations.json', (locationsData) => {
     addPoints(locationsData, "white");
 
@@ -636,7 +638,7 @@ fetchJson('./data/locations.json', (locationsData) => {
         addPoints(frodoData.filter((i) => i.day < day), "black");
 
         fetchJson('./totals.json', (totalsData) => {
-            fetchJson('./data/racers.json', (racerData) => addRacers(racerData, totalsData, frodo, onClickFn));
+            fetchJson('./data/racers.json', (racerData) => addRacers(racerData,     totalsData, frodo));
         });
     });
 });
@@ -648,5 +650,5 @@ fetchJson('./data/locations.json', (locationsData) => {
 // getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/miles.json',
 //     (err, data) => (err !== null) ? alert('racers req failed') : addRacers(data));
 
-zoom = setupZoom(onClickFn);
+zoom = setupZoom();
 refresh();
