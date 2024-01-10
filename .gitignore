@@ -6,5 +6,3 @@ activities.json
 .env
 venv
 .python-version
-fetch_data.py
-requirements.txt
