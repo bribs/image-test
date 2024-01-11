@@ -2,7 +2,6 @@
     {"id": "hobbiton", "mi": 0},
     {"id": "river cross", "mi": 3},
     {"id": "stock road", "mi": 14.5},
-    {"id": "black rider encounter", "mi": 32},
     {"id": "farmer maggot", "mi": 63},
     {"id": "river cross", "mi": 70},
     {"id": "crickhollow", "mi": 73},
@@ -17,7 +16,6 @@
     {"id": "great east road", "mi": 356},
     {"id": "the last bridge", "mi": 358},
     {"id": "trollshaws", "mi": 359},
-    {"id": "stone trolls", "mi": 393},
-    {"id": "attack at the ford", "mi": 450},
+    {"id": "the ford", "mi": 450},
     {"id": "rivendell", "mi": 478}
 ]

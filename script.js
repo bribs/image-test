@@ -157,27 +157,27 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
     onClickFnPlaceholder.fn = (d) => false;
 
     var icons = racerData.map((i) => {
-        n = n + 1;
-
-        var p = getForceP(i.mi, n-1);
-        return {
+        var data = {
             id: i.id,
             mi: i.mi,
-            p: p,
             patternId: i.icon + i.id,
             img: "./images/icons/" + i.icon,
             radius: 12,
             fill: "url(#" + i.icon + i.id + ")",
             link_length: -1 * link_length,
             collide: 1,
-            eta: (typeof i.eta !== 'undefined') ? i.eta : (typeof i.static === 'undefined') ? getETA(i.mi) : getETA(0),
             color: Number.isInteger(i.color) ? z(i.color) : i.color,
-            static: (typeof i.static === 'undefined') ? false : i.static,
+            static: isStatic(i),
             onClickObj: onClickFnPlaceholder
         }
+
+        data.p = getForceP(data, n++);
+        data.radius = (isStatic(data)) ? 8 : 12;
+        data.eta = (isStatic(data)) ? getETA(0) : (typeof i.eta !== 'undefined') ? i.eta : getETA(i.mi);
+        return data;
     });
     
-    var anchors = racerData.map((i) => {
+    var anchors = racerData.filter((i) => !isStatic(i)).map((i) => {
         var p = getPathPoint(i.mi);
 
         return {
@@ -195,7 +195,7 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
         }
     });
     
-    var links = racerData.map((i) => {
+    var links = racerData.filter((i) => !isStatic(i)).map((i) => {
         return {
             source: i.id,
             target: i.id + "_",
@@ -235,11 +235,24 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
         .attr("stroke", d => d.color)
         .attr("stroke-width",  2)
 
+    const static_node = svg.append("g")
+        .attr("class", "gNode")
+        .attr("stroke-width", 1)
+        .selectAll("circle")
+        .data(nodes.filter((d) => isStatic(d)))
+        .join("circle")
+        .attr("r", d => d.radius)
+        .attr("stroke", d => d.color)
+        .attr("fill", d => d.fill);
+
+    static_node.append("title")
+        .text(d => d.id.replaceAll("-", " ").replaceAll("_", ""));
+
     const node = svg.append("g")
         .attr("class", "gNode")
         .attr("stroke-width", 1.5)
         .selectAll("circle")
-        .data(nodes)
+        .data(nodes.filter((d) => !isStatic(d)))
         .join("circle")
         .attr("r", d => d.radius)
         .attr("stroke", d => d.color)
@@ -256,9 +269,9 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
                 }
             }
             return text;
-        });
+    });
 
-        onClickFnPlaceholder.fn = addStatsOverlay();
+    onClickFnPlaceholder.fn = addStatsOverlay();
 
     // const label = svg.selectAll(".gNode")
     //     .selectAll("text")
@@ -276,7 +289,9 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
 
     const simulation = d3.forceSimulation(nodes)
         .force("link", d3.forceLink(links).id(d => d.id).strength(1))
-        .force("collide", d3.forceCollide((d) => (d.radius + link_length + d.link_length) * 1))
+        .force("collide", d3.forceCollide((d) => {
+            return (isStatic(d)) ? 0 : d.radius * 1.2;
+        }))
         //.force("charge", d3.forceManyBody());
         .force("x", d3.forceX().x((d) => d.p.x).strength(1))
         .force("y", d3.forceY().y((d) => d.p.y).strength(1));
@@ -289,6 +304,9 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
             .attr("x2", d => d.target.p.x)
             .attr("y2", d => d.target.p.y);
 
+        static_node 
+            .attr("cx", d => d.p.x)
+            .attr("cy", d => d.p.y);
         node
             .attr("cx", d => (d.collide) ? d.x : d.p.x)
             .attr("cy", d => (d.collide) ? d.y : d.p.y);
@@ -326,13 +344,17 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
         .on("drag", dragged)
         .on("end", dragended));
 
-    transformElements.push(node, link);
+    transformElements.push(static_node, node, link);
     // transformElements.push(label);
 
     refresh();
 }
 
-function getForceP(mi,n) {
+function getForceP(d, n) {
+
+    var mi = d.mi
+    var n;
+
     var dir = (n % 2) ? 1 : -1;
     var miDelta = 5;
 
@@ -342,11 +364,13 @@ function getForceP(mi,n) {
     var p = getPathPoint(mi);
     var pPlus = getPathPoint(miPlus);
 
+    if (isStatic(d)) return p;
+
     var m = -1 / ((pPlus.y - pMinus.y) / (pPlus.x - pMinus.x));
     dir = (m > 0) ? dir * -1 : dir;
     var m2 = m*m;
     var b2 = p.x*p.x;
-    var l2 = link_length*link_length;
+    var l2 = d.link_length * d.link_length;
 
     var a = 1 + m2;
     var b = -2 * p.x - 2 * m2 * p.x;
@@ -380,11 +404,10 @@ function getPathPoint(mi) {
         [240, 245],
         [356, 355],
         [450, 450],
-        [478, 466],
+        [478, 465.75],
         [1778, 1778]
     ];
 
-    //console.log(mi);
     var scale; 
     for (i = 0; i < adj.length; i++) {
         if (mi < adj[i][0]) {
@@ -396,8 +419,6 @@ function getPathPoint(mi) {
     }
 
     var adj_mi = scale(mi);
-    // console.log('res', mi, adj_mi)
-
     return path.node().getPointAtLength(1.0 * adj_mi * pathTotal / 1778);
 }
 
