@@ -37,7 +37,7 @@ function drawMapFn() {
         .join(
             enter => {
                 return enter.append("image")
-                    .attr("xlink:href", (d) => "https://cdn.jsdelivr.net/gh/bribs/image-test/images/mordor_larger.png")
+                    .attr("xlink:href", (d) => "https://cdn.jsdelivr.net/gh/bribs/image-test/images/mordor_larger9.png")
                     .attr("height", "2560")
                     .attr("width", "2560")
                     .attr("x", 0)
