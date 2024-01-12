@@ -29,17 +29,19 @@ function drawMapFn() {
         }
     }
 
-    var map = (g, t, x, y) => g
+    var tiles = [[0,0]]
+
+    var map = (g, t) => g
         .selectAll("image")
         .data(tiles)
         .join(
             enter => {
                 return enter.append("image")
-                    .attr("xlink:href", (d) => "https://cdn.jsdelivr.net/gh/bribs/image-test/images/4/" + d[0] + "/" + (yTiles - 1 - d[1]) + ".jpg")
-                    .attr("height", "256")
-                    .attr("width", "256")
-                    .attr("x", (d) => (d[0] * dim))
-                    .attr("y", (d) => (d[1] * dim));
+                    .attr("xlink:href", (d) => "./images/mordor_larger_masked.png")
+                    .attr("height", "2560")
+                    .attr("width", "2560")
+                    .attr("x", 0)
+                    .attr("y", 0);
             },
             update => update,
             exit => exit.remove()
