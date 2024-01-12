@@ -439,5 +439,47 @@
         "lastname": "T.",
         "mi": 14.220017597232165,
         "elapsed_time_s": 3600
+    },
+    {
+        "name": "Mordor Cutoff",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 0.9999726596675415,
+        "elapsed_time_s": 300
+    },
+    {
+        "name": "Afternoon E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.020753797820726953,
+        "elapsed_time_s": 963
+    },
+    {
+        "name": "Evening E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.0,
+        "elapsed_time_s": 855
+    },
+    {
+        "name": "Afternoon E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.11986250298258172,
+        "elapsed_time_s": 1246
+    },
+    {
+        "name": "Afternoon E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.1635448977968663,
+        "elapsed_time_s": 1239
+    },
+    {
+        "name": "Afternoon E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.21344100453352421,
+        "elapsed_time_s": 2013
     }
 ]
