@@ -7,7 +7,7 @@ var npc_color = "#484848";
 var height = dim * yTiles;
 var width = dim * xTiles;
 var k = height / width;
-var link_length = 14;
+var link_length = 20;
 
 var fit = (window.innerHeight > window.innerWidth) ? "height" : "width";
 
@@ -225,13 +225,6 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
         .attr("perserveAspectRatio", "xMidYMid slice")
         .attr("xlink:href", (d) => d.img);
 
-    const link = svg.append("g")
-        .selectAll("line")
-        .data(links)
-        .join("line")
-        .attr("stroke", d => d.color)
-        .attr("stroke-width",  2)
-
     const static_node = svg.append("g")
         .attr("class", "gNode")
         .attr("stroke-width", 1)
@@ -242,18 +235,32 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
         .attr("stroke", d => d.color)
         .attr("fill", d => d.fill);
 
-    static_node.append("title")
-        .text(d => d.id.replaceAll("-", " ").replaceAll("_", ""));
+        static_node.append("title")
+            .text(d => d.id.replaceAll("-", " ").replaceAll("_", ""));
+
+
+    const link = svg.append("g")
+        .selectAll("line")
+        .data(links)
+        .join("line")
+        .attr("stroke", d => d.color)
+        .attr("stroke-width",  2.5)
+        .attr("stroke-opacity", .65)
+        .attr("stroke-linecap", "round")
 
     const node = svg.append("g")
         .attr("class", "gNode")
         .attr("stroke-width", 1.5)
+        .style("stroke-opacity",".5")
         .selectAll("circle")
         .data(nodes.filter((d) => !isStatic(d)))
         .join("circle")
         .attr("r", d => d.radius)
         .attr("stroke", d => d.color)
-        .attr("fill", d => d.fill);
+        .attr("stroke-opacity", (d) => (d.radius == 1) ? 0 : 1)
+        .attr("fill", (d) => (d.radius == 1) ? "none" : d.fill)
+        .attr("fill-opacity", (d) => (d.radius == 1) ? 0 : 1);
+
 
     node.append("title")
         .text(d => {
