@@ -45,6 +45,6 @@ jobs:
         run: |
           git config user.name 'Bribs'
           git config user.email "<>"
-          git add -all
+          git add --all
           git commit -am "update data" || true
           git push || true
