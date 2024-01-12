@@ -63,7 +63,7 @@ def total_activities(activities):
     return res
 
 def get_activities(client):
-    activities = list(map(lambda a: extract_activity(a), client.get_club_activities(1203775)))
+    return list(map(lambda a: extract_activity(a), client.get_club_activities(1203775)))
 
 def ahash(a):
     vals = [a['name'], a['firstname'], a['lastname'], a['mi'], a['elapsed_time_s']]
@@ -90,7 +90,7 @@ def merge_activities(activities, new_activities):
 def write_totals(activities):
     num_activities = len(activities)
     totals = total_activities(activities)
-    totals["_meta"] = {'num_activities': num_activities, 'time': datetime.utcnow().isoformat()}
+    totals["_meta"] = {'num_activities': num_activities, 'time': activities[0]['time']}
     print(f"found {num_activities} activities")
     write_file(TOTALS, totals)
     
