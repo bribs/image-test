@@ -4,9 +4,13 @@ from collections import defaultdict
 import os
 import subprocess
 import time
+import hashlib
+from datetime import datetime, timedelta
 
 from stravalib import Client
 from dotenv import load_dotenv, set_key, find_dotenv
+
+MORDOR_CUTOFF_HASH = "65fd5fdf86b05ec22a6641ba0509b931"
 
 TOKEN = "token.json"
 ACTIVITIES = "activities.json"
@@ -44,26 +48,62 @@ def extract_activity(a):
     }
     
 def total_activities(activities):
-    res = defaultdict(int)
+    res = {}
     for a in activities:
-        res[a["firstname"]] += a["mi"]
-    
-    return [{"name": name, "mi": mi} for name, mi in res.items()]
-        
-def update_activities(client):
+        name = a["firstname"]
+        if name not in res:
+            res[name] = { "mi": 0, "recent1": 0, "recent3": 0, "recent7": 0 }
+        res[name]["mi"] += a["mi"]
+        if datetime.fromisoformat(a["time"]) > datetime.utcnow() - timedelta(days=1):
+            res[name]["recent1"] += a["mi"]
+        if datetime.fromisoformat(a["time"]) > datetime.utcnow() - timedelta(days=3):
+            res[name]["recent3"] += a["mi"]
+        if datetime.fromisoformat(a["time"]) > datetime.utcnow() - timedelta(days=7):
+            res[name]["recent7"] += a["mi"]
+    return res
+
+def get_activities(client):
     activities = list(map(lambda a: extract_activity(a), client.get_club_activities(1203775)))
-    print(activities[-6])
-    if activities[-6]['name'] != 'Mordor Cutoff':
-        print('Unexpected data before 1/1')
-    #activities = activities[0:-6]
+
+def ahash(a):
+    vals = [a['name'], a['firstname'], a['lastname'], a['mi'], a['elapsed_time_s']]
+    return hashlib.md5("|".join(map(lambda v: str(v), vals)).encode("UTF-8")).hexdigest()
+
+def merge_activities(activities, new_activities):
+    hashes = list(map(lambda a: ahash(a), activities))
+    for activity in new_activities:
+        id = ahash(activity)
+        if id == MORDOR_CUTOFF_HASH:
+            break
+        
+        if id in hashes:
+            hashes.remove(id)
+        else:
+            activity['id'] = id
+            activity['time'] = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')     
+            activities.insert(0, activity)
+            
+    if len(hashes) != 0:
+        print("Detected missing activities with hashes: " + str(hashes))
+    return activities
+
+def write_totals(activities):
     num_activities = len(activities)
-    write_file(ACTIVITIES, activities)
     totals = total_activities(activities)
-    totals.append({'name': "activities", 'mi': num_activities})
+    totals["_meta"] = {'num_activities': num_activities, 'time': datetime.utcnow().isoformat()}
     print(f"found {num_activities} activities")
     write_file(TOTALS, totals)
-
+    
+    
 load_dotenv()
 token = get_token()
 client = Client(access_token=token['access_token'])
-update_activities(client)
+
+activities = read_file(ACTIVITIES)
+activities_new = get_activities(client);
+
+print(str(len(activities)) + " " + str(len(activities_new)))
+activities = merge_activities(activities, activities_new)
+print(len(activities))
+write_file(ACTIVITIES, activities)
+write_totals(activities)
