@@ -18,6 +18,8 @@ var transformElements = [road];
 var path = d3.select("#to_mordor");
 var pathTotal = path.node().getTotalLength();
 
+var current_transform = d3.zoomIdentity;
+
 function drawMapFn() {
 
     var tiles = [];
@@ -58,6 +60,7 @@ function setupZoom() {
 
     function zoomed({ transform }) {
         //console.log(transform);
+        current_transform = transform;
     
         // move tiles
         drawMap(transform);
@@ -319,6 +322,8 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
     // Reheat the simulation when drag starts, and fix the subject position.
     function dragstarted(event, onClickFn) {
         if (!event.active) simulation.alphaTarget(0.3).restart();
+        event.subject.prev_x = event.x;
+        event.subject.prev_y = event.y;
         event.subject.fx = event.subject.x;
         event.subject.fy = event.subject.y;
         event.subject.onClickObj.fn(event.subject);
@@ -326,8 +331,14 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
 
     // Update the subject (dragged node) position during drag.
     function dragged(event) {
-        event.subject.fx = event.x;
-        event.subject.fy = event.y;
+        var prev_x = event.subject.prev_x;
+        var prev_y = event.subject.prev_y;
+
+        event.subject.fx = event.subject.fx + (event.x - prev_x) / current_transform.k;
+        event.subject.fy = event.subject.fy + (event.y - prev_y) / current_transform.k;
+        event.subject.prev_x = event.x;
+        event.subject.prev_y = event.y;
+
     }
 
     // Restore the target alpha so the simulation cools after dragging ends.
