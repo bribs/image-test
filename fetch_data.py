@@ -55,7 +55,7 @@ def update_activities(client):
     print(activities[-6])
     if activities[-6]['name'] != 'Mordor Cutoff':
         print('Unexpected data before 1/1')
-    activities = activities[0:-6]
+    #activities = activities[0:-6]
     num_activities = len(activities)
     write_file(ACTIVITIES, activities)
     totals = total_activities(activities)
