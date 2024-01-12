@@ -1,0 +1,443 @@
+[
+    {
+        "name": "Pelo Thursday",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 25.500079535512604,
+        "elapsed_time_s": 6000
+    },
+    {
+        "name": "Zwift - Volcano Circuit in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 4.189036029587211,
+        "elapsed_time_s": 886
+    },
+    {
+        "name": "Zwift - Electric Loop in Makuri Islands",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 5.693997057186033,
+        "elapsed_time_s": 1162
+    },
+    {
+        "name": "Peloton - 81 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 22.272926111508788,
+        "elapsed_time_s": 4877
+    },
+    {
+        "name": "Zwift - Tick Tock in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 12.303087469179989,
+        "elapsed_time_s": 2622
+    },
+    {
+        "name": "Zwift - Watopia's Waistband in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 18.204684641692513,
+        "elapsed_time_s": 3642
+    },
+    {
+        "name": "Peloton - 60 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 15.901510180545612,
+        "elapsed_time_s": 3592
+    },
+    {
+        "name": "Hotel treadmill",
+        "firstname": "Tyler",
+        "lastname": "K.",
+        "mi": 1.499990058060924,
+        "elapsed_time_s": 2040
+    },
+    {
+        "name": "Zwift - Yellow Unicorn in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 36.11552284657599,
+        "elapsed_time_s": 6346
+    },
+    {
+        "name": "Zwift - Sleepless City in Makuri Islands",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 6.590511413346058,
+        "elapsed_time_s": 1232
+    },
+    {
+        "name": "Zwift - Tempus Fugit in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 12.645587270341206,
+        "elapsed_time_s": 2483
+    },
+    {
+        "name": "Peloton - 56 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 15.054767656883797,
+        "elapsed_time_s": 3367
+    },
+    {
+        "name": "Zwift - Ocean Lava Cliffside Loop in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 12.193042631034755,
+        "elapsed_time_s": 2835
+    },
+    {
+        "name": "Pelo Wed",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 21.50006462260399,
+        "elapsed_time_s": 5100
+    },
+    {
+        "name": "Peloton - 38 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 10.409334486598265,
+        "elapsed_time_s": 2301
+    },
+    {
+        "name": "Zwift - Halvfems in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 20.77169331106339,
+        "elapsed_time_s": 3738
+    },
+    {
+        "name": "Doggo walks from first week of Jan",
+        "firstname": "Tyler",
+        "lastname": "K.",
+        "mi": 9.300000497096953,
+        "elapsed_time_s": 7200
+    },
+    {
+        "name": "Pelo 2/2",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 1.499990058060924,
+        "elapsed_time_s": 300
+    },
+    {
+        "name": "Pelo Tuesday 1/2",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 8.600025849041597,
+        "elapsed_time_s": 1800
+    },
+    {
+        "name": "Peloton - 60 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 16.926524099260316,
+        "elapsed_time_s": 3590
+    },
+    {
+        "name": "Zwift - Wandering Flats in Makuri Islands",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 16.11718812137119,
+        "elapsed_time_s": 3759
+    },
+    {
+        "name": "Zwift - The Muckle Yin in Scotland",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 15.091987791298815,
+        "elapsed_time_s": 3752
+    },
+    {
+        "name": "Afternoon E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.8745178159548238,
+        "elapsed_time_s": 8122
+    },
+    {
+        "name": "Peloton - Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 11.19182722898274,
+        "elapsed_time_s": 2211
+    },
+    {
+        "name": "Zwift - Giza in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 20.239240336435216,
+        "elapsed_time_s": 3640
+    },
+    {
+        "name": "Pelo mon",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 10.400013918714706,
+        "elapsed_time_s": 2520
+    },
+    {
+        "name": "Peloton - Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 10.012216157639385,
+        "elapsed_time_s": 2173
+    },
+    {
+        "name": "Zwift - Out And Back Again in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 40.025252525252526,
+        "elapsed_time_s": 9055
+    },
+    {
+        "name": "Afternoon E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.8662535790980671,
+        "elapsed_time_s": 9779
+    },
+    {
+        "name": "Peloton - 34 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 10.557096556112302,
+        "elapsed_time_s": 2057
+    },
+    {
+        "name": "Morning Activity",
+        "firstname": "Tyler",
+        "lastname": "K.",
+        "mi": 1.799988069673109,
+        "elapsed_time_s": 1385
+    },
+    {
+        "name": "Zwift - Tine in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 20.1580271216098,
+        "elapsed_time_s": 3773
+    },
+    {
+        "name": "Peloton - 110 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 29.984515429889445,
+        "elapsed_time_s": 6611
+    },
+    {
+        "name": "pelo Sunday",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 22.10006064582836,
+        "elapsed_time_s": 5400
+    },
+    {
+        "name": "Zwift - Method in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 30.12575310188499,
+        "elapsed_time_s": 5513
+    },
+    {
+        "name": "Peloton - 98 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 25.4966619939553,
+        "elapsed_time_s": 5917
+    },
+    {
+        "name": "Pelo Sat",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 14.000052195180148,
+        "elapsed_time_s": 3600
+    },
+    {
+        "name": "Zwift - Sneaky in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 25.293162928497573,
+        "elapsed_time_s": 4447
+    },
+    {
+        "name": "Peloton - 79 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 20.92716038336117,
+        "elapsed_time_s": 4735
+    },
+    {
+        "name": "Warmup bike",
+        "firstname": "Tyler",
+        "lastname": "K.",
+        "mi": 3.7999955261274154,
+        "elapsed_time_s": 840
+    },
+    {
+        "name": "Pelo 2/2",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 2.6000034796786764,
+        "elapsed_time_s": 600
+    },
+    {
+        "name": "Pelo Fri 1/2",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 8.600025849041597,
+        "elapsed_time_s": 1800
+    },
+    {
+        "name": "Great falls 1",
+        "firstname": "conor",
+        "lastname": "C.",
+        "mi": 7.710843672949971,
+        "elapsed_time_s": 6859
+    },
+    {
+        "name": "Zwift - Going Coastal in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 10.070811461067365,
+        "elapsed_time_s": 2046
+    },
+    {
+        "name": "Morning E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.2098991887377714,
+        "elapsed_time_s": 2229
+    },
+    {
+        "name": "Zwift - Cadence Bursts in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 21.24946562077467,
+        "elapsed_time_s": 3799
+    },
+    {
+        "name": "Pelo thur",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 6.399999005806092,
+        "elapsed_time_s": 1800
+    },
+    {
+        "name": "Afternoon bike",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 30.30004772130756,
+        "elapsed_time_s": 7200
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.0,
+        "elapsed_time_s": 7219
+    },
+    {
+        "name": "Peloton - 43 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 11.483374592380498,
+        "elapsed_time_s": 2605
+    },
+    {
+        "name": "Zwift - Zwift Academy 2018 Workout #5: Extensive Anaerobic 1min in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 19.013585659747076,
+        "elapsed_time_s": 3796
+    },
+    {
+        "name": "Pelo Wed (2/3)",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 7.490008351228823,
+        "elapsed_time_s": 1800
+    },
+    {
+        "name": "Pelo Wed (2/3)",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 7.170002187226596,
+        "elapsed_time_s": 1800
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 1.2300042750338025,
+        "elapsed_time_s": 270
+    },
+    {
+        "name": "Pelo Wed (1/3)",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 7.81001451523105,
+        "elapsed_time_s": 1800
+    },
+    {
+        "name": "Peloton - 37 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 9.996557603595004,
+        "elapsed_time_s": 2214
+    },
+    {
+        "name": "Airbike Activity",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 8.570013620456534,
+        "elapsed_time_s": 2100
+    },
+    {
+        "name": "Peloton Tuesday",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 13.84999105225483,
+        "elapsed_time_s": 3600
+    },
+    {
+        "name": "Afternoon E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.133781217688698,
+        "elapsed_time_s": 2119
+    },
+    {
+        "name": "Peloton - 30 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 8.77668167899467,
+        "elapsed_time_s": 1799
+    },
+    {
+        "name": "Peloton - 30 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 8.228383738964446,
+        "elapsed_time_s": 1799
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 20.30001043903603,
+        "elapsed_time_s": 5754
+    },
+    {
+        "name": "Peloton",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 14.220017597232165,
+        "elapsed_time_s": 3600
+    }
+]
