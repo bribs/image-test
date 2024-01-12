@@ -4,7 +4,7 @@
     { "id": "Stone-Trolls", "icon": "stone_troll.png", "color": "black", "mi": 393},
     { "id": "Nazguls", "icon": "nazgul_icon.jpg", "color": "black", "mi": 450},
     { "id": "Tyler", "icon": "ty_icon.jpg", "color": "brown", "name": "Tyler" },
-    { "id": "Conor", "icon": "conor_icon.jpg", "color": "orange", "name" : "Conor"},
+    { "id": "Conor", "icon": "conor_icon.jpg", "color": "orange", "name" : "conor"},
     { "id": "Dron", "icon": "dron_icon2.jpg", "color": "blue", "name": "Jerome"},
     { "id": "Travis", "icon": "topp_icon.png", "color": "red", "name": "Travis" },
     { "id": "Bribs", "icon": "biker_icon.jpg", "color": "gold", "name": "Brib" },

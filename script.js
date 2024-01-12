@@ -137,17 +137,11 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
 
     racerData.forEach(racer => {
         if (typeof racer.mi === 'undefined' && typeof racer.name !== 'undefined') {
-            racer.mi = 0;
-            for (total of totalsData) {
-                if (total.name.toLowerCase() == racer.name.toLowerCase()) {
-                    racer.mi = round(total.mi);
-                    break;
-                }
-            }
+            racer.mi = round(totalsData[racer.name]["mi"])
         } else {
             racer.static = true
         }
-    })
+    });
 
     racerData.push(getFellowship(racerData));
     racerData.push(frodo);
