@@ -1,5 +1,23 @@
 [
     {
+        "name": "Evening E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.9304412232561838,
+        "elapsed_time_s": 9664,
+        "id": "8f6c24468de298832cccb36a6689bb95",
+        "time": "2024-01-13 08:09:52"
+    },
+    {
+        "name": "Zwift - The Big Ring in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 30.664357651316312,
+        "elapsed_time_s": 8042,
+        "id": "99d21e2e3d51e3c4e567a0137329b288",
+        "time": "2024-01-13 08:09:52"
+    },
+    {
         "name": "Night Ride",
         "firstname": "Jerome",
         "lastname": "M.",
