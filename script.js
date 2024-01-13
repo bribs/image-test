@@ -29,24 +29,20 @@ function drawMapFn() {
         }
     }
 
-    var tiles = [[0,0]]
-
-    var map = (g, t) => g
+    var map = (g, t, x, y) => g
         .selectAll("image")
         .data(tiles)
         .join(
             enter => {
                 return enter.append("image")
-                    .attr("xlink:href", (d) => "https://cdn.jsdelivr.net/gh/bribs/image-test/images/mordor_larger9.png")
-                    .attr("height", "2560")
-                    .attr("width", "2560")
-                    .attr("x", 0)
-                    .attr("y", 0);
-            },
+                    .attr("xlink:href", (d) => "https://cdn.jsdelivr.net/gh/bribs/image-test/images/4/" + d[0] + "/" + (yTiles - 1 - d[1]) + ".jpg")
+                    .attr("height", "256")
+                    .attr("width", "256")
+                    .attr("x", (d) => (d[0] * dim))
+                    .attr("y", (d) => (d[1] * dim));
             update => update,
-            exit => exit.remove()
-        )
-        .attr("transform", t);
+            exit => exit.remove()}
+        ).attr("transform", t);
 
     const gMap = svg.append("g").attr("id", "map")
     gMap.lower();
