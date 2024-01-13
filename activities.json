@@ -1,5 +1,41 @@
 [
     {
+        "name": "Evening E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.19417849757416686,
+        "elapsed_time_s": 2255,
+        "id": "7a3adf2811367850798cf12d430c21ca",
+        "time": "2024-01-13 02:05:22"
+    },
+    {
+        "name": "Zwift - Going Coastal in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 10.383485445001192,
+        "elapsed_time_s": 2066,
+        "id": "9cb4eeb163fab61fcca7ae748a2d3c40",
+        "time": "2024-01-13 02:05:22"
+    },
+    {
+        "name": "Evening Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.0,
+        "elapsed_time_s": 861,
+        "id": "5cc727674b527ceb0acd072db9b2bcb3",
+        "time": "2024-01-13 02:05:22"
+    },
+    {
+        "name": "Zwift - 90min Riders Choice in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 5.151167183647498,
+        "elapsed_time_s": 1124,
+        "id": "68cb78761dd107548a4559a81dcf5601",
+        "time": "2024-01-13 02:05:22"
+    },
+    {
         "name": "Afternoon E-Bike Ride",
         "firstname": "Jerome",
         "lastname": "M.",
