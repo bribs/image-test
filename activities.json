@@ -1,5 +1,23 @@
 [
     {
+        "name": "Peloton - 64 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 19.99678129722421,
+        "elapsed_time_s": 3845,
+        "id": "7d1d9387bb0ff11bdded694966be89d5",
+        "time": "2024-01-13 21:13:02"
+    },
+    {
+        "name": "Peloton - 10 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 2.6759350393700787,
+        "elapsed_time_s": 602,
+        "id": "7efb4a872d4964f7ac3afaf7e6ce47f8",
+        "time": "2024-01-13 21:13:02"
+    },
+    {
         "name": "Peloton - 50 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
