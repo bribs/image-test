@@ -1,5 +1,14 @@
 [
     {
+        "name": "Bike",
+        "firstname": "Tyler",
+        "lastname": "K.",
+        "mi": 12.299980613218802,
+        "elapsed_time_s": 2880,
+        "id": "1dafbb3f7a38213be1380e389caa251d",
+        "time": "2024-01-13 22:46:25"
+    },
+    {
         "name": "Peloton - 60 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
