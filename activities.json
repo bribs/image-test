@@ -1,5 +1,59 @@
 [
     {
+        "name": "Afternoon E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.7654050345979478,
+        "elapsed_time_s": 7857,
+        "id": "368aff29c1a42e49dc3b0890e6896a0c",
+        "time": "2024-01-13 01:09:01"
+    },
+    {
+        "name": "Afternoon E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.7691953988705957,
+        "elapsed_time_s": 9055,
+        "id": "6ec547d6c9380ee105814bcc89eb636f",
+        "time": "2024-01-13 01:09:01"
+    },
+    {
+        "name": "Peloton - 151 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 41.109358844349,
+        "elapsed_time_s": 9084,
+        "id": "876ad7908452bbf77bcd4b18d3d86f42",
+        "time": "2024-01-13 01:09:01"
+    },
+    {
+        "name": "Evening Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.07251401813409687,
+        "elapsed_time_s": 715,
+        "id": "32200d9041103fe92113d56887e67948",
+        "time": "2024-01-13 01:09:01"
+    },
+    {
+        "name": "Evening Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.23338701980434262,
+        "elapsed_time_s": 85,
+        "id": "1e1eabe9a8d971978300d4dfcb051e6b",
+        "time": "2024-01-13 01:09:01"
+    },
+    {
+        "name": "Evening Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.08730265250934542,
+        "elapsed_time_s": 85,
+        "id": "6b4b4cb4e0d863be997b295a2a490956",
+        "time": "2024-01-13 01:09:01"
+    },
+    {
         "name": "Pelo Friday 1/2",
         "firstname": "Travis",
         "lastname": "T.",
