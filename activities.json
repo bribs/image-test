@@ -1,5 +1,14 @@
 [
     {
+        "name": "Night Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 13.55570965561123,
+        "elapsed_time_s": 3265,
+        "id": "b3a887392c1d4f65fbf188f3ee688a91",
+        "time": "2024-01-13 04:09:54"
+    },
+    {
         "name": "Evening E-Bike Ride",
         "firstname": "Jerome",
         "lastname": "M.",
