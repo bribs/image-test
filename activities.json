@@ -1,5 +1,23 @@
 [
     {
+        "name": "Evening E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.8487930485961981,
+        "elapsed_time_s": 8619,
+        "id": "d89df5ff119d8f0c81e5de393dda0970",
+        "time": "2024-01-14 02:10:14"
+    },
+    {
+        "name": "Zwift - The Fan Flats in Richmond",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 8.099387079455976,
+        "elapsed_time_s": 1823,
+        "id": "4dc044e8cc03bf0d804b6e665648d0d1",
+        "time": "2024-01-14 02:10:14"
+    },
+    {
         "name": "Zwift - Coast Crusher in Watopia",
         "firstname": "Jerome",
         "lastname": "M.",
