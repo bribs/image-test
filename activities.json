@@ -1,5 +1,23 @@
 [
     {
+        "name": "Pelo Sun",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 5.100028334526366,
+        "elapsed_time_s": 1200,
+        "id": "ce81eee51767fc5aad38c59bf901d7e3",
+        "time": "2024-01-15 08:11:49"
+    },
+    {
+        "name": "Pelo mon 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 2.3000054680664914,
+        "elapsed_time_s": 540,
+        "id": "e6ffcf5d576f7e3eaff5d925d448f3c0",
+        "time": "2024-01-15 08:11:49"
+    },
+    {
         "name": "Peloton - 60 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
