@@ -1,5 +1,14 @@
 [
     {
+        "name": "Afternoon Run",
+        "firstname": "Tyler",
+        "lastname": "K.",
+        "mi": 15.00002485484769,
+        "elapsed_time_s": 3600,
+        "id": "06e0cd8d302a87649e99c18bd833a91c",
+        "time": "2024-01-16 16:20:24"
+    },
+    {
         "name": "Zwift - #8 in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
