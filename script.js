@@ -733,7 +733,7 @@ function getStatus(d) {
             if (d['recent7' == 0]) {
                 return "Completely MIA";
             }
-            return "Taking a nap";
+            return "Snoozin'";
         }
         return "Admiring scenery";
     } else if (d['recent1'] > 9.66) {
