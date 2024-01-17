@@ -91,12 +91,12 @@ function refresh() {
     var iH = window.innerHeight;
     var iW = window.innerWidth;
 
-    var zX = (iH > iW) ? -750 : -750;
+    var zX = (iH > iW) ? -825 : -750;
     var zY = (iH > iW) ? -275 : -400;
-    var zZ = (iH > iW) ? 3.5 : 3;
+    var zZ = (iH > iW) ? 2 : 3;
 
     if (typeof zoom !== 'undefined') {
-        svg.call(zoom.transform, d3.zoomIdentity.scale(3).translate(zX, zY));
+        svg.call(zoom.transform, d3.zoomIdentity.scale(zZ).translate(zX, zY));
     }
 }
 
