@@ -135,7 +135,8 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
 
     racerData.forEach(racer => {
         if (typeof racer.mi === 'undefined' && typeof racer.name !== 'undefined') {
-            racer.mi = round(totalsData[racer.name]["mi"])
+            racer.mi = round(totalsData[racer.name]["mi"]);
+            racer.status = getStatus(totalsData[racer.name]);
         } else {
             racer.static = true
         }
@@ -163,7 +164,8 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
             collide: 1,
             static: isStatic(i),
             onClickObj: onClickFnPlaceholder,
-            gollumd: isGollumd(i)
+            gollumd: isGollumd(i),
+            status: typeof i.status == 'undefined' ? "" : i.status
         }
 
         data.p = getForceP(data, n);
@@ -541,12 +543,15 @@ function getFrodo(data) {
         mi = (cur.day == day) ? round(scale(min)) : cur.mi;
     }
 
+    var stabbed = (mi >= 241 && mi <= 478);
+
     return {
         id: "Frodo",
-        icon: (mi >= 241 && mi <= 478) ? "stabbed_frodo2.png" : "frodo_icon2.png",
+        icon: (stabbed) ? "stabbed_frodo2.png" : "frodo_icon2.png",
         color: npc_color,
         mi: mi,
-        eta: (184 - day)
+        eta: (184 - day),
+        status: (stabbed) ? "Trying not to die" : "Healthy"
     };
 }
 
@@ -572,7 +577,8 @@ function getGollum() {
         icon: "gollum_icon.png",
         color: "black",
         mi: round(scale((day - grace - 1) * 1440 + getMinNum())),
-        eta: 366 - day
+        eta: 366 - day,
+        status: "Booty huntin'"
     };
 }
 
@@ -586,16 +592,21 @@ function getFellowship(racerData) {
         }
     }
 
+    var fship = round(total / num);
+    var gandalf = round(getGandalfMi());
+    var status = (fship == gandalf) ? "At pace" : (fship > gandalf) ? "Above pace" : "Behind pace";
+
     return {
         id: "Fellowship",
         icon: "fellowship_icon.png",
         color: npc_color,
-        mi: round(total / num)
-    }
+        mi: fship,
+        status: status
+    };
 
 }
 
-function getGandalf() {
+function getGandalfMi() {
     var day = getDayNum();
 
     var scale = d3.scaleLinear()
@@ -603,15 +614,25 @@ function getGandalf() {
         .range([0, 1778]);
 
     var min_adj = (day - 1) * 1440 + getMinNum();
-    var mi = scale(min_adj);
-    var mi_rounded = round(mi);
+
+    return scale(min_adj);
+}
+
+function getGandalf() {
+    var day = getDayNum();
+    var scale = d3.scaleLinear()
+        .domain([0, 184 * 1440])
+        .range([0, 1778]);
+
+    var mi_rounded = round(getGandalfMi());
 
     return {
         id: "Arrives-exactly-when-he-means-to",
         icon: "gandalf_icon.png",
         color: npc_color,
         mi: mi_rounded,
-        eta: getETA(scale(day * 1440))
+        eta: getETA(scale(day * 1440)),
+        status: "Rippin' the pipe"
     };
 }
 
@@ -656,14 +677,14 @@ function addStatsOverlay() {
         .attr("stroke", "black")
         .attr("fill, black");
 
-    fields = ["statsMiles", "statsAverage", "statsRemaining", "statsETA"]
+    fields = ["statsMiles", "statsAverage", "statsRemaining", "statsETA", "statsStatus"]
     for (i = 0; i < fields.length; i++) {
         gStats
             .append("text")
             .attr("class", "statsText")
             .attr("id", fields[i])
             .attr("x", width / 10 + 40)
-            .attr("y", i*55 + 91)
+            .attr("y", i*41 + 91)
             .text(fields[i]);
     }
 
@@ -685,6 +706,7 @@ function addStatsOverlay() {
             textElements[2].text(1778 - d.mi + " mi to go");
             var eta = (exists(d.eta)) ? ("ETA " + d.eta + ((d.eta == 1) ? " day" : " days")) : "";
             textElements[3].text(eta);
+            textElements[4].text(d.status);
         } else {
             gStats.attr("opacity", "0");
         }
@@ -703,6 +725,29 @@ function isGollumd(d) {
 function isStatic(d) {
     return typeof d.static !== 'undefined' && d.static;
 }
+
+function getStatus(d) {
+    console.log(d);
+    if (d['recent1'] == 0) {
+        if (d['recent3'] == 0) {
+            if (d['recent7' == 0]) {
+                return "Completely MIA";
+            }
+            return "Taking a nap";
+        }
+        return "Admiring scenery";
+    } else if (d['recent1'] > 9.66) {
+        if (d['recent3'] > 9.66 * 3) {
+            if (d['recent7'] > 9.66 * 7) {
+                return "Wants it";
+            }
+            return "Cruising";
+        }
+        return "Speeding up";
+    }
+    return "Crawling along";
+}
+
 fetchJson('./data/locations.json', (locationsData) => {
     addPoints(locationsData, "white");
 
@@ -712,7 +757,7 @@ fetchJson('./data/locations.json', (locationsData) => {
         addPoints(frodoData.filter((i) => i.day < day), "black");
 
         fetchJson('./totals.json', (totalsData) => {
-            fetchJson('./data/racers.json', (racerData) => addRacers(racerData,     totalsData, frodo));
+            fetchJson('./data/racers.json', (racerData) => addRacers(racerData, totalsData, frodo));
         });
     });
 });
