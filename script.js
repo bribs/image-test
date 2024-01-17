@@ -161,14 +161,16 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
             fill: "url(#" + i.icon + i.id + ")",
             link_length: -1 * link_length,
             collide: 1,
-            color: Number.isInteger(i.color) ? z(i.color) : i.color,
             static: isStatic(i),
-            onClickObj: onClickFnPlaceholder
+            onClickObj: onClickFnPlaceholder,
+            gollumd: isGollumd(i)
         }
 
-        data.p = getForceP(data, n++);
+        data.p = getForceP(data, n);
+        if (!isStatic(data)) n++;
         data.radius = (isStatic(data)) ? 8 : 12;
         data.eta = (isStatic(data)) ? getETA(0) : (typeof i.eta !== 'undefined') ? i.eta : getETA(i.mi);
+        data.color = (isGollumd(data)) ? "black" : i.color;
         return data;
     });
     
@@ -183,7 +185,7 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
             fill: Number.isInteger(i.color) ? z(i.color) : i.color,
             link_length: 0,
             collide: 0,
-            color: Number.isInteger(i.color) ? z(i.color) : i.color,
+            color: (isGollumd(i)) ? "black" : i.color,
             eta: (typeof i.static === 'undefined') ? getETA(i.mi) : getETA(0),
             static: (typeof i.static === 'undefined') ? false : i.static,
             onClickObj: onClickFnPlaceholder
@@ -195,7 +197,7 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
             source: i.id,
             target: i.id + "_",
             value: 4,
-            color: Number.isInteger(i.color) ? z(i.color) : i.color
+            color: (isGollumd(i)) ? "black" : i.color,
         }
     });
     var nodes = [...icons, ...anchors]
@@ -223,6 +225,18 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
         .attr("perserveAspectRatio", "xMidYMid slice")
         .attr("xlink:href", (d) => d.img);
 
+    const status_node1 = svg.append("g")
+        .attr("class", "gNode")
+        .attr("stroke-width", .5)
+        //.attr("opacity", .)
+        .selectAll("circle")
+        .data(nodes.filter((d) => isGollumd(d)))
+        .join("circle")
+        .attr("r", d => d.radius)
+        .attr("stroke", d => d.color)
+        .attr("fill", "black")
+        .attr("fill-opacity", 1);    
+
     const static_node = svg.append("g")
         .attr("class", "gNode")
         .attr("stroke-width", 1)
@@ -231,10 +245,11 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
         .join("circle")
         .attr("r", d => d.radius)
         .attr("stroke", d => d.color)
-        .attr("fill", d => d.fill);
+        .attr("fill", d => d.fill)
+        .attr("fill-opacity", (d) => isGollumd(d) ? .5 : 1);
 
-        static_node.append("title")
-            .text(d => d.id.replaceAll("-", " ").replaceAll("_", ""));
+    static_node.append("title")
+        .text(d => d.id.replaceAll("-", " ").replaceAll("_", ""));
 
 
     const link = svg.append("g")
@@ -246,19 +261,20 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
         .attr("stroke-opacity", .65)
         .attr("stroke-linecap", "round")
 
+
+
     const node = svg.append("g")
         .attr("class", "gNode")
         .attr("stroke-width", 1.5)
         .style("stroke-opacity",".5")
-        .selectAll("circle")
+        .selectAll(".racerNode")
         .data(nodes.filter((d) => !isStatic(d)))
         .join("circle")
         .attr("r", d => d.radius)
         .attr("stroke", d => d.color)
         .attr("stroke-opacity", (d) => (d.radius == 1) ? 0 : 1)
         .attr("fill", (d) => (d.radius == 1) ? "none" : d.fill)
-        .attr("fill-opacity", (d) => (d.radius == 1) ? 0 : 1);
-
+        .attr("fill-opacity", (d) => (d.radius == 1) ? 0 : isGollumd(d) ? .5 : 1);
 
     node.append("title")
         .text(d => {
@@ -272,6 +288,20 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
             }
             return text;
     });
+
+    const status_node2 = svg.append("g")
+        .attr("class", "gNode")
+        .attr("stroke-width", .5)
+        //.attr("opacity", .)
+        .selectAll("circle")
+        .data(nodes.filter((d) => isGollumd(d)))
+        .join("circle")
+        .attr("r", d => d.radius * .6)
+        .attr("stroke", d => d.color)
+        .attr("fill", d => "url(#gollum_icon.pngGollum)")
+        .attr("fill-opacity", 1);
+
+    status_node2.append("title").text("Gollum'd")
 
     onClickFnPlaceholder.fn = addStatsOverlay();
 
@@ -309,9 +339,18 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
         static_node 
             .attr("cx", d => d.p.x)
             .attr("cy", d => d.p.y);
+
         node
             .attr("cx", d => (d.collide) ? d.x : d.p.x)
             .attr("cy", d => (d.collide) ? d.y : d.p.y);
+
+        status_node1
+            .attr("cx", d => d.x + d.radius * 0)
+            .attr("cy", d => d.y + d.radius * 0);
+
+        status_node2
+            .attr("cx", d => d.x + d.radius * .80)
+            .attr("cy", d => d.y + d.radius * .44);
 
         // label
         //     .attr("x", d => d.x - 4)
@@ -354,7 +393,7 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
         .on("drag", dragged)
         .on("end", dragended));
 
-    transformElements.push(static_node, node, link);
+    transformElements.push(static_node, node, status_node1, status_node2, link);
     // transformElements.push(label);
 
     refresh();
@@ -655,6 +694,10 @@ function addStatsOverlay() {
 
 function exists(d) {
     return typeof d !== 'undefined';
+}
+
+function isGollumd(d) {
+    return typeof d.gollumd !== 'undefined' && d.gollumd;
 }
 
 function isStatic(d) {
