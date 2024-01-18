@@ -406,7 +406,8 @@ function getForceP(d, n) {
     var mi = d.mi
     var n;
 
-    var dir = (n % 2) ? 1 : -1;
+    var dir = (n % 2) ? -1 : 1;
+    dir *= (d.id == "Luke") ? -1 : 1;
     var miDelta = 5;
 
     var miMinus = Math.max(mi - miDelta, 0);
