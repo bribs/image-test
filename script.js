@@ -36,8 +36,8 @@ function drawMapFn() {
             enter => {
                 return enter.append("image")
                     .attr("xlink:href", (d) => "https://cdn.jsdelivr.net/gh/bribs/image-test/images/4/" + d[0] + "/" + (yTiles - 1 - d[1]) + ".jpg")
-                    .attr("height", "256")
-                    .attr("width", "256")
+                    .attr("height", dim + .2)
+                    .attr("width", dim + .2)
                     .attr("x", (d) => (d[0] * dim))
                     .attr("y", (d) => (d[1] * dim));
             update => update,
