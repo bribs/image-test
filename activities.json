@@ -1,5 +1,95 @@
 [
     {
+        "name": "Morning Weight Training",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.0,
+        "elapsed_time_s": 979,
+        "id": "ebfff18bbdf05a52f9adb05de650b682",
+        "time": "2024-01-18 17:46:45"
+    },
+    {
+        "name": "AMC walk",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 2.0000074564543064,
+        "elapsed_time_s": 2400,
+        "id": "54c68f9a7534c150c9918c122477e8f6",
+        "time": "2024-01-18 17:46:45"
+    },
+    {
+        "name": "D1 - Stateside \u2014> Jet",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 3.001906366817784,
+        "elapsed_time_s": 4033,
+        "id": "0c394f3fe8ccee912fc511a3f6f5ed85",
+        "time": "2024-01-18 17:46:45"
+    },
+    {
+        "name": "D2 - backyard boogie",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 2.710110454943132,
+        "elapsed_time_s": 5122,
+        "id": "ed2a4c046db0d4b3fb1be143420b0bc1",
+        "time": "2024-01-18 17:46:45"
+    },
+    {
+        "name": "D3 - Jay",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 14.452348286009702,
+        "elapsed_time_s": 19439,
+        "id": "371e9f84e24768d3eed08d2a9bee60a3",
+        "time": "2024-01-18 17:46:45"
+    },
+    {
+        "name": "D4 - backyard",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 2.5446393064503297,
+        "elapsed_time_s": 5802,
+        "id": "fc08f64fe140de37df5ceaea077e5025",
+        "time": "2024-01-18 17:46:45"
+    },
+    {
+        "name": "Morning Backcountry Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.7005686789151355,
+        "elapsed_time_s": 2534,
+        "id": "e42f46aa0dea09c75d630fdbacfed701",
+        "time": "2024-01-18 17:46:45"
+    },
+    {
+        "name": "Morning Backcountry Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 2.525066113894854,
+        "elapsed_time_s": 3666,
+        "id": "f8fb26dc0440248b3d7dfc225c25cf23",
+        "time": "2024-01-18 17:46:45"
+    },
+    {
+        "name": "Afternoon Backcountry Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.4047959914101646,
+        "elapsed_time_s": 2636,
+        "id": "34af6d9ca8191447e9b7977a82acee4a",
+        "time": "2024-01-18 17:46:45"
+    },
+    {
+        "name": "Morning Backcountry Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 2.3556181897717328,
+        "elapsed_time_s": 3434,
+        "id": "dbd789cfa211cb43c04b62cf451b7cd1",
+        "time": "2024-01-18 17:46:45"
+    },
+    {
         "name": "Peloton - 70 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
