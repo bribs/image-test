@@ -1,5 +1,23 @@
 [
     {
+        "name": "Morning Alpine Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 5.360320726954585,
+        "elapsed_time_s": 6827,
+        "id": "68e9a2fa45d5581cee6594aaf8555b19",
+        "time": "2024-01-20 18:30:21"
+    },
+    {
+        "name": "Peloton - 75 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 20.439508271693306,
+        "elapsed_time_s": 4502,
+        "id": "51f1522271df934e2fc5389ee1c56715",
+        "time": "2024-01-20 18:30:21"
+    },
+    {
         "name": "Zwift - Novanta in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
