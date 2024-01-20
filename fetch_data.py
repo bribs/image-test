@@ -78,13 +78,24 @@ def merge_activities(activities, new_activities):
         
         if id in hashes:
             hashes.remove(id)
-        else:
+        elif activity['mi'] > 0:
             activity['id'] = id
             activity['time'] = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')     
             activities.insert(0, activity)
             
     if len(hashes) != 0:
         print("Detected missing activities with hashes: " + str(hashes))
+        
+    to_remove = list(filter(lambda i: i['id'] in hashes, activities))
+    
+    for i in to_remove:
+        if datetime.fromisoformat(i["time"]) < datetime.utcnow() - timedelta(days=3):
+            print("not removing due to time filter " + str(i))
+            continue
+        else:
+            print("removing " + str(i))
+            activities.remove(i)
+    
     return activities
 
 def write_totals(activities):
@@ -102,8 +113,8 @@ client = Client(access_token=token['access_token'])
 activities = read_file(ACTIVITIES)
 activities_new = get_activities(client);
 
-print(str(len(activities)) + " " + str(len(activities_new)))
+print("current " + str(len(activities)) + " fetched " + str(len(activities_new)))
 activities = merge_activities(activities, activities_new)
-print(len(activities))
+print("result " + str(len(activities)))
 write_file(ACTIVITIES, activities)
 write_totals(activities)

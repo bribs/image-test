@@ -1,5 +1,14 @@
 [
     {
+        "name": "Sat pelo 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 2.2000268432355043,
+        "elapsed_time_s": 573,
+        "id": "7c2fe3f0364835a3b516c9c3b094ddc6",
+        "time": "2024-01-20 16:04:12"
+    },
+    {
         "name": "Afternoon Ride",
         "firstname": "Jerome",
         "lastname": "M.",
@@ -24,24 +33,6 @@
         "mi": 0.41190696333412863,
         "elapsed_time_s": 85,
         "id": "8a1b3d189f662f8230ee56d962062b0d",
-        "time": "2024-01-20 04:25:14"
-    },
-    {
-        "name": "Afternoon E-Bike Ride",
-        "firstname": "Jerome",
-        "lastname": "M.",
-        "mi": 1.0845412789310427,
-        "elapsed_time_s": 10837,
-        "id": "b7fa87b959bfac881ed77458f23e8c08",
-        "time": "2024-01-20 04:25:14"
-    },
-    {
-        "name": "Afternoon Ride",
-        "firstname": "Jerome",
-        "lastname": "M.",
-        "mi": 0.0,
-        "elapsed_time_s": 6192,
-        "id": "2a1d95759c7e44c962cda8e7c4e8e7b3",
         "time": "2024-01-20 04:25:14"
     },
     {
@@ -495,39 +486,12 @@
         "time": "2024-01-13 08:09:52"
     },
     {
-        "name": "Night Ride",
-        "firstname": "Jerome",
-        "lastname": "M.",
-        "mi": 13.55570965561123,
-        "elapsed_time_s": 3265,
-        "id": "b3a887392c1d4f65fbf188f3ee688a91",
-        "time": "2024-01-13 04:09:54"
-    },
-    {
-        "name": "Evening E-Bike Ride",
-        "firstname": "Jerome",
-        "lastname": "M.",
-        "mi": 0.19417849757416686,
-        "elapsed_time_s": 2255,
-        "id": "7a3adf2811367850798cf12d430c21ca",
-        "time": "2024-01-13 02:05:22"
-    },
-    {
         "name": "Zwift - Going Coastal in Watopia",
         "firstname": "Jerome",
         "lastname": "M.",
         "mi": 10.383485445001192,
         "elapsed_time_s": 2066,
         "id": "9cb4eeb163fab61fcca7ae748a2d3c40",
-        "time": "2024-01-13 02:05:22"
-    },
-    {
-        "name": "Evening Ride",
-        "firstname": "Jerome",
-        "lastname": "M.",
-        "mi": 0.0,
-        "elapsed_time_s": 861,
-        "id": "5cc727674b527ceb0acd072db9b2bcb3",
         "time": "2024-01-13 02:05:22"
     },
     {
@@ -564,33 +528,6 @@
         "mi": 41.109358844349,
         "elapsed_time_s": 9084,
         "id": "876ad7908452bbf77bcd4b18d3d86f42",
-        "time": "2024-01-13 01:09:01"
-    },
-    {
-        "name": "Evening Ride",
-        "firstname": "Jerome",
-        "lastname": "M.",
-        "mi": 0.07251401813409687,
-        "elapsed_time_s": 715,
-        "id": "32200d9041103fe92113d56887e67948",
-        "time": "2024-01-13 01:09:01"
-    },
-    {
-        "name": "Evening Ride",
-        "firstname": "Jerome",
-        "lastname": "M.",
-        "mi": 0.23338701980434262,
-        "elapsed_time_s": 85,
-        "id": "1e1eabe9a8d971978300d4dfcb051e6b",
-        "time": "2024-01-13 01:09:01"
-    },
-    {
-        "name": "Evening Ride",
-        "firstname": "Jerome",
-        "lastname": "M.",
-        "mi": 0.08730265250934542,
-        "elapsed_time_s": 85,
-        "id": "6b4b4cb4e0d863be997b295a2a490956",
         "time": "2024-01-13 01:09:01"
     },
     {
