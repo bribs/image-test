@@ -1,5 +1,95 @@
 [
     {
+        "name": "Afternoon Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 17.625815239004215,
+        "elapsed_time_s": 2665,
+        "id": "b5f2b9dc9f5b948c1e992706bae12f52",
+        "time": "2024-01-20 01:09:11"
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.0,
+        "elapsed_time_s": 4905,
+        "id": "95d4408eb17e720a09de00eaa27e11f0",
+        "time": "2024-01-20 01:09:11"
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 15.723176648373498,
+        "elapsed_time_s": 2155,
+        "id": "9882fb98ae7d65a5c87a39d54be3d2ba",
+        "time": "2024-01-20 01:09:11"
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 24.37135876481349,
+        "elapsed_time_s": 3445,
+        "id": "5186853d4a8ba4aa96f1800cc5d0beaa",
+        "time": "2024-01-20 01:09:11"
+    },
+    {
+        "name": "Afternoon E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.3331170961584347,
+        "elapsed_time_s": 2991,
+        "id": "0a37204fe793dc809f480094cb4ac3a7",
+        "time": "2024-01-20 01:09:11"
+    },
+    {
+        "name": "Evening Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.41190696333412863,
+        "elapsed_time_s": 85,
+        "id": "8a1b3d189f662f8230ee56d962062b0d",
+        "time": "2024-01-20 01:09:11"
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 73.58836892547522,
+        "elapsed_time_s": 10945,
+        "id": "52c91a6f570f29875c708ec659bb0c6e",
+        "time": "2024-01-20 01:09:11"
+    },
+    {
+        "name": "Afternoon E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 1.0845412789310427,
+        "elapsed_time_s": 10837,
+        "id": "b7fa87b959bfac881ed77458f23e8c08",
+        "time": "2024-01-20 01:09:11"
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.0,
+        "elapsed_time_s": 6192,
+        "id": "2a1d95759c7e44c962cda8e7c4e8e7b3",
+        "time": "2024-01-20 01:09:11"
+    },
+    {
+        "name": "Zwift - Makuri 40 in Makuri Islands",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 25.046602839417798,
+        "elapsed_time_s": 6003,
+        "id": "0d7ebe03f07a87c451c96d64b87f83b9",
+        "time": "2024-01-20 01:09:11"
+    },
+    {
         "name": "Zwift - Melange in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
