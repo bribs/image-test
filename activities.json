@@ -1,5 +1,50 @@
 [
     {
+        "name": "Afternoon Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.0,
+        "elapsed_time_s": 4905,
+        "id": "95d4408eb17e720a09de00eaa27e11f0",
+        "time": "2024-01-20 04:25:14"
+    },
+    {
+        "name": "Afternoon E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.3331170961584347,
+        "elapsed_time_s": 2991,
+        "id": "0a37204fe793dc809f480094cb4ac3a7",
+        "time": "2024-01-20 04:25:14"
+    },
+    {
+        "name": "Evening Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.41190696333412863,
+        "elapsed_time_s": 85,
+        "id": "8a1b3d189f662f8230ee56d962062b0d",
+        "time": "2024-01-20 04:25:14"
+    },
+    {
+        "name": "Afternoon E-Bike Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 1.0845412789310427,
+        "elapsed_time_s": 10837,
+        "id": "b7fa87b959bfac881ed77458f23e8c08",
+        "time": "2024-01-20 04:25:14"
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 0.0,
+        "elapsed_time_s": 6192,
+        "id": "2a1d95759c7e44c962cda8e7c4e8e7b3",
+        "time": "2024-01-20 04:25:14"
+    },
+    {
         "name": "Pelo Friday",
         "firstname": "Travis",
         "lastname": "T.",
