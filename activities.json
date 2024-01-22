@@ -1,5 +1,14 @@
 [
     {
+        "name": "Snowboarding",
+        "firstname": "Tyler",
+        "lastname": "K.",
+        "mi": 4.000014912908613,
+        "elapsed_time_s": 14400,
+        "id": "7cbaa5d1962c6b6f1fffddb42f22a2d9",
+        "time": "2024-01-22 23:15:43"
+    },
+    {
         "name": "Zwift - Sugar Cookie in Watopia",
         "firstname": "Jerome",
         "lastname": "M.",
