@@ -2,7 +2,6 @@ var xTiles = 10;
 var yTiles = 10;
 var dim = 256;
 var zoom;
-var npc_color = "#484848";
 
 var height = dim * yTiles;
 var width = dim * xTiles;
@@ -49,8 +48,6 @@ function drawMapFn() {
 
     return (transform) => gMap.call(map, transform);
 }
-
-
 
 function setupZoom() {
 
@@ -130,87 +127,37 @@ function addPoints(data, defaultFill) {
     refresh();
 }
 
-function addRacers(racerData, totalsData, frodo, onClickFn) {
-    var n = 0;
+function addRacers(racerData, totalsData, frodoData, onClickFn) {
 
-    racerData.forEach(racer => {
-        if (typeof racer.mi === 'undefined' && typeof racer.name !== 'undefined') {
-            racer.mi = round(totalsData[racer.name]["mi"]);
-            racer.status = getStatus(totalsData[racer.name]);
+    var racerFactory = new RacerFactory();
+
+    var racers = racerData.map((d) => {
+        if (typeof d.mi === 'undefined' && typeof d.name !== 'undefined') {
+            var gollumd = (typeof d.gollumd === 'undefined') ? false : d.gollumd;
+            return racerFactory.createRacer(d.id, d.icon, d.color, totalsData[d.name], gollumd);
         } else {
-            racer.static = true
+            return racerFactory.createStaticRacer(d.id, d.icon, d.mi);
         }
     });
 
-    racerData.push(getFellowship(racerData));
-    racerData.push(frodo);
-    racerData.push(getGollum());
-    racerData.push(getGandalf());
+    racers = racers.concat(racerFactory.createNPCs(frodoData));
+    racers = racers.sort((a, b) => (a.mi - b.mi));
 
-    var racerData = racerData.sort((a, b) => (a.mi - b.mi));
-
-    var onClickFnPlaceholder = {};
-    onClickFnPlaceholder.fn = (d) => false;
-
-    var icons = racerData.map((i) => {
-        var data = {
-            id: i.id,
-            mi: i.mi,
-            patternId: i.icon + i.id,
-            img: "./images/icons/" + i.icon,
-            radius: 12,
-            fill: "url(#" + i.icon + i.id + ")",
-            link_length: -1 * link_length,
-            collide: 1,
-            static: isStatic(i),
-            onClickObj: onClickFnPlaceholder,
-            gollumd: isGollumd(i),
-            status: typeof i.status == 'undefined' ? "" : i.status
-        }
-
-        data.p = getForceP(data, n);
-        if (!isStatic(data)) n++;
-        data.radius = (isStatic(data)) ? 8 : 12;
-        data.eta = (isStatic(data)) ? getETA(0) : (typeof i.eta !== 'undefined') ? i.eta : getETA(i.mi);
-        data.color = (isGollumd(data)) ? "black" : i.color;
-        return data;
-    });
-    
-    var anchors = racerData.filter((i) => !isStatic(i)).map((i) => {
-        var p = getPathPoint(i.mi);
-
-        return {
-            id: i.id + "_",
-            mi: i.mi,
-            p: p,
-            radius: 1,
-            fill: Number.isInteger(i.color) ? z(i.color) : i.color,
-            link_length: 0,
-            collide: 0,
-            color: (isGollumd(i)) ? "black" : i.color,
-            eta: (typeof i.static === 'undefined') ? getETA(i.mi) : getETA(0),
-            static: (typeof i.static === 'undefined') ? false : i.static,
-            onClickObj: onClickFnPlaceholder
+    var invert = false; 
+    racers.forEach((r) => {
+        if (!r.static) {
+            r.invert(invert);
+            invert = !invert;
         }
     });
-    
-    var links = racerData.filter((i) => !isStatic(i)).map((i) => {
-        return {
-            source: i.id,
-            target: i.id + "_",
-            value: 4,
-            color: (isGollumd(i)) ? "black" : i.color,
-        }
-    });
-    var nodes = [...icons, ...anchors]
 
     // IMAGES
     var defs = svg.append("defs").attr("id", "imgdefs");
     var iconPatterns = defs.selectAll("iconPatterns")
-        .data(icons)
+        .data(racers)
         .enter()
         .append("pattern")
-        .attr("id", (d) => d.patternId)
+        .attr("id", (d) => d.node.patternId)
         .attr("height", "100%")
         .attr("width", "100%")
         .attr("patternContentUnits", "objectBoundingBox")
@@ -225,16 +172,16 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
         .attr("height", 1)
         .attr("width", 1)
         .attr("perserveAspectRatio", "xMidYMid slice")
-        .attr("xlink:href", (d) => d.img);
+        .attr("xlink:href", (d) => d.node.img);
 
     const status_node1 = svg.append("g")
         .attr("class", "gNode")
         .attr("stroke-width", .5)
         //.attr("opacity", .)
         .selectAll("circle")
-        .data(nodes.filter((d) => isGollumd(d)))
+        .data(racers.filter((d) => d.gollumd))
         .join("circle")
-        .attr("r", d => d.radius)
+        .attr("r", d => d.node.radius)
         .attr("stroke", d => d.color)
         .attr("fill", "black")
         .attr("fill-opacity", 1);    
@@ -243,50 +190,44 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
         .attr("class", "gNode")
         .attr("stroke-width", 1)
         .selectAll("circle")
-        .data(nodes.filter((d) => isStatic(d)))
+        .data(racers.filter((d) => d.static))
         .join("circle")
-        .attr("r", d => d.radius)
+        .attr("r", d => d.node.radius)
         .attr("stroke", d => d.color)
-        .attr("fill", d => d.fill)
-        .attr("fill-opacity", (d) => isGollumd(d) ? .5 : 1);
+        .attr("fill", d => d.node.fill)
+        .attr("fill-opacity", (d) => d.gollumd ? .5 : 1);
 
     static_node.append("title")
         .text(d => d.id.replaceAll("-", " ").replaceAll("_", ""));
 
-
     const link = svg.append("g")
         .selectAll("line")
-        .data(links)
+        .data(racers.filter((d) => !d.static))
         .join("line")
         .attr("stroke", d => d.color)
         .attr("stroke-width",  2.5)
         .attr("stroke-opacity", .65)
         .attr("stroke-linecap", "round")
 
-
-
     const node = svg.append("g")
         .attr("class", "gNode")
         .attr("stroke-width", 1.5)
         .style("stroke-opacity",".5")
         .selectAll(".racerNode")
-        .data(nodes.filter((d) => !isStatic(d)))
+        .data(racers.filter((d) => !d.static))
         .join("circle")
-        .attr("r", d => d.radius)
+        .attr("r", d => d.node.radius)
         .attr("stroke", d => d.color)
-        .attr("stroke-opacity", (d) => (d.radius == 1) ? 0 : 1)
-        .attr("fill", (d) => (d.radius == 1) ? "none" : d.fill)
-        .attr("fill-opacity", (d) => (d.radius == 1) ? 0 : isGollumd(d) ? .5 : 1);
+        .attr("stroke-opacity", 1)
+        .attr("fill", (d) => d.node.fill)
+        .attr("fill-opacity", (d) => d.gollumd ? .5 : 1);
 
     node.append("title")
         .text(d => {
             var text = d.id.replaceAll("-", " ").replaceAll("_", "");
             if (!d.static) {
                 text += " - " + d.mi + "mi";
-                if (typeof d.eta !== 'undefined') {
-                    var suffix = (d.eta == 1) ? " day" : " days"
-                    text += ", ETA: " + d.eta + suffix
-                }
+                // TODO add eta text
             }
             return text;
     });
@@ -294,79 +235,60 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
     const status_node2 = svg.append("g")
         .attr("class", "gNode")
         .attr("stroke-width", .5)
-        //.attr("opacity", .)
         .selectAll("circle")
-        .data(nodes.filter((d) => isGollumd(d)))
+        .data(racers.filter((d) => d.gollumd))
         .join("circle")
-        .attr("r", d => d.radius * .6)
+        .attr("r", d => d.node.radius * .6)
         .attr("stroke", d => d.color)
         .attr("fill", d => "url(#gollum_icon.pngGollum)")
         .attr("fill-opacity", 1);
 
     status_node2.append("title").text("Gollum'd")
 
-    onClickFnPlaceholder.fn = addStatsOverlay();
-
-    // const label = svg.selectAll(".gNode")
-    //     .selectAll("text")
-    //     .data(nodes)
-    //     .join("text")
-    //     .attr("class", "label unselectable")
-    //     .attr("stroke-width", .25)
-    //     .attr("stroke", "white")
-    //     .attr("fill", d => "white")
-    //     // .attr("text-anchor", "middle")
-    //     .text(d => (d.collide && d.color != "black") ? d.id[0] : "");
-
-    // label.append("title")
-    //     .text(d => d.id + " - " + d.mi + "mi");
+    var links = racers.filter(r => !r.static).map(r => r.link);
+    var nodes = [...racers.map(r => r.node), ...racers.filter((r) => !r.static).map(r => r.anchor)]
 
     const simulation = d3.forceSimulation(nodes)
         .force("link", d3.forceLink(links).id(d => d.id).strength(1))
-        .force("collide", d3.forceCollide((d) => {
-            return (isStatic(d)) ? 0 : d.radius * 1.2;
-        }))
-        //.force("charge", d3.forceManyBody());
+        .force("collide", d3.forceCollide(d => d.radius * d.collide))
         .force("x", d3.forceX().x((d) => d.p.x).strength(1))
         .force("y", d3.forceY().y((d) => d.p.y).strength(1));
 
     // Set the position attributes of links and nodes each time the simulation ticks.
     simulation.on("tick", () => {
         link
-            .attr("x1", d => d.source.x)
-            .attr("y1", d => d.source.y)
-            .attr("x2", d => d.target.p.x)
-            .attr("y2", d => d.target.p.y);
+            .attr("x1", d => d.node.x)
+            .attr("y1", d => d.node.y)
+            .attr("x2", d => d.anchor.p.x)
+            .attr("y2", d => d.anchor.p.y);
 
         static_node 
-            .attr("cx", d => d.p.x)
-            .attr("cy", d => d.p.y);
+            .attr("cx", d => d.node.p.x)
+            .attr("cy", d => d.node.p.y);
 
         node
-            .attr("cx", d => (d.collide) ? d.x : d.p.x)
-            .attr("cy", d => (d.collide) ? d.y : d.p.y);
+            .attr("cx", d => (d.node.collide > 0) ? d.node.x : d.node.p.x)
+            .attr("cy", d => (d.node.collide > 0) ? d.node.y : d.node.p.y);
 
         status_node1
-            .attr("cx", d => d.x + d.radius * 0)
-            .attr("cy", d => d.y + d.radius * 0);
+            .attr("cx", d => d.node.x + d.node.radius * 0)
+            .attr("cy", d => d.node.y + d.node.radius * 0);
 
         status_node2
-            .attr("cx", d => d.x + d.radius * .80)
-            .attr("cy", d => d.y + d.radius * .44);
-
-        // label
-        //     .attr("x", d => d.x - 4)
-        //     .attr("y", d => d.y + 4);
+            .attr("cx", d => d.node.x + d.node.radius * .80)
+            .attr("cy", d => d.node.y + d.node.radius * .44);
     });
 
+    var onClickFn = addStatsOverlay();
+
     // Reheat the simulation when drag starts, and fix the subject position.
-    function dragstarted(event, onClickFn) {
+    function dragstarted(event) {
         if (!event.active) simulation.alphaTarget(0.3).restart();
         event.subject.prev_x = event.x;
         event.subject.prev_y = event.y;
-        event.subject.fx = event.subject.x;
-        event.subject.fy = event.subject.y;
-        event.subject.onClickObj.fn(event.subject);
+        event.subject.node.fx = event.subject.node.x;
+        event.subject.node.fy = event.subject.node.y;
+        onClickFn(event.subject);
     }
 
     // Update the subject (dragged node) position during drag.
@@ -374,8 +296,8 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
         var prev_x = event.subject.prev_x;
         var prev_y = event.subject.prev_y;
 
-        event.subject.fx = event.subject.fx + (event.x - prev_x) / current_transform.k;
-        event.subject.fy = event.subject.fy + (event.y - prev_y) / current_transform.k;
+        event.subject.node.fx = event.subject.node.fx + (event.x - prev_x) / current_transform.k;
+        event.subject.node.fy = event.subject.node.fy + (event.y - prev_y) / current_transform.k;
         event.subject.prev_x = event.x;
         event.subject.prev_y = event.y;
 
@@ -385,116 +307,19 @@ function addRacers(racerData, totalsData, frodo, onClickFn) {
     // Unfix the subject position now that it’s no longer being dragged.
     function dragended(event) {
         if (!event.active) simulation.alphaTarget(0);
-        event.subject.fx = null;
-        event.subject.fy = null;
+        event.subject.node.fx = null;
+        event.subject.node.fy = null;
     }
 
     // Add a drag behavior.
     node.call(d3.drag()
-        .on("start", dragstarted, onClickFn)
+        .on("start", dragstarted)
         .on("drag", dragged)
         .on("end", dragended));
 
     transformElements.push(static_node, node, status_node1, status_node2, link);
-    // transformElements.push(label);
 
     refresh();
-}
-
-function getForceP(d, n) {
-
-    var mi = d.mi
-    var n;
-
-    var dir = (n % 2) ? -1 : 1;
-    dir *= (d.id == "Luke") ? -1 : 1;
-    var miDelta = 5;
-
-    var miMinus = Math.max(mi - miDelta, 0);
-    var miPlus = Math.min(mi + miDelta, 1778);
-    var pMinus = getPathPoint(miMinus);
-    var p = getPathPoint(mi);
-    var pPlus = getPathPoint(miPlus);
-
-    if (isStatic(d)) return p;
-
-    var m = -1 / ((pPlus.y - pMinus.y) / (pPlus.x - pMinus.x));
-    dir = (m > 0) ? dir * -1 : dir;
-    var m2 = m*m;
-    var b2 = p.x*p.x;
-    var l2 = d.link_length * d.link_length;
-
-    var a = 1 + m2;
-    var b = -2 * p.x - 2 * m2 * p.x;
-    var c = b2 + m2 * b2 - l2;
-
-    var bb4ac = b*b - 4*a*c;
-
-    var x = (-b + dir * Math.sqrt(bb4ac)) / (2 * a);
-    var y = m * (x - p.x) + p.y;
-
-    if (miMinus == 0) y = y - 5;
-
-    //console.log(p, m, a, b, c, x, y);
-
-    return {
-        x: x,
-        y: y
-    }
-}
-
-function getPathPoint(mi) {
-    
-    var adj = [
-        [0, 0],
-        [3, 3],
-        [32, 35],
-        [70, 63],
-        [98, 100],
-        [135, 156.5],
-        [194, 209],
-        [240, 245],
-        [356, 355],
-        [450, 450],
-        [478, 465.75],
-        [1778, 1778]
-    ];
-
-    var scale; 
-    for (i = 0; i < adj.length; i++) {
-        if (mi < adj[i][0]) {
-            scale = d3.scaleLinear()
-                .domain([adj[i-1][0],adj[i][0]])
-                .range([adj[i-1][1],adj[i][1]]);
-            break;
-        }
-    }
-
-    var adj_mi = scale(mi);
-    return path.node().getPointAtLength(1.0 * adj_mi * pathTotal / 1778);
-}
-
-function getETA(mi) {
-    var day = getDayNum();
-    if (mi > 0) {
-        var est = (1778 / (mi / day)) - day;
-        if (est < 366) return Math.ceil(est)
-    }
-}
-
-function getJSON(url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-      var status = xhr.status;
-      if (status === 200) {
-        callback(null, xhr.response);
-      } else {
-        callback(status, xhr.response);
-      }
-    };
-    xhr.send();
 }
 
 function fetchJson(url, action) { 
@@ -504,137 +329,6 @@ function fetchJson(url, action) {
         }
         return response.json()
     }).then(json => action(json));
-}
-
-function getDayNum() {
-    var now = new Date();
-    var start = new Date(now.getFullYear(), 0, 0);
-    return Math.floor((now - start) / (1000 * 60 * 60 * 24));
-}
-
-function getMinNum() {
-    var now = new Date();
-    return now.getHours() * 60 + now.getMinutes();
-
-}
-
-function getFrodo(data) {
-    data.push({ day: 0, mi: 0});
-    var data = data.sort((a, b) => (a.mi - b.mi));
-
-    var day = getDayNum();
-    var min = getMinNum();
-
-    var mi;
-    if (day <= 0) {
-        mi = 0
-    } else {
-        var prev, cur;
-        for (i = 1; i < data.length ; i++) {
-            if (data[i].day <= day) {
-                cur = data[i];
-                prev = data[i-1];
-            } 
-        }
-
-        var scale = d3.scaleLinear()
-            .domain([0,1439])
-            .range([prev.mi, cur.mi]);
-
-        mi = (cur.day == day) ? round(scale(min)) : cur.mi;
-    }
-
-    var stabbed = (mi >= 241 && mi <= 478);
-
-    return {
-        id: "Frodo",
-        icon: (stabbed) ? "stabbed_frodo2.png" : "frodo_icon2.png",
-        color: npc_color,
-        mi: mi,
-        eta: (184 - day),
-        status: (stabbed) ? "Trying not to die" : "Healthy"
-    };
-}
-
-function round(num) {
-    return Math.round(num * 10) / 10;
-}
-
-function getGollum() {
-    var grace = 7;
-    var day = getDayNum();
-    var min = getMinNum();
-
-    var day_adj = day - grace;
-    if (day_adj < 0) return 0;
-
-    var scale = d3.scalePow()
-        .domain([0, (365-grace) * 1440 + 1439])
-        .range([0, 1778])
-        .exponent(1.5);
-
-    return {
-        id: "Gollum",
-        icon: "gollum_icon.png",
-        color: "black",
-        mi: round(scale((day - grace - 1) * 1440 + getMinNum())),
-        eta: 366 - day,
-        status: "Booty huntin'"
-    };
-}
-
-function getFellowship(racerData) {
-    var total = 0;
-    var num = 0;
-    for (racer of racerData) {
-        if (typeof racer.static === 'undefined') {
-            total += racer.mi;
-            num += 1;
-        }
-    }
-
-    var fship = round(total / num);
-    var gandalf = round(getGandalfMi());
-    var status = (fship == gandalf) ? "At pace" : (fship > gandalf) ? "Above pace" : "Behind pace";
-
-    return {
-        id: "Fellowship",
-        icon: "fellowship_icon.png",
-        color: npc_color,
-        mi: fship,
-        status: status
-    };
-
-}
-
-function getGandalfMi() {
-    var day = getDayNum();
-
-    var scale = d3.scaleLinear()
-        .domain([0, 184 * 1440])
-        .range([0, 1778]);
-
-    var min_adj = (day - 1) * 1440 + getMinNum();
-
-    return scale(min_adj);
-}
-
-function getGandalf() {
-    var day = getDayNum();
-    var scale = d3.scaleLinear()
-        .domain([0, 184 * 1440])
-        .range([0, 1778]);
-
-    var mi_rounded = round(getGandalfMi());
-
-    return {
-        id: "Arrives-exactly-when-he-means-to",
-        icon: "gandalf_icon.png",
-        color: npc_color,
-        mi: mi_rounded,
-        eta: getETA(scale(day * 1440)),
-        status: "Rippin' the pipe"
-    };
 }
 
 function addStatsOverlay() {
@@ -695,19 +389,18 @@ function addStatsOverlay() {
 
     return (d) => {
 
-        if (typeof d.img !== 'undefined' && !isStatic(d)) {
+        if (!d.static) {
             gStats.attr("opacity", "100");
-            icon.attr("fill", d.fill);
+            icon.attr("fill", d.node.fill);
 
             icon.attr("stroke", d.color);
             background.attr("stroke", d.color);
             
-            textElements[0].text(d.mi + " mi");
-            textElements[1].text(round(d.mi / getDayNum()) + " mi per day");
-            textElements[2].text(1778 - d.mi + " mi to go");
-            var eta = (exists(d.eta)) ? ("ETA " + d.eta + ((d.eta == 1) ? " day" : " days")) : "";
-            textElements[3].text(eta);
-            textElements[4].text(d.status);
+            textElements[0].text(d.miText());
+            textElements[1].text(d.perDayText());
+            textElements[2].text(d.togoText());
+            textElements[3].text(d.etaText());
+            textElements[4].text(d.statusText());
         } else {
             gStats.attr("opacity", "0");
         }
@@ -715,60 +408,17 @@ function addStatsOverlay() {
 
 }
 
-function exists(d) {
-    return typeof d !== 'undefined';
-}
-
-function isGollumd(d) {
-    return typeof d.gollumd !== 'undefined' && d.gollumd;
-}
-
-function isStatic(d) {
-    return typeof d.static !== 'undefined' && d.static;
-}
-
-function getStatus(d) {
-    console.log(d);
-    if (d['recent1'] == 0) {
-        if (d['recent3'] == 0) {
-            if (d['recent7' == 0]) {
-                return "Completely MIA";
-            }
-            return "Snoozin'";
-        }
-        return "Admiring scenery";
-    } else if (d['recent1'] > 9.66) {
-        if (d['recent3'] > 9.66 * 3) {
-            if (d['recent7'] > 9.66 * 7) {
-                return "Wants it";
-            }
-            return "Cruising";
-        }
-        return "Speeding up";
-    }
-    return "Crawling along";
-}
-
 fetchJson('./data/locations.json', (locationsData) => {
     addPoints(locationsData, "white");
 
     fetchJson('./data/frodo.json', (frodoData) => {
-        var day = getDayNum();
-        var frodo = getFrodo(frodoData);
-        addPoints(frodoData.filter((i) => i.day < day), "black");
+        addPoints(frodoData.filter((i) => i.day < getDayNum()), "black");
 
         fetchJson('./totals.json', (totalsData) => {
-            fetchJson('./data/racers.json', (racerData) => addRacers(racerData, totalsData, frodo));
+            fetchJson('./data/racers.json', (racerData) => addRacers(racerData, totalsData, frodoData));
         });
     });
 });
-
-// getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/frodo.json',
-//     (err, data) => (err !== null) ? alert('frodo req failed') : addPoints(data));
-// getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/locations.json',
-//     (err, data) => (err !== null) ? alert('locations req failed') : addPoints(data));
-// getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/miles.json',
-//     (err, data) => (err !== null) ? alert('racers req failed') : addRacers(data));
 
 zoom = setupZoom();
 refresh();
