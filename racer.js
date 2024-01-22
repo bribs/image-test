@@ -14,10 +14,7 @@ function round(num) {
     return Math.round(num * 10) / 10;
 }
 
-function getPathPoint(mi) {
-
-    console.log(mi);
-    
+function getPathPoint(mi) {    
     var adj = [
         [0, 0],
         [3, 3],

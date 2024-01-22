@@ -19,8 +19,6 @@ var pathTotal = path.node().getTotalLength();
 
 var current_transform = d3.zoomIdentity;
 
-var onClick = addStatsOverlay();
-
 function drawMapFn() {
 
     var tiles = [];
@@ -153,9 +151,6 @@ function addRacers(racerData, totalsData, frodoData, onClickFn) {
         }
     });
 
-    var onClickFnPlaceholder = {};
-    onClickFnPlaceholder.fn = (d) => false;
-
     // IMAGES
     var defs = svg.append("defs").attr("id", "imgdefs");
     var iconPatterns = defs.selectAll("iconPatterns")
@@ -250,13 +245,8 @@ function addRacers(racerData, totalsData, frodoData, onClickFn) {
 
     status_node2.append("title").text("Gollum'd")
 
-    onClickFnPlaceholder.fn = addStatsOverlay();
-
     var links = racers.filter(r => !r.static).map(r => r.link);
     var nodes = [...racers.map(r => r.node), ...racers.filter((r) => !r.static).map(r => r.anchor)]
-
-    console.log(links)
-    console.log(nodes)
 
     const simulation = d3.forceSimulation(nodes)
         .force("link", d3.forceLink(links).id(d => d.id).strength(1))
@@ -294,12 +284,11 @@ function addRacers(racerData, totalsData, frodoData, onClickFn) {
     // Reheat the simulation when drag starts, and fix the subject position.
     function dragstarted(event) {
         if (!event.active) simulation.alphaTarget(0.3).restart();
-        console.log(event)
         event.subject.prev_x = event.x;
         event.subject.prev_y = event.y;
         event.subject.node.fx = event.subject.node.x;
         event.subject.node.fy = event.subject.node.y;
-        onClick(event.subject);
+        onClickFn(event.subject);
     }
 
     // Update the subject (dragged node) position during drag.
@@ -331,21 +320,6 @@ function addRacers(racerData, totalsData, frodoData, onClickFn) {
     transformElements.push(static_node, node, status_node1, status_node2, link);
 
     refresh();
-}
-
-function getJSON(url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-      var status = xhr.status;
-      if (status === 200) {
-        callback(null, xhr.response);
-      } else {
-        callback(status, xhr.response);
-      }
-    };
-    xhr.send();
 }
 
 function fetchJson(url, action) { 
@@ -445,13 +419,6 @@ fetchJson('./data/locations.json', (locationsData) => {
         });
     });
 });
-
-// getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/frodo.json',
-//     (err, data) => (err !== null) ? alert('frodo req failed') : addPoints(data));
-// getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/locations.json',
-//     (err, data) => (err !== null) ? alert('locations req failed') : addPoints(data));
-// getJSON('https://cdn.jsdelivr.net/gh/bribs/image-test/data/miles.json',
-//     (err, data) => (err !== null) ? alert('racers req failed') : addRacers(data));
 
 zoom = setupZoom();
 refresh();
