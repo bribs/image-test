@@ -1,5 +1,14 @@
 [
     {
+        "name": "Pelo Monday",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 10.10001590710252,
+        "elapsed_time_s": 2640,
+        "id": "ef3eed9820e78624a918c4611490ddf3",
+        "time": "2024-01-22 15:16:54"
+    },
+    {
         "name": "Zwift - C.A. in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
@@ -16,15 +25,6 @@
         "elapsed_time_s": 6318,
         "id": "1aca16a2646b70e36d8b28b12cf634b3",
         "time": "2024-01-22 01:12:54"
-    },
-    {
-        "name": "Afternoon Run",
-        "firstname": "Travis",
-        "lastname": "T.",
-        "mi": 10.10001590710252,
-        "elapsed_time_s": 2640,
-        "id": "fe9fdf1357619ed83a3b768fef97f656",
-        "time": "2024-01-21 23:26:39"
     },
     {
         "name": "Peloton - 78 min Just Ride",
