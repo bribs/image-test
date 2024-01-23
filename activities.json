@@ -1,5 +1,14 @@
 [
     {
+        "name": "Lunch Run",
+        "firstname": "Brendan",
+        "lastname": "D.",
+        "mi": 0.3831374771335401,
+        "elapsed_time_s": 1008,
+        "id": "4c85769e9f9a7e113bf25f1a9a859b3b",
+        "time": "2024-01-23 21:13:46"
+    },
+    {
         "name": "Peloton - 78 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
