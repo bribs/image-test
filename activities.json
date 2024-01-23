@@ -1,5 +1,14 @@
 [
     {
+        "name": "Pelo Tuesday 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 2.0000074564543064,
+        "elapsed_time_s": 414,
+        "id": "6cf88632a6a70fef0cd5804cf875b607",
+        "time": "2024-01-23 22:14:46"
+    },
+    {
         "name": "Afternoon Run",
         "firstname": "Brendan",
         "lastname": "D.",
