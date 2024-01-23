@@ -1,5 +1,14 @@
 [
     {
+        "name": "Pelo mon 2",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 10.000037282271533,
+        "elapsed_time_s": 2160,
+        "id": "02fe6c99077984f9b160a8ad8527dd6c",
+        "time": "2024-01-23 08:11:15"
+    },
+    {
         "name": "Bike warmup",
         "firstname": "Tyler",
         "lastname": "K.",
