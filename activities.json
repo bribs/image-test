@@ -1,5 +1,14 @@
 [
     {
+        "name": "Pelo Monday 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 1.3000328083989499,
+        "elapsed_time_s": 240,
+        "id": "a6d79ac742ce87b2247fbb53915cda23",
+        "time": "2024-01-23 01:11:13"
+    },
+    {
         "name": "Snowboarding",
         "firstname": "Tyler",
         "lastname": "K.",
