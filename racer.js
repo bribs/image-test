@@ -181,6 +181,8 @@ class RacerFactory {
             .exponent(1.5);
         
         var mi = round(scale((day - grace - 1) * 1440 + getMinNum()));
+        
+        var mi = 0;
         var eta = 366 - day
         return this.createNPC("Gollum", "gollum_icon.png", mi, eta, "Booty huntin'");
     }
@@ -216,7 +218,6 @@ class RacerBase {
     }
 
     invert(invert) {
-        invert = (this.id == 'Luke') ? !invert : invert;
         this.node.p = getForceP(this.mi, 20, invert);
     }
 
