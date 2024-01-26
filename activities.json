@@ -1,5 +1,23 @@
 [
     {
+        "name": "Afternoon Alpine Ski",
+        "firstname": "Brendan",
+        "lastname": "D.",
+        "mi": 7.264202059969776,
+        "elapsed_time_s": 4275,
+        "id": "71f66ef1182ccb108295b69b94d1c6fd",
+        "time": "2024-01-26 20:46:49"
+    },
+    {
+        "name": "Afternoon Alpine Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 3.7612219637318063,
+        "elapsed_time_s": 3213,
+        "id": "9e1a0b60f75807e516b223a3cff7bcec",
+        "time": "2024-01-26 20:46:49"
+    },
+    {
         "name": "Peloton - 73 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
