@@ -1,5 +1,14 @@
 [
     {
+        "name": "Warmup bike",
+        "firstname": "Tyler",
+        "lastname": "K.",
+        "mi": 9.999975145152309,
+        "elapsed_time_s": 3000,
+        "id": "29fc150e88f8dd5fd97ad639a21d675c",
+        "time": "2024-01-27 02:46:34"
+    },
+    {
         "name": "Pelo Fri 1",
         "firstname": "Travis",
         "lastname": "T.",
