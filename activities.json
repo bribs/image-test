@@ -1,6 +1,15 @@
 [
     {
         "name": "Lunch Backcountry Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 2.5007083631591502,
+        "elapsed_time_s": 5278,
+        "id": "07ecd219701bbe39a50359f3334fa1a8",
+        "time": "2024-01-28 17:46:42"
+    },
+    {
+        "name": "Lunch Backcountry Ski",
         "firstname": "Brendan",
         "lastname": "D.",
         "mi": 1.6045668297144675,
