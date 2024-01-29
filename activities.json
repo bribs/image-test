@@ -1,5 +1,14 @@
 [
     {
+        "name": "Weekend hike",
+        "firstname": "Tyler",
+        "lastname": "K.",
+        "mi": 9.999975145152309,
+        "elapsed_time_s": 10800,
+        "id": "d4b189ad1ddb22ea9f3bf32cb8f3842c",
+        "time": "2024-01-29 15:14:24"
+    },
+    {
         "name": "Zwift - Takin' It Easy in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
