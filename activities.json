@@ -1,5 +1,23 @@
 [
     {
+        "name": "Zwift - Douce France in France",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 30.335528016384316,
+        "elapsed_time_s": 7310,
+        "id": "77f1fbb3196c00afa6cb9c21305d4678",
+        "time": "2024-01-30 04:09:10"
+    },
+    {
+        "name": "Pelo Monday 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 6.60001839258729,
+        "elapsed_time_s": 1680,
+        "id": "5d1efb5d70168ef7faaafa6e278d4a3a",
+        "time": "2024-01-30 04:09:10"
+    },
+    {
         "name": "Peloton - 75 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
