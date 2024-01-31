@@ -1,5 +1,14 @@
 [
     {
+        "name": "Afternoon Run",
+        "firstname": "Brendan",
+        "lastname": "D.",
+        "mi": 3.1068559611866697,
+        "elapsed_time_s": 1740,
+        "id": "fda331864fab6394d07c84f75697fb3b",
+        "time": "2024-01-31 21:26:25"
+    },
+    {
         "name": "Afternoon Backcountry Ski",
         "firstname": "Luke",
         "lastname": "C.",
