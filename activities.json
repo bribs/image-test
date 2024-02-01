@@ -1,5 +1,14 @@
 [
     {
+        "name": "Sweaty walk",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 2.0000074564543064,
+        "elapsed_time_s": 1800,
+        "id": "238dc786c82cd9d9dfa9b628251a74aa",
+        "time": "2024-02-01 18:29:00"
+    },
+    {
         "name": "Lunch Backcountry Ski",
         "firstname": "Luke",
         "lastname": "C.",
