@@ -1,5 +1,14 @@
 [
     {
+        "name": "Morning Alpine Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 24.021588920703092,
+        "elapsed_time_s": 13979,
+        "id": "f0cde7efba4f27b7e1ef1f8cb756315d",
+        "time": "2024-02-02 19:13:21"
+    },
+    {
         "name": "Peloton - 79 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
