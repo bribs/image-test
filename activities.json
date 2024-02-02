@@ -1,5 +1,14 @@
 [
     {
+        "name": "Warmup ride",
+        "firstname": "Tyler",
+        "lastname": "K.",
+        "mi": 5.29998558418834,
+        "elapsed_time_s": 1320,
+        "id": "788cb4e5d46766b58402770e6db0975b",
+        "time": "2024-02-02 01:04:40"
+    },
+    {
         "name": "Pelo thurs 1",
         "firstname": "Travis",
         "lastname": "T.",
