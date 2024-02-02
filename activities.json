@@ -1,5 +1,14 @@
 [
     {
+        "name": "Zwift - 20mi in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 20.205127057981386,
+        "elapsed_time_s": 3718,
+        "id": "a8f91ddb357732c5d57960f6d900b8a2",
+        "time": "2024-02-02 13:46:45"
+    },
+    {
         "name": "Warmup ride",
         "firstname": "Tyler",
         "lastname": "K.",
