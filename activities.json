@@ -1,5 +1,23 @@
 [
     {
+        "name": "Morning Alpine Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 20.912930983058935,
+        "elapsed_time_s": 20504,
+        "id": "07025617d9573fb3a4ec7203af958425",
+        "time": "2024-02-03 21:11:51"
+    },
+    {
+        "name": "Zwift - Macro to Micro in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 34.18486041517537,
+        "elapsed_time_s": 6124,
+        "id": "c14408a62b933643b178ff19a9fbd49c",
+        "time": "2024-02-03 21:11:51"
+    },
+    {
         "name": "Peloton - 11 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
