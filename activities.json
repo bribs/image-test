@@ -1,5 +1,14 @@
 [
     {
+        "name": "Pelo sat 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 10.400013918714706,
+        "elapsed_time_s": 2340,
+        "id": "50ed88dd3a34e97cbdb74489ef34df0c",
+        "time": "2024-02-10 18:17:15"
+    },
+    {
         "name": "Peloton - 186 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
