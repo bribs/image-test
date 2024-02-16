@@ -1,5 +1,23 @@
 [
     {
+        "name": "Afternoon Backcountry Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.9386781197804819,
+        "elapsed_time_s": 2725,
+        "id": "cd7c90dc3142bee568308027a53616a1",
+        "time": "2024-02-16 22:13:47"
+    },
+    {
+        "name": "Pelo Fri 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 10.10001590710252,
+        "elapsed_time_s": 2400,
+        "id": "62f7da2b76f49fdf28ba4e099209518c",
+        "time": "2024-02-16 22:13:47"
+    },
+    {
         "name": "Billy goat flood ruck",
         "firstname": "conor",
         "lastname": "C.",
