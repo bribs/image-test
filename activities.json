@@ -1,5 +1,14 @@
 [
     {
+        "name": "Zwift - 20mi in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 20.40819116360455,
+        "elapsed_time_s": 3616,
+        "id": "5f8b93a8599afa8e8c96fd69d836e652",
+        "time": "2024-02-17 20:14:16"
+    },
+    {
         "name": "Morning Backcountry Ski",
         "firstname": "Luke",
         "lastname": "C.",
