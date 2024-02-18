@@ -1,5 +1,23 @@
 [
     {
+        "name": "Zwift - 40 mi in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 33.24907539966595,
+        "elapsed_time_s": 5942,
+        "id": "3d0007bed16e989c5fbc8a4a5d286704",
+        "time": "2024-02-18 21:46:24"
+    },
+    {
+        "name": "Pelo Sun 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 2.0999860812852935,
+        "elapsed_time_s": 480,
+        "id": "993064ac74e9ed3933b716db5f8ae034",
+        "time": "2024-02-18 21:46:24"
+    },
+    {
         "name": "Morning Backcountry Ski",
         "firstname": "Luke",
         "lastname": "C.",
