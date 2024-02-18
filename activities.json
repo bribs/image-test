@@ -1,5 +1,14 @@
 [
     {
+        "name": "Morning Backcountry Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.664094189930804,
+        "elapsed_time_s": 3063,
+        "id": "96f89da0139a774692b0f64480819188",
+        "time": "2024-02-18 17:13:49"
+    },
+    {
         "name": "Lunch Backcountry Ski",
         "firstname": "Brendan",
         "lastname": "D.",
