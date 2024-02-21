@@ -182,7 +182,7 @@ class RacerFactory {
         
         var mi = round(scale((day - grace - 1) * 1440 + getMinNum()));
         
-        var mi = 0;
+        //var mi = 0;
         var eta = 366 - day
         return this.createNPC("Gollum", "gollum_icon.png", mi, eta, "Booty huntin'");
     }

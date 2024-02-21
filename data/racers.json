@@ -10,5 +10,5 @@
     { "id": "Bribs", "icon": "biker_icon.jpg", "color": "gold", "name": "Brib" },
     { "id": "Justin", "icon": "bear_icon.jpg", "color": "green", "name": "Justin" },
     { "id": "Luke", "icon": "luke_icon.png", "color": "cornflowerblue", "name": "Luke"},
-    { "id": "Brendan", "icon": "brendan_icon.jpg", "color": "purple", "name": "Brendan"}
+    { "id": "Brendan", "icon": "brendan_icon.jpg", "color": "purple", "name": "Brendan", "gollumd": true}
 ]
