@@ -1,5 +1,14 @@
 [
     {
+        "name": "Evening Walk",
+        "firstname": "Brendan",
+        "lastname": "D.",
+        "mi": 2.0000074564543064,
+        "elapsed_time_s": 2400,
+        "id": "64e1307ba7d2d2c5c99cceacf183d986",
+        "time": "2024-02-24 01:01:25"
+    },
+    {
         "name": "Pelo Thursday 1",
         "firstname": "Travis",
         "lastname": "T.",
