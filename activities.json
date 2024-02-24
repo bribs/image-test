@@ -1,5 +1,14 @@
 [
     {
+        "name": "Morning Alpine Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 4.598892467986956,
+        "elapsed_time_s": 2445,
+        "id": "4feea30162520e8fcb76ee1096beb1c8",
+        "time": "2024-02-24 15:46:36"
+    },
+    {
         "name": "Zwift - 20mi in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
