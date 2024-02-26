@@ -3,6 +3,15 @@
         "name": "Zwift - 20mi in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
+        "mi": 20.400424023701582,
+        "elapsed_time_s": 3636,
+        "id": "db4262316081607e70794027da4ea201",
+        "time": "2024-02-26 13:27:12"
+    },
+    {
+        "name": "Zwift - 20mi in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
         "mi": 21.30793664996421,
         "elapsed_time_s": 3626,
         "id": "9cad02fe359665dfde9171cff45b6f68",
