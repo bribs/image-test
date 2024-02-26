@@ -1,5 +1,14 @@
 [
     {
+        "name": "Pelo mon 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 3.4999975145152304,
+        "elapsed_time_s": 780,
+        "id": "a6bc39a1d73de432a7417b831de62ced",
+        "time": "2024-02-26 23:15:25"
+    },
+    {
         "name": "Afternoon Run",
         "firstname": "Brendan",
         "lastname": "D.",
