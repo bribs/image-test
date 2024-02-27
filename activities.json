@@ -1,5 +1,23 @@
 [
     {
+        "name": "Zwift - Greater London Loop in London",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 13.279696572019404,
+        "elapsed_time_s": 3418,
+        "id": "5e8ce30234d67969fd0433307868c103",
+        "time": "2024-02-27 20:46:43"
+    },
+    {
+        "name": "Zwift - Classique in London",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 4.097010956016861,
+        "elapsed_time_s": 789,
+        "id": "41d00456bebd521a9b030e393ad46798",
+        "time": "2024-02-27 20:46:43"
+    },
+    {
         "name": "Peloton - 45 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
