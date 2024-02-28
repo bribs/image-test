@@ -1,5 +1,23 @@
 [
     {
+        "name": "Zwift - Volcano Climb in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 15.15797741191442,
+        "elapsed_time_s": 3274,
+        "id": "b343f00ed5281399ff3d697457c87cc0",
+        "time": "2024-02-28 21:13:13"
+    },
+    {
+        "name": "Pelo Wed 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 13.099996023224369,
+        "elapsed_time_s": 2940,
+        "id": "0572d0cfbcbf501fed5fc0293da19b96",
+        "time": "2024-02-28 21:13:13"
+    },
+    {
         "name": "Peloton - 56 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
