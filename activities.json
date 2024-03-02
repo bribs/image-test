@@ -1,5 +1,14 @@
 [
     {
+        "name": "Morning Alpine Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 9.933177741986796,
+        "elapsed_time_s": 10529,
+        "id": "5a76df2e7b4c9002e5bdf3ce9d79186d",
+        "time": "2024-03-02 17:46:43"
+    },
+    {
         "name": "Pelo Sat 1",
         "firstname": "Travis",
         "lastname": "T.",
