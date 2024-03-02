@@ -1,5 +1,23 @@
 [
     {
+        "name": "Zwift - Big Foot Hills in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 44.09647657679153,
+        "elapsed_time_s": 12789,
+        "id": "ab3012275bd0a80ba3d2da59dce4afda",
+        "time": "2024-03-02 01:02:34"
+    },
+    {
+        "name": "Zwift - 20mi in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 20.411795116519524,
+        "elapsed_time_s": 3660,
+        "id": "8bda9c33a84cfc695fe291eb654cef0a",
+        "time": "2024-03-02 01:02:34"
+    },
+    {
         "name": "Pelo Friday 1",
         "firstname": "Travis",
         "lastname": "T.",
