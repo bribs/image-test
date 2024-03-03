@@ -1,5 +1,14 @@
 [
     {
+        "name": "Zwift - 40 mi in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 42.09230593334924,
+        "elapsed_time_s": 7531,
+        "id": "68fae84b8ad8b5e535568ba9c8ab9637",
+        "time": "2024-03-03 14:27:00"
+    },
+    {
         "name": "Peloton - 175 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
