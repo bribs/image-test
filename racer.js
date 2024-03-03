@@ -238,7 +238,7 @@ class RacerBase {
     }
 
     togoText() {
-        return 1778 - this.mi + " mi to go"
+        return round(1778 - this.mi) + " mi to go"
     }
 
     etaText() {
