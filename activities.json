@@ -1,5 +1,14 @@
 [
     {
+        "name": "Peloton - 120 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 34.57688350035791,
+        "elapsed_time_s": 7200,
+        "id": "b4d1ac59e624c5abca37e4045dbd9818",
+        "time": "2024-03-03 23:26:48"
+    },
+    {
         "name": "Zwift - Twilight Harbor in Makuri Islands",
         "firstname": "Jerome",
         "lastname": "M.",
