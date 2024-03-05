@@ -1,5 +1,41 @@
 [
     {
+        "name": "Peloton - 88 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 25.508219498130913,
+        "elapsed_time_s": 5297,
+        "id": "a9a909b54a071e972898cf693ca23ad0",
+        "time": "2024-03-05 01:57:13"
+    },
+    {
+        "name": "Peloton - 80 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 22.74572745168217,
+        "elapsed_time_s": 4802,
+        "id": "91f08139565f496b8c6264b20c024146",
+        "time": "2024-03-05 01:03:45"
+    },
+    {
+        "name": "Pelo Mon 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 2.2000268432355043,
+        "elapsed_time_s": 480,
+        "id": "4340d169d9ef6a6cfb7bc21ce81e411b",
+        "time": "2024-03-04 22:13:14"
+    },
+    {
+        "name": "Zwift - Neokyo All-Nighter in Makuri Islands",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 15.2791447944007,
+        "elapsed_time_s": 3575,
+        "id": "64457df04680b86e82b7e1cc90242d83",
+        "time": "2024-03-04 20:26:36"
+    },
+    {
         "name": "Peloton - 49 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
