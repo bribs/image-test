@@ -1,5 +1,23 @@
 [
     {
+        "name": "Pelo Tuesday 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 11.000009941939075,
+        "elapsed_time_s": 2520,
+        "id": "99cf179515aebbf8c18abb97e8d7697c",
+        "time": "2024-03-05 22:29:37"
+    },
+    {
+        "name": "Zwift - Duchy Estate in Yorkshire",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 3.2825175972321636,
+        "elapsed_time_s": 929,
+        "id": "3ef5d282cf1a34925b4221f431bb6fbb",
+        "time": "2024-03-05 22:29:37"
+    },
+    {
         "name": "Zwift - Canopies and Coastlines in Watopia",
         "firstname": "Jerome",
         "lastname": "M.",
