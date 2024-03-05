@@ -1,5 +1,14 @@
 [
     {
+        "name": "Zwift - 100 mi...? in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 100.17249264296508,
+        "elapsed_time_s": 19487,
+        "id": "0bd8e76d034324d3ebaec339afd1a14e",
+        "time": "2024-03-05 16:46:26"
+    },
+    {
         "name": "Peloton - 88 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
