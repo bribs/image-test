@@ -27,7 +27,7 @@ function getPathPoint(mi) {
         [356, 355],
         [450, 450],
         [478, 465.75],
-        [1778, 1778]
+        [1778.01, 1778.01]
     ];
 
     var scale; 
@@ -39,9 +39,9 @@ function getPathPoint(mi) {
             break;
         }
     }
-
+        
     var adj_mi = scale(mi);
-    return path.node().getPointAtLength(1.0 * adj_mi * pathTotal / 1778);
+        return path.node().getPointAtLength(1.0 * adj_mi * pathTotal / 1778);
 }
 
 function getForceP(mi, link_length, invert = false) {
@@ -192,7 +192,8 @@ class RacerFactory {
 class RacerBase {
     constructor(id, icon, color, mi, gollumd = false) {
         this.id = id;
-        this.mi = mi;
+        this.mi = (mi > 1778) ? 1778 : mi;
+
         this.gollumd = gollumd;
         this.static = false;
 
@@ -203,13 +204,13 @@ class RacerBase {
         this.node.radius = 12;
         this.node.img = "./images/icons/" + icon;
         this.node.fill = "url(#" + icon + id + ")";
-        this.node.p = getPathPoint(mi);
+        this.node.p = getPathPoint(this.mi);
         this.node.collide = 1.2;
         this.node
         this.anchor = {};
         this.anchor.id = id + "_";
         this.anchor.radius = 1;
-        this.anchor.p = getPathPoint(mi);
+        this.anchor.p = getPathPoint(this.mi);
         this.anchor.collide = 0;
         this.link = {};
         this.link.source = this.id;
