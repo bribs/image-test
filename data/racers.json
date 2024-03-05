@@ -3,7 +3,7 @@
     { "id": "Black-Rider", "icon": "nazgul_icon.jpg", "color": "black", "mi": 32},
     { "id": "Stone-Trolls", "icon": "stone_troll.png", "color": "black", "mi": 393},
     { "id": "Nazguls", "icon": "nazgul_icon.jpg", "color": "black", "mi": 450},
-    { "id": "Tyler", "icon": "ty_icon.jpg", "color": "brown", "name": "Tyler" },
+    { "id": "Tyler", "icon": "ty_icon.jpg", "color": "brown", "name": "Tyler", "gollumd" : true},
     { "id": "Conor", "icon": "conor_icon.jpg", "color": "orange", "name" : "conor", "gollumd" : true},
     { "id": "Dron", "icon": "dron_icon2.jpg", "color": "blue", "name": "Jerome"},
     { "id": "Travis", "icon": "topp_icon.png", "color": "red", "name": "Travis" },
