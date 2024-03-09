@@ -1,5 +1,14 @@
 [
     {
+        "name": "Pelo sat 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 10.000037282271533,
+        "elapsed_time_s": 2220,
+        "id": "260a3a7ac96ab18a3b86dfbe49bdd6a3",
+        "time": "2024-03-09 23:15:00"
+    },
+    {
         "name": "Zwift - London Classique in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
