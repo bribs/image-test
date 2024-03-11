@@ -1,5 +1,23 @@
 [
     {
+        "name": "Afternoon Backcountry Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.7088950528911155,
+        "elapsed_time_s": 3231,
+        "id": "80befc71f1080e496ba6f49dab377a04",
+        "time": "2024-03-11 22:13:45"
+    },
+    {
+        "name": "Pelo Monday 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 2.0999860812852935,
+        "elapsed_time_s": 360,
+        "id": "2f760c606c9611a1f97d42e8ea32d89a",
+        "time": "2024-03-11 22:13:45"
+    },
+    {
         "name": "Peloton - 65 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
