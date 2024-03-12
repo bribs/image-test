@@ -143,7 +143,7 @@ function addRacers(racerData, totalsData, frodoData, onClickFn) {
     racers = racers.concat(racerFactory.createNPCs(frodoData));
     racers = racers.sort((a, b) => (a.mi - b.mi));
 
-    var invert = false; 
+    var invert = true; 
     racers.forEach((r) => {
         if (!r.static) {
             r.invert(invert);

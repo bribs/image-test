@@ -192,7 +192,8 @@ class RacerFactory {
 class RacerBase {
     constructor(id, icon, color, mi, gollumd = false) {
         this.id = id;
-        this.mi = (mi > 1778) ? 1778 : mi;
+        this.mi_raw = mi;
+        this.mi = round(mi % 1778);
 
         this.gollumd = gollumd;
         this.static = false;
@@ -218,24 +219,29 @@ class RacerBase {
         this.link.length = 4;
     }
 
+    lap() {
+        return (this.mi_raw > 1778) ? Math.ceil(this.mi_raw/1778) : 1;
+    }
+
     invert(invert) {
         this.node.p = getForceP(this.mi, 20, invert);
     }
 
     eta() {
         var day = getDayNum();
-        if (this.mi > 0) {
-            var est = (1778 / (this.mi / day)) - day;
-            if (est < 366) return Math.ceil(est)
+        if (this.mi_raw > 0) {
+            var est = (1778 * this.lap() / (this.mi_raw / day)) - day;
+            return Math.ceil(est)
         }
     }
 
     miText() {
-        return this.mi + " mi";
+        var suffix = " mi";
+        return this.mi_raw + suffix;
     }
 
     perDayText() {
-        return round(this.mi / getDayNum()) + " mi per day";
+        return round(this.mi_raw / getDayNum()) + " mi per day";
     }
 
     togoText() {
@@ -272,6 +278,9 @@ class Racer extends RacerBase {
     }
 
     statusText() {
+        if (this.id == "Justin") return "1st Place: 64 days";
+        if (this.id == "Bribs") return "2nd Place: 69 days";
+
         if (this.miObj['recent1'] == 0) {
             if (this.miObj['recent3'] == 0) {
                 if (this.miObj['recent7' == 0]) {
