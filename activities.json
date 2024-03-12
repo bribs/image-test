@@ -1,5 +1,23 @@
 [
     {
+        "name": "Afternoon Run",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 2.0000074564543064,
+        "elapsed_time_s": 1200,
+        "id": "f9a3c666d56056cacb8cf518616a01dd",
+        "time": "2024-03-12 19:13:53"
+    },
+    {
+        "name": "Morning Run",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 2.0000074564543064,
+        "elapsed_time_s": 1200,
+        "id": "05fcb58841ca0812011f58719c9fe715",
+        "time": "2024-03-12 19:13:53"
+    },
+    {
         "name": "Peloton - 70 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
