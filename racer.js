@@ -278,7 +278,7 @@ class Racer extends RacerBase {
     }
 
     statusText() {
-        if (this.id == "Justin") return "1st Place: 64 days";
+        if (this.id == "Justin") return "1st Place: 65 days";
         if (this.id == "Bribs") return "2nd Place: 69 days";
 
         if (this.miObj['recent1'] == 0) {
