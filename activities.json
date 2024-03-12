@@ -1,5 +1,14 @@
 [
     {
+        "name": "Morning Alpine Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.7433811540602877,
+        "elapsed_time_s": 1148,
+        "id": "3b33b765010b068d0afcc1eb93190269",
+        "time": "2024-03-12 15:26:37"
+    },
+    {
         "name": "Zwift - Arise in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
