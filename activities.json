@@ -1,5 +1,32 @@
 [
     {
+        "name": "Peloton - 63 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 20.009146583949732,
+        "elapsed_time_s": 3771,
+        "id": "304dc711fb01a63deee38501a79ae57e",
+        "time": "2024-03-16 16:46:42"
+    },
+    {
+        "name": "Zwift - Champs-\u00c9lys\u00e9es in Paris",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 6.266217788117394,
+        "elapsed_time_s": 1463,
+        "id": "625a1539219d09f4d7b6b103de0c73ec",
+        "time": "2024-03-16 16:46:42"
+    },
+    {
+        "name": "Peloton - 6 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 1.4868169887854927,
+        "elapsed_time_s": 360,
+        "id": "a6836851bd19c518bb4daee89684e2ba",
+        "time": "2024-03-16 16:46:42"
+    },
+    {
         "name": "Peloton - 34 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
