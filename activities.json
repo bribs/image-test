@@ -1,5 +1,23 @@
 [
     {
+        "name": "Lunch Run",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 2.999980116121848,
+        "elapsed_time_s": 2100,
+        "id": "78e4b3947b302554fd9adc38a3a94e62",
+        "time": "2024-03-24 15:13:33"
+    },
+    {
+        "name": "Peloton - 78 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 21.00271912033723,
+        "elapsed_time_s": 4703,
+        "id": "cad185ed9ba65d102058e4a3150ff9b3",
+        "time": "2024-03-24 15:13:33"
+    },
+    {
         "name": "Zwift - Group Ride: Standard | Stage 2 | The Zwift Big Spin 2024 on Greater London Flat in London",
         "firstname": "Justin",
         "lastname": "L.",
