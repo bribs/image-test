@@ -1,5 +1,491 @@
 [
     {
+        "name": "Peloton - 71 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 20.017037998091144,
+        "elapsed_time_s": 4293,
+        "id": "7bd2f51f04ec731062fd94e280d7c99e",
+        "time": "2024-03-27 17:46:38"
+    },
+    {
+        "name": "Zwift - Group Ride:  Standard | Stage 3 | The Zwift Big Spin 2024 on Mighty Metropolitan in New York",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 14.947394714865187,
+        "elapsed_time_s": 3635,
+        "id": "218cbcdd5e6170d272d39d7562ea37d8",
+        "time": "2024-03-27 13:16:36"
+    },
+    {
+        "name": "Peloton - 73 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 20.01362045653384,
+        "elapsed_time_s": 4389,
+        "id": "649174fe8f5993dee47bf975466e139e",
+        "time": "2024-03-26 20:27:05"
+    },
+    {
+        "name": "Zwift - Group Ride:  Standard | Stage 3 | The Zwift Big Spin 2024 on Mighty Metropolitan in New York",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 16.571596874254354,
+        "elapsed_time_s": 3630,
+        "id": "d7b5d1443c19e77b857a221f1a4b0952",
+        "time": "2024-03-26 13:16:24"
+    },
+    {
+        "name": "Peloton - 77 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 20.53389455579416,
+        "elapsed_time_s": 4628,
+        "id": "e66f979984d040de1942277730426c11",
+        "time": "2024-03-25 23:27:37"
+    },
+    {
+        "name": "Zwift - Group Ride:  Standard | Stage 3 | The Zwift Big Spin 2024 on Mighty Metropolitan in New York",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 15.849874234470692,
+        "elapsed_time_s": 3631,
+        "id": "d7d452f5dfd1cbfeb68cb908dfc32f3c",
+        "time": "2024-03-25 13:17:02"
+    },
+    {
+        "name": "Zwift - Group Ride: Standard | Stage 2 | The Zwift Big Spin 2024 on Greater London Flat in London",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 20.25794360932156,
+        "elapsed_time_s": 3638,
+        "id": "cfa1f25f39e64d53ffe09293b4d35e85",
+        "time": "2024-03-24 20:26:36"
+    },
+    {
+        "name": "Lunch Run",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 2.999980116121848,
+        "elapsed_time_s": 2100,
+        "id": "78e4b3947b302554fd9adc38a3a94e62",
+        "time": "2024-03-24 15:13:33"
+    },
+    {
+        "name": "Peloton - 78 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 21.00271912033723,
+        "elapsed_time_s": 4703,
+        "id": "cad185ed9ba65d102058e4a3150ff9b3",
+        "time": "2024-03-24 15:13:33"
+    },
+    {
+        "name": "Zwift - Group Ride: Standard | Stage 2 | The Zwift Big Spin 2024 on Greater London Flat in London",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 11.222025868925474,
+        "elapsed_time_s": 2006,
+        "id": "aeefd9c76daedefcfeb3ef307349b4a6",
+        "time": "2024-03-23 21:12:04"
+    },
+    {
+        "name": "Zwift - Group Ride: Standard | Stage 2 | The Zwift Big Spin 2024 on Greater London Flat in London",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 12.595753300723773,
+        "elapsed_time_s": 2134,
+        "id": "1cb7dc535c0a4b54466d6ddf99621d3d",
+        "time": "2024-03-23 20:15:25"
+    },
+    {
+        "name": "Pelo Sat 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 10.10001590710252,
+        "elapsed_time_s": 2340,
+        "id": "12b32afa4f81a03b5ad14b1220a160cd",
+        "time": "2024-03-23 18:16:56"
+    },
+    {
+        "name": "Peloton - 86 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 23.29091853575121,
+        "elapsed_time_s": 5171,
+        "id": "18767d3a279b441db4fa8ff86ddb5ede",
+        "time": "2024-03-23 16:16:45"
+    },
+    {
+        "name": "Peloton - 62 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 17.525650202815555,
+        "elapsed_time_s": 3757,
+        "id": "a77afaf1926fc8ac397f6b9e0a0b95c9",
+        "time": "2024-03-21 19:13:50"
+    },
+    {
+        "name": "Pelo Wed 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 10.10001590710252,
+        "elapsed_time_s": 2280,
+        "id": "d46e35e629e8db00f3adaf5f5b289c62",
+        "time": "2024-03-20 23:46:49"
+    },
+    {
+        "name": "Peloton - 64 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 17.512787819136243,
+        "elapsed_time_s": 3842,
+        "id": "ac1a1e1a1a63272b49d68f7923f2800c",
+        "time": "2024-03-20 18:31:13"
+    },
+    {
+        "name": "Zwift - Group Ride: Standard | Stage 2 | The Zwift Big Spin 2024 on Greater London Flat in London",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 19.16010498687664,
+        "elapsed_time_s": 3653,
+        "id": "fb0e7eb9acf8b5bad2b91046831b6239",
+        "time": "2024-03-20 13:19:06"
+    },
+    {
+        "name": "Zwift - Farmland Loop in Makuri Islands",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 6.173198520639464,
+        "elapsed_time_s": 1201,
+        "id": "fddb05899dc79d7baa6d94034f308b38",
+        "time": "2024-03-19 22:46:44"
+    },
+    {
+        "name": "Zwift - Jungle Circuit in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 9.050644237652111,
+        "elapsed_time_s": 2511,
+        "id": "fd5b01fc037171927f1d77f560e1639d",
+        "time": "2024-03-19 22:13:33"
+    },
+    {
+        "name": "Pelo Tuesday 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 4.9999875725761544,
+        "elapsed_time_s": 1080,
+        "id": "e86d77af0d7311cecc62ea71b5c0dca9",
+        "time": "2024-03-19 19:12:36"
+    },
+    {
+        "name": "Peloton - 44 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 13.258507814364112,
+        "elapsed_time_s": 2639,
+        "id": "a11043fdc0b912296909d20bbaf41f2e",
+        "time": "2024-03-19 16:19:27"
+    },
+    {
+        "name": "Zwift - Group Ride: Standard | Stage 2 | The Zwift Big Spin 2024 on Greater London Flat in London",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 18.56414787640181,
+        "elapsed_time_s": 3687,
+        "id": "ddcf10afaa650dc7dff4fc519bcca34f",
+        "time": "2024-03-19 13:16:26"
+    },
+    {
+        "name": "Pelo Mon 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 4.9999875725761544,
+        "elapsed_time_s": 1200,
+        "id": "abe1a10d2f9f77d12144ed113f5bc7ed",
+        "time": "2024-03-18 22:14:14"
+    },
+    {
+        "name": "Zwift - Castle to Castle in Makuri Islands",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 15.112120217927302,
+        "elapsed_time_s": 3498,
+        "id": "09633ab04251256152b0b3df1a7041b5",
+        "time": "2024-03-18 18:18:22"
+    },
+    {
+        "name": "Zwift - 01. Sweet Spot Foundation Lite on Keith Hill After Party in London",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 9.206732681142128,
+        "elapsed_time_s": 1765,
+        "id": "4b1e14af19f8549bc80b82b72ba6c3fd",
+        "time": "2024-03-18 13:16:35"
+    },
+    {
+        "name": "Zwift - Group Ride: Standard | Stage 2 | The Zwift Big Spin 2024 on Greater London Flat in London",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 11.346362244492166,
+        "elapsed_time_s": 1840,
+        "id": "05ba0165d6ede8f0ad016e3a5e7189ca",
+        "time": "2024-03-18 12:13:49"
+    },
+    {
+        "name": "Zwift - Group Ride: Standard | Stage 1 | The Zwift Big Spin 2024 on Suki's Playground in Makuri Islands",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 12.367647936053446,
+        "elapsed_time_s": 2100,
+        "id": "886e187b0675009fd4a302175f52ff6f",
+        "time": "2024-03-17 20:14:58"
+    },
+    {
+        "name": "Pelo Sun 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 1.1000134216177522,
+        "elapsed_time_s": 229,
+        "id": "b49046b8e91a946441263c5b7efd8205",
+        "time": "2024-03-17 16:46:28"
+    },
+    {
+        "name": "Zwift - Group Ride: Standard | Stage 1 | The Zwift Big Spin 2024 on Suki's Playground in Makuri Islands",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 10.66738994273443,
+        "elapsed_time_s": 1810,
+        "id": "1fe91b4d7601059d8cb3b725fe1118e2",
+        "time": "2024-03-16 20:14:33"
+    },
+    {
+        "name": "Zwift - Control The Burn in Makuri Islands",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 11.58577656486121,
+        "elapsed_time_s": 2249,
+        "id": "858e25f2b93fc40290cf5712ef743abc",
+        "time": "2024-03-16 19:46:43"
+    },
+    {
+        "name": "Peloton - 63 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 20.009146583949732,
+        "elapsed_time_s": 3771,
+        "id": "304dc711fb01a63deee38501a79ae57e",
+        "time": "2024-03-16 16:46:42"
+    },
+    {
+        "name": "Zwift - Champs-\u00c9lys\u00e9es in Paris",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 6.266217788117394,
+        "elapsed_time_s": 1463,
+        "id": "625a1539219d09f4d7b6b103de0c73ec",
+        "time": "2024-03-16 16:46:42"
+    },
+    {
+        "name": "Peloton - 6 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 1.4868169887854927,
+        "elapsed_time_s": 360,
+        "id": "a6836851bd19c518bb4daee89684e2ba",
+        "time": "2024-03-16 16:46:42"
+    },
+    {
+        "name": "Peloton - 34 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 10.172654199475064,
+        "elapsed_time_s": 2061,
+        "id": "a79b7f34b7a28769ef0c4b7998ba221a",
+        "time": "2024-03-16 15:46:32"
+    },
+    {
+        "name": "Pelo Sat 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 10.000037282271533,
+        "elapsed_time_s": 2400,
+        "id": "67aa41b65a551a5526b24946a6691d66",
+        "time": "2024-03-16 13:16:02"
+    },
+    {
+        "name": "Zwift - Tempus Fugit in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 13.085455937326016,
+        "elapsed_time_s": 3402,
+        "id": "60760faa820d33eccc80d12fbd53d41b",
+        "time": "2024-03-15 19:46:50"
+    },
+    {
+        "name": "Pelo Fri 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 10.000037282271533,
+        "elapsed_time_s": 2280,
+        "id": "81dc4848fa009da0458bcf6532791d41",
+        "time": "2024-03-15 18:31:03"
+    },
+    {
+        "name": "Peloton - 77 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 21.013841664678278,
+        "elapsed_time_s": 4635,
+        "id": "d56cd20a9b632e3f63411f2201ff7e04",
+        "time": "2024-03-15 17:13:45"
+    },
+    {
+        "name": "Zwift - Easy Big Gear in Makuri Islands",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 16.19541875447387,
+        "elapsed_time_s": 3611,
+        "id": "ca7faa778ef4128aa0761cdf91e962ed",
+        "time": "2024-03-15 13:16:51"
+    },
+    {
+        "name": "Pelo thurs 2",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 15.100003479678675,
+        "elapsed_time_s": 3480,
+        "id": "231b91660bff59beccd3592f6606212c",
+        "time": "2024-03-14 21:26:44"
+    },
+    {
+        "name": "Zwift - Serpentine 8 in Watopia",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 17.018859858426787,
+        "elapsed_time_s": 6153,
+        "id": "06e15ed0fef24744c55d8c414d5f8c07",
+        "time": "2024-03-14 20:46:46"
+    },
+    {
+        "name": "Peloton - 83 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 23.07232015032212,
+        "elapsed_time_s": 5000,
+        "id": "e9ee7f430aaa2900b42e792a2729f5da",
+        "time": "2024-03-14 17:13:11"
+    },
+    {
+        "name": "Pelo wed 2",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 3.100020878072059,
+        "elapsed_time_s": 720,
+        "id": "03502eb31f848b9ca080470230e44a9a",
+        "time": "2024-03-13 22:14:06"
+    },
+    {
+        "name": "Pelo Wed 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 2.0000074564543064,
+        "elapsed_time_s": 420,
+        "id": "656db14feb49c21afaea173e6e6158b3",
+        "time": "2024-03-13 21:15:15"
+    },
+    {
+        "name": "Peloton - 52 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 16.00919380816034,
+        "elapsed_time_s": 3147,
+        "id": "b7328cb1496dc503a9258e9c4f80b7a0",
+        "time": "2024-03-13 17:14:30"
+    },
+    {
+        "name": "Zwift - Openers in Makuri Islands",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 12.063238188976378,
+        "elapsed_time_s": 2467,
+        "id": "c19a23ced5c5e339baed37c1be1fe4df",
+        "time": "2024-03-13 13:15:58"
+    },
+    {
+        "name": "Zwift - Group Ride: Standard | Stage 1 | The Zwift Big Spin 2024 on Suki's Playground in Makuri Islands",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 10.904443052572972,
+        "elapsed_time_s": 1934,
+        "id": "7893735c3bfabbae97065c8e2747d252",
+        "time": "2024-03-13 12:14:31"
+    },
+    {
+        "name": "Afternoon Backcountry Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 2.3965044142209497,
+        "elapsed_time_s": 4608,
+        "id": "22bb08d3798c59482ffb38f21a09f949",
+        "time": "2024-03-12 22:46:25"
+    },
+    {
+        "name": "Pelo Tuesday 1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 10.10001590710252,
+        "elapsed_time_s": 2760,
+        "id": "5520f7cbb3150a9cd91baa581a0f70cb",
+        "time": "2024-03-12 21:26:22"
+    },
+    {
+        "name": "Afternoon Run",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 2.0000074564543064,
+        "elapsed_time_s": 1200,
+        "id": "f9a3c666d56056cacb8cf518616a01dd",
+        "time": "2024-03-12 19:13:53"
+    },
+    {
+        "name": "Morning Run",
+        "firstname": "Jerome",
+        "lastname": "M.",
+        "mi": 2.0000074564543064,
+        "elapsed_time_s": 1200,
+        "id": "05fcb58841ca0812011f58719c9fe715",
+        "time": "2024-03-12 19:13:53"
+    },
+    {
+        "name": "Peloton - 70 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 21.128733198122962,
+        "elapsed_time_s": 4201,
+        "id": "5942558603326658a26d816b8324b18d",
+        "time": "2024-03-12 17:13:59"
+    },
+    {
+        "name": "Morning Alpine Ski",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.7433811540602877,
+        "elapsed_time_s": 1148,
+        "id": "3b33b765010b068d0afcc1eb93190269",
+        "time": "2024-03-12 15:26:37"
+    },
+    {
+        "name": "Zwift - Arise in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 20.3454948103078,
+        "elapsed_time_s": 3592,
+        "id": "e838ca9cd77fdbe270bf8e38b7a977e0",
+        "time": "2024-03-12 13:16:29"
+    },
+    {
         "name": "Afternoon Backcountry Ski",
         "firstname": "Luke",
         "lastname": "C.",
