@@ -1,5 +1,14 @@
 [
     {
+        "name": "Evening Walk",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 0.7240838503141652,
+        "elapsed_time_s": 1475,
+        "id": "c93aecd2509a4af09664145839d591ac",
+        "time": "2024-04-01 23:16:58"
+    },
+    {
         "name": "Zwift - Island Hopper in Makuri Islands",
         "firstname": "Jerome",
         "lastname": "M.",
