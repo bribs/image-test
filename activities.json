@@ -1,5 +1,14 @@
 [
     {
+        "name": "Evening Walk",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.630788694026883,
+        "elapsed_time_s": 1601,
+        "id": "d608dc64ddae78b9986b8638a57b9e3e",
+        "time": "2024-04-01 01:11:21"
+    },
+    {
         "name": "Afternoon Ride",
         "firstname": "Justin",
         "lastname": "L.",
