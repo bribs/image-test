@@ -1,5 +1,23 @@
 [
     {
+        "name": "Zwift - Brisk Burn on Casse-Pattes in Paris",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 4.761194623399347,
+        "elapsed_time_s": 971,
+        "id": "dea28b258579797f243068a006f51f64",
+        "time": "2024-04-06 13:16:30"
+    },
+    {
+        "name": "Zwift - Group Ride: Standard | Stage 4 | The Zwift Big Spin 2024 on Lutece Express in Paris",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 13.249311520719,
+        "elapsed_time_s": 2724,
+        "id": "70c99eef9f623efcf9f8d1f0de1b8e0b",
+        "time": "2024-04-06 13:16:30"
+    },
+    {
         "name": "Peloton - 40 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
