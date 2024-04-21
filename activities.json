@@ -1,5 +1,14 @@
 [
     {
+        "name": "Lunch Ride",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 2.2007103515469653,
+        "elapsed_time_s": 583,
+        "id": "d0929f870a467c4fc97eafcf8a255d8d",
+        "time": "2024-04-21 15:46:57"
+    },
+    {
         "name": "Zwift - 02. Endurance Escalator in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
