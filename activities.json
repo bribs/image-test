@@ -1,5 +1,23 @@
 [
     {
+        "name": "Zwift - Day 1 in Watopia",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 16.99313509106816,
+        "elapsed_time_s": 4052,
+        "id": "ccda4fcb08a1dee88236e28935f39898",
+        "time": "2024-04-23 13:16:51"
+    },
+    {
+        "name": "Morning Walk",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.4051066770062832,
+        "elapsed_time_s": 1624,
+        "id": "ddf695bdf9bb66ac992ec7031d5afa4a",
+        "time": "2024-04-23 13:16:51"
+    },
+    {
         "name": "Afternoon Walk",
         "firstname": "Luke",
         "lastname": "C.",
