@@ -1,5 +1,14 @@
 [
     {
+        "name": "Afternoon Walk",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.5588960470850235,
+        "elapsed_time_s": 1683,
+        "id": "2d4ff3f078f955d03860e7631b4001f0",
+        "time": "2024-04-27 19:11:28"
+    },
+    {
         "name": "Zwift - 06. Sweet Spot Summit in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
