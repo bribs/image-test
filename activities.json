@@ -1,5 +1,14 @@
 [
     {
+        "name": "Afternoon Run",
+        "firstname": "Justin",
+        "lastname": "L.",
+        "mi": 4.9513342082239715,
+        "elapsed_time_s": 3119,
+        "id": "f5f7e3190efb11d29aca2866e05b25fd",
+        "time": "2024-04-29 23:46:48"
+    },
+    {
         "name": "Afternoon Walk",
         "firstname": "Luke",
         "lastname": "C.",
