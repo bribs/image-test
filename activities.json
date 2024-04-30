@@ -1,5 +1,14 @@
 [
     {
+        "name": "Afternoon Walk",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.26790791776028,
+        "elapsed_time_s": 1433,
+        "id": "60e4d1296614037a7c2a1659b84a6794",
+        "time": "2024-04-30 22:15:00"
+    },
+    {
         "name": "Zwift - Day 1 in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
