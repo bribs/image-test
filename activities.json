@@ -1,5 +1,248 @@
 [
     {
+        "name": "Lunch Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.2031684959834563,
+        "elapsed_time_s": 4354,
+        "id": "35689472be1db05811d375bac33cc889",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Afternoon Swim",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 0.4225324107213871,
+        "elapsed_time_s": 1635,
+        "id": "91eaa141e0c1ee8cc3d867899b8b4db7",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Afternoon Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.2256621331424475,
+        "elapsed_time_s": 4160,
+        "id": "5af6e56e35ee35b79ed8d8e36ba8b309",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Evening Swim",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 0.4225324107213871,
+        "elapsed_time_s": 1624,
+        "id": "a646135f0668678e50c74384bda861ee",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Afternoon Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.3998324783265725,
+        "elapsed_time_s": 4377,
+        "id": "081a97e172280b9b2aa440a9e4a9b037",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Afternoon Swim",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 0.4225324107213871,
+        "elapsed_time_s": 1575,
+        "id": "c9b6a346c159bac748520060ceeefaa6",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Morning Swim",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 0.4225324107213871,
+        "elapsed_time_s": 1512,
+        "id": "65e03e72a9730a85bd4753b0d8b2096d",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Afternoon Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.232870038972401,
+        "elapsed_time_s": 3805,
+        "id": "d3aa095e16db5f467294f877885dd2dc",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.5582125387735621,
+        "elapsed_time_s": 484,
+        "id": "0d6dc2a0d862ba220fc3fb58c71fc229",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.4402762864869163,
+        "elapsed_time_s": 443,
+        "id": "f611ec98212da86ace0878adce469640",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Evening Run",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 4.120560924202656,
+        "elapsed_time_s": 2706,
+        "id": "f3adfcae4fe00011579d11535326798a",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Morning Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.1762631233595795,
+        "elapsed_time_s": 3963,
+        "id": "8c282cd53cd66a4bbc7693c4a03bb9aa",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Afternoon Hike",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 4.255087787322038,
+        "elapsed_time_s": 6168,
+        "id": "9956709b882bafec5c61b542524fe934",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Morning Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.5579018531774436,
+        "elapsed_time_s": 505,
+        "id": "833e9472947bb179d991b0eeba8679ac",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Lunch Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.5160214348206473,
+        "elapsed_time_s": 547,
+        "id": "c1af9d1b2619be67d4d9ac48a9102a4c",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Lunch Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.217460033404915,
+        "elapsed_time_s": 4444,
+        "id": "9668ae5e80bc48b5309613d3b4f6addc",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Lunch Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.1669425554760195,
+        "elapsed_time_s": 3663,
+        "id": "d7dd3b0b4345d72276d8c872458cc83e",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.5474628171478564,
+        "elapsed_time_s": 558,
+        "id": "a341ab5ea87bf5d76f1bdfa876b319d5",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Evening Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.5157728863437525,
+        "elapsed_time_s": 545,
+        "id": "c8f8a5c1d6d115611da7ce297e78cd57",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Afternoon Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.1882555873697602,
+        "elapsed_time_s": 4072,
+        "id": "ebe1b45d8d56462998bc7ee460a75ea8",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.543299630159866,
+        "elapsed_time_s": 517,
+        "id": "74acf35192b8f15984e4a37889939873",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Evening Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.5173263143243458,
+        "elapsed_time_s": 538,
+        "id": "246ab426695740d9780721cf9dd66784",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Morning Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.3119705917442137,
+        "elapsed_time_s": 3953,
+        "id": "e11005c333bb90aa5664e1093eefdc24",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Afternoon Hike",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.517706593493995,
+        "elapsed_time_s": 5276,
+        "id": "4352106bbc60b8a65d5b6c712d90f61c",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.546841445955619,
+        "elapsed_time_s": 523,
+        "id": "59c9ebfd28e083be015511a47548203a",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Evening Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.5331712797263977,
+        "elapsed_time_s": 823,
+        "id": "12090e2d172bafa65401d6f2cd7930fe",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
+        "name": "Morning Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 0.7311674819056708,
+        "elapsed_time_s": 666,
+        "id": "c574cdc1764d6973ab3e66d3774065bf",
+        "time": "2024-05-02 23:46:45"
+    },
+    {
         "name": "Zwift - Endurance #3 in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
