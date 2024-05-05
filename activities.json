@@ -1,5 +1,23 @@
 [
     {
+        "name": "Morning Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.4658146424878706,
+        "elapsed_time_s": 555,
+        "id": "d85546157c36a689479e8c846f8f8de3",
+        "time": "2024-05-05 15:16:39"
+    },
+    {
+        "name": "Morning Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.5131631273363555,
+        "elapsed_time_s": 541,
+        "id": "800b971e04e4c0b975dcf0fa72bf3003",
+        "time": "2024-05-05 15:16:39"
+    },
+    {
         "name": "Zwift - Zwift Academy 2018 Semi-Final Workout #3: Capacity With Tempo in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
