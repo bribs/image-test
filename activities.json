@@ -1,5 +1,14 @@
 [
     {
+        "name": "Afternoon Hike",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.4653175455340808,
+        "elapsed_time_s": 1810,
+        "id": "77237368126e68ec29c7e4c409e3d7f6",
+        "time": "2024-05-06 21:14:42"
+    },
+    {
         "name": "4/3",
         "firstname": "Travis",
         "lastname": "T.",
