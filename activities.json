@@ -1,5 +1,68 @@
 [
     {
+        "name": "4/3",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 11.500027340332457,
+        "elapsed_time_s": 2580,
+        "id": "4ec68de68400fd64c3cb8324787fdad9",
+        "time": "2024-05-06 19:13:06"
+    },
+    {
+        "name": "4/4",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 5.900043744531933,
+        "elapsed_time_s": 1560,
+        "id": "6ba0d04f5a41ca6d428c4eb211691721",
+        "time": "2024-05-06 19:13:06"
+    },
+    {
+        "name": "4/10",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 10.000037282271533,
+        "elapsed_time_s": 2040,
+        "id": "7ed8a139e24ba3462c75887bae293c5c",
+        "time": "2024-05-06 19:13:06"
+    },
+    {
+        "name": "4/16",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 4.000014912908613,
+        "elapsed_time_s": 1140,
+        "id": "38216473471d59bc4a75d539705407f1",
+        "time": "2024-05-06 19:13:06"
+    },
+    {
+        "name": "4/29",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 13.099996023224369,
+        "elapsed_time_s": 2760,
+        "id": "1fd715f1f3afcddadcc9803260d0a804",
+        "time": "2024-05-06 19:13:06"
+    },
+    {
+        "name": "4/30",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 5.500004970969537,
+        "elapsed_time_s": 1200,
+        "id": "29ee400f5f70de5b260da6dddb85683c",
+        "time": "2024-05-06 19:13:06"
+    },
+    {
+        "name": "Pelo 5/1",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 2.0000074564543064,
+        "elapsed_time_s": 420,
+        "id": "2d781da35399512b74d7e8f4e094fab3",
+        "time": "2024-05-06 19:13:06"
+    },
+    {
         "name": "Afternoon Walk",
         "firstname": "Luke",
         "lastname": "C.",
