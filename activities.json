@@ -1,5 +1,23 @@
 [
     {
+        "name": "Afternoon Walk",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 2.5269302274715657,
+        "elapsed_time_s": 3456,
+        "id": "f9bf11d8fab5acbc7e53943130c09e18",
+        "time": "2024-05-06 22:30:06"
+    },
+    {
+        "name": "Afternoon Hike",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 2.593168396564066,
+        "elapsed_time_s": 3442,
+        "id": "16a079d41929ef54e1f48effa3e956d7",
+        "time": "2024-05-06 22:30:06"
+    },
+    {
         "name": "20 min Country Pop Ride with Kendall Toole",
         "firstname": "Travis",
         "lastname": "T.",
