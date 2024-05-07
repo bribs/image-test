@@ -1,5 +1,14 @@
 [
     {
+        "name": "Lunch Walk",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.1144292332776584,
+        "elapsed_time_s": 1177,
+        "id": "8846a3946fc2e5ba45fb5cdb56a4f649",
+        "time": "2024-05-07 17:13:52"
+    },
+    {
         "name": "Zwift - Day 1 in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
