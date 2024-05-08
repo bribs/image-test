@@ -1,5 +1,14 @@
 [
     {
+        "name": "Peloton - 10 min Just Ride",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 2.0504627972639784,
+        "elapsed_time_s": 611,
+        "id": "e8a1eaadce8d5508c97683985b560c36",
+        "time": "2024-05-08 22:29:30"
+    },
+    {
         "name": "Afternoon Walk",
         "firstname": "Botond",
         "lastname": "K.",
