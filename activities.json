@@ -1,5 +1,14 @@
 [
     {
+        "name": "Morning Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 0.7988348047403164,
+        "elapsed_time_s": 748,
+        "id": "ee3434b94a23f8e61f3ade0ab583ebd2",
+        "time": "2024-05-09 13:46:44"
+    },
+    {
         "name": "Zwift - 65rpm Strength Ramps in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
