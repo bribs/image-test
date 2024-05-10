@@ -1,5 +1,23 @@
 [
     {
+        "name": "Peloton - 81 min Just Ride",
+        "firstname": "Brib",
+        "lastname": "S.",
+        "mi": 21.59656356875845,
+        "elapsed_time_s": 4891,
+        "id": "11e1eb2ee20ca23cad75f4614e481115",
+        "time": "2024-05-10 17:28:25"
+    },
+    {
+        "name": "Lunch Walk",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.807195975503062,
+        "elapsed_time_s": 1940,
+        "id": "d8e9f6c695b4c111b65e7a55d7813331",
+        "time": "2024-05-10 17:28:25"
+    },
+    {
         "name": "Afternoon Walk",
         "firstname": "Luke",
         "lastname": "C.",
