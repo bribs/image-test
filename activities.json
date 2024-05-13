@@ -3,6 +3,15 @@
         "name": "Afternoon Hike",
         "firstname": "Botond",
         "lastname": "K.",
+        "mi": 2.9328098902409923,
+        "elapsed_time_s": 3742,
+        "id": "746c021270c2f374c42807350251d895",
+        "time": "2024-05-13 22:30:18"
+    },
+    {
+        "name": "Afternoon Hike",
+        "firstname": "Botond",
+        "lastname": "K.",
         "mi": 1.441021931917601,
         "elapsed_time_s": 1459,
         "id": "a579603090d1b7e7f0925d6cd9f5fb93",
