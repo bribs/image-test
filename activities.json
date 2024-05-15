@@ -1,5 +1,14 @@
 [
     {
+        "name": "Morning Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.596123637954346,
+        "elapsed_time_s": 4867,
+        "id": "bca0e5a2cfb4c62b03c64d30922a2387",
+        "time": "2024-05-15 15:15:35"
+    },
+    {
         "name": "Zwift - Day 3 in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
