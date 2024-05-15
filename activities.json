@@ -1,5 +1,23 @@
 [
     {
+        "name": "Afternoon Walk",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.3921821562077465,
+        "elapsed_time_s": 3248,
+        "id": "2eb6f283e13ad11b3f2aba774fecdc27",
+        "time": "2024-05-15 22:34:06"
+    },
+    {
+        "name": "20 min Pop Ride with Olivia Amato",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 5.061441183488427,
+        "elapsed_time_s": 1200,
+        "id": "0c40b21f3254b32d2db7c35cb011bb7f",
+        "time": "2024-05-15 22:34:06"
+    },
+    {
         "name": "Afternoon Ride",
         "firstname": "Botond",
         "lastname": "K.",
