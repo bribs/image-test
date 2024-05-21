@@ -1,5 +1,23 @@
 [
     {
+        "name": "Evening Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.5090620774675891,
+        "elapsed_time_s": 543,
+        "id": "698ff81aba915c155b9f17b681116c01",
+        "time": "2024-05-21 13:20:50"
+    },
+    {
+        "name": "Morning Walk",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.1692341724329913,
+        "elapsed_time_s": 1307,
+        "id": "d8337c0b880b702014e6b4a34e3797a6",
+        "time": "2024-05-21 13:20:50"
+    },
+    {
         "name": "20 min 2000s Rock Ride with Emma Lovewell",
         "firstname": "Travis",
         "lastname": "T.",
