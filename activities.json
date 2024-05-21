@@ -1,5 +1,32 @@
 [
     {
+        "name": "Afternoon Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.4646961743418434,
+        "elapsed_time_s": 538,
+        "id": "c13a674ec6f09f3d0d6ebad570ae400a",
+        "time": "2024-05-21 22:15:06"
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 0.032435576234788835,
+        "elapsed_time_s": 244,
+        "id": "b912d3470bd06108e9a2be172c8e18fe",
+        "time": "2024-05-21 22:15:06"
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 2.3480995983456614,
+        "elapsed_time_s": 657,
+        "id": "6b0098886c459018dc79b68336f74fc9",
+        "time": "2024-05-21 22:15:06"
+    },
+    {
         "name": "Afternoon Walk",
         "firstname": "Botond",
         "lastname": "K.",
