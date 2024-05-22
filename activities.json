@@ -1,5 +1,14 @@
 [
     {
+        "name": "Morning Walk",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.2285751212916567,
+        "elapsed_time_s": 1716,
+        "id": "b32c1c8f7a781c74b781f02ac9c2599e",
+        "time": "2024-05-22 13:18:27"
+    },
+    {
         "name": "Peloton - 38 min Just Ride",
         "firstname": "Travis",
         "lastname": "T.",
