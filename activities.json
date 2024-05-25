@@ -1,5 +1,23 @@
 [
     {
+        "name": "Morning Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.5500725761552532,
+        "elapsed_time_s": 538,
+        "id": "2156a34da6e69cc7b40c560d5317929b",
+        "time": "2024-05-25 15:15:51"
+    },
+    {
+        "name": "Morning Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.5089999403483654,
+        "elapsed_time_s": 488,
+        "id": "8298c9a31c981f5acddf29a08e56cc5b",
+        "time": "2024-05-25 15:15:51"
+    },
+    {
         "name": "Afternoon Hike",
         "firstname": "Botond",
         "lastname": "K.",
