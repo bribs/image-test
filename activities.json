@@ -1,5 +1,14 @@
 [
     {
+        "name": "Afternoon Walk",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 2.0615232044858027,
+        "elapsed_time_s": 2616,
+        "id": "b9023ebbde7534fc83ed9a727074e924",
+        "time": "2024-05-28 22:17:51"
+    },
+    {
         "name": "Peloton - 70 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
