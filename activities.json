@@ -1,5 +1,14 @@
 [
     {
+        "name": "Evening Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.251386900501074,
+        "elapsed_time_s": 4279,
+        "id": "de19c2eaab7739c5a19477611e97eca3",
+        "time": "2024-05-29 01:13:56"
+    },
+    {
         "name": "Zwift - 20/40 Hill Reps in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
