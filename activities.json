@@ -3,6 +3,15 @@
         "name": "Afternoon Ride",
         "firstname": "Botond",
         "lastname": "K.",
+        "mi": 1.5096213115406028,
+        "elapsed_time_s": 834,
+        "id": "22d5a285dfbf4729be77681bf909c1fc",
+        "time": "2024-05-30 22:15:50"
+    },
+    {
+        "name": "Afternoon Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
         "mi": 1.5547328600970332,
         "elapsed_time_s": 520,
         "id": "7113f1736af228eb4b07249361338669",
