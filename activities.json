@@ -1,5 +1,14 @@
 [
     {
+        "name": "Morning Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 2.278630299053527,
+        "elapsed_time_s": 2927,
+        "id": "4d586707730b6ea6fc796932b1abc153",
+        "time": "2024-06-04 12:15:52"
+    },
+    {
         "name": "30 min The Rolling Stones Ride with Hannah Corbin",
         "firstname": "Travis",
         "lastname": "T.",
