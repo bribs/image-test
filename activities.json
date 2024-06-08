@@ -1,5 +1,23 @@
 [
     {
+        "name": "Peloton - 20 min Hardstyle HIIT",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 5.546234987671995,
+        "elapsed_time_s": 1203,
+        "id": "0c8de53af954358f1405d83ab783a708",
+        "time": "2024-06-08 14:46:43"
+    },
+    {
+        "name": "Morning Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.5155243378668575,
+        "elapsed_time_s": 605,
+        "id": "f6d0ab3a79db70bdf43c334facefc44f",
+        "time": "2024-06-08 14:46:43"
+    },
+    {
         "name": "Zwift - Tempo 20min / Target rpm #2 in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
