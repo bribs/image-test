@@ -1,5 +1,14 @@
 [
     {
+        "name": "Afternoon Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.291030382565815,
+        "elapsed_time_s": 4565,
+        "id": "0b3bd8af0ad7bd5d88eed42f49fb0b53",
+        "time": "2024-06-08 22:15:37"
+    },
+    {
         "name": "Peloton - 20 min Hardstyle HIIT",
         "firstname": "Luke",
         "lastname": "C.",
