@@ -1,5 +1,23 @@
 [
     {
+        "name": "30 min 2010s Pop Ride with Kendall Toole",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 6.741566750178954,
+        "elapsed_time_s": 1800,
+        "id": "e4842794ada5b011d479360368e716ef",
+        "time": "2024-06-10 23:16:39"
+    },
+    {
+        "name": "Evening Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.535159667541557,
+        "elapsed_time_s": 906,
+        "id": "9c48b18f78de3d628918a26c2511e8ef",
+        "time": "2024-06-10 23:16:39"
+    },
+    {
         "name": "Afternoon Ride",
         "firstname": "Botond",
         "lastname": "K.",
