@@ -1,5 +1,14 @@
 [
     {
+        "name": "Lunch Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.183843851904875,
+        "elapsed_time_s": 3929,
+        "id": "59a104308de030f6b59d211baa7b47df",
+        "time": "2024-06-11 17:15:57"
+    },
+    {
         "name": "Zwift - Endurance #3 in Watopia",
         "firstname": "Justin",
         "lastname": "L.",
