@@ -1,5 +1,23 @@
 [
     {
+        "name": "Evening Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.5383286606219675,
+        "elapsed_time_s": 759,
+        "id": "35411e25eddd530179fdeb140ab4a092",
+        "time": "2024-06-11 23:15:44"
+    },
+    {
+        "name": "20 min Pop Ride with Kendall Toole",
+        "firstname": "Travis",
+        "lastname": "T.",
+        "mi": 4.566208343275273,
+        "elapsed_time_s": 1198,
+        "id": "9469c8894bdbe7efdea51c8b8ff43e1d",
+        "time": "2024-06-11 23:15:44"
+    },
+    {
         "name": "Peloton - 85 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
