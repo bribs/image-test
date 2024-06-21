@@ -1,5 +1,23 @@
 [
     {
+        "name": "Morning Hike",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 4.9572372345502265,
+        "elapsed_time_s": 7050,
+        "id": "0eeef47b86d67c6c16166645d4a712c3",
+        "time": "2024-06-21 20:46:47"
+    },
+    {
+        "name": "Afternoon Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.2626262626262625,
+        "elapsed_time_s": 1009,
+        "id": "1a70ebfd037b347592b6369fddba2ade",
+        "time": "2024-06-21 20:46:47"
+    },
+    {
         "name": "Peloton - 46 min Just Ride",
         "firstname": "Travis",
         "lastname": "T.",
