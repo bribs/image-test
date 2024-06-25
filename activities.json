@@ -1,5 +1,14 @@
 [
     {
+        "name": "Afternoon Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.546157937644158,
+        "elapsed_time_s": 516,
+        "id": "f928ac4cf0c91cb3b4a9b84e314d07bc",
+        "time": "2024-06-25 21:26:57"
+    },
+    {
         "name": "Peloton - 109 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
