@@ -1,5 +1,14 @@
 [
     {
+        "name": "Evening Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.5331712797263977,
+        "elapsed_time_s": 897,
+        "id": "0ca607e02ffc4f662d1fe68296f35b11",
+        "time": "2024-06-25 23:16:03"
+    },
+    {
         "name": "Afternoon Ride",
         "firstname": "Botond",
         "lastname": "K.",
