@@ -3,6 +3,15 @@
         "name": "Afternoon Walk",
         "firstname": "Botond",
         "lastname": "K.",
+        "mi": 3.3385652787719713,
+        "elapsed_time_s": 4584,
+        "id": "691adc557b3d37fe75e3628d2f3ccc1f",
+        "time": "2024-06-29 20:16:12"
+    },
+    {
+        "name": "Afternoon Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
         "mi": 3.225786407380895,
         "elapsed_time_s": 5393,
         "id": "31236a0b7aebabe6a621f39328eaa51f",
