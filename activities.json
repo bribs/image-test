@@ -1,5 +1,14 @@
 [
     {
+        "name": "Morning Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.209320070786606,
+        "elapsed_time_s": 4078,
+        "id": "05e48b57f9b240dda645c8d3868b7ab0",
+        "time": "2024-07-04 13:31:23"
+    },
+    {
         "name": "Evening Walk",
         "firstname": "Botond",
         "lastname": "K.",
