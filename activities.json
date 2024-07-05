@@ -1,5 +1,14 @@
 [
     {
+        "name": "Afternoon Hike",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 4.184810705479997,
+        "elapsed_time_s": 5789,
+        "id": "506f366271d1fc19a4db4e9c492129b4",
+        "time": "2024-07-05 20:18:29"
+    },
+    {
         "name": "Peloton - 72 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
