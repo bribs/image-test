@@ -1,5 +1,14 @@
 [
     {
+        "name": "Morning Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.420027042074286,
+        "elapsed_time_s": 4142,
+        "id": "7b73179e7b2f732e6cf80cb610243b31",
+        "time": "2024-07-14 18:29:29"
+    },
+    {
         "name": "10k Carretera Austral Ride",
         "firstname": "Luke",
         "lastname": "C.",
