@@ -1,5 +1,14 @@
 [
     {
+        "name": "Lunch Walk",
+        "firstname": "Luke",
+        "lastname": "C.",
+        "mi": 1.4577368169887854,
+        "elapsed_time_s": 1907,
+        "id": "d45e5fa09f47ae6ab1a46a5712e53078",
+        "time": "2024-07-14 15:50:46"
+    },
+    {
         "name": "10 KM Iceland Ride",
         "firstname": "Luke",
         "lastname": "C.",
