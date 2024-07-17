@@ -1,5 +1,14 @@
 [
     {
+        "name": "Afternoon Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 1.555416368408494,
+        "elapsed_time_s": 520,
+        "id": "27629d451cc53711526e86b778faf12f",
+        "time": "2024-07-17 21:27:33"
+    },
+    {
         "name": "60 min Little Falls Ride",
         "firstname": "Brib",
         "lastname": "S.",
