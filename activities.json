@@ -3,6 +3,15 @@
         "name": "Morning Walk",
         "firstname": "Botond",
         "lastname": "K.",
+        "mi": 0.7824306052652509,
+        "elapsed_time_s": 1019,
+        "id": "bae6a9bc5f25dba86bee005f2a5bc51c",
+        "time": "2024-07-18 13:20:10"
+    },
+    {
+        "name": "Morning Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
         "mi": 2.313240674461147,
         "elapsed_time_s": 2450,
         "id": "4d660a934970cd8bb8fa4ae84262fcec",
