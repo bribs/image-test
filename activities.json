@@ -1,5 +1,14 @@
 [
     {
+        "name": "Lunch Walk",
+        "firstname": "Botond",
+        "lastname": "K.",
+        "mi": 3.1919838145231845,
+        "elapsed_time_s": 3703,
+        "id": "bfbfaf0ef1c7efcfe3592db5212e0d10",
+        "time": "2024-07-24 17:46:45"
+    },
+    {
         "name": "Peloton - 73 min Just Ride",
         "firstname": "Brib",
         "lastname": "S.",
