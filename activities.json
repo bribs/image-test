@@ -3,6 +3,15 @@
         "name": "Morning Ride",
         "firstname": "Botond",
         "lastname": "K.",
+        "mi": 1.5249070428696412,
+        "elapsed_time_s": 688,
+        "id": "a87f03143b2ca0591f50fc2832503c89",
+        "time": "2024-07-26 14:15:27"
+    },
+    {
+        "name": "Morning Ride",
+        "firstname": "Botond",
+        "lastname": "K.",
         "mi": 1.5474006800286328,
         "elapsed_time_s": 535,
         "id": "1cac17ff2d1edd6b7616e13178f8c7ff",
